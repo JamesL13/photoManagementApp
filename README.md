@@ -1,2 +1,2 @@
 # photoManagementApp
-ios Class
+iOS Development Class Final Application
