@@ -1,8 +1,81 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="R4D-Vj-Ehe">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
-    <scenes/>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="82l-Ks-NSd">
+            <objects>
+                <navigationController id="R4D-Vj-Ehe" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dXo-J5-tRM">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="MEp-bs-xCi" kind="relationship" relationship="rootViewController" id="hlX-zB-363"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ldR-N2-gsZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3417" y="-682"/>
+        </scene>
+        <!--Project View Controller-->
+        <scene sceneID="uqx-cf-xSE">
+            <objects>
+                <viewController id="MEp-bs-xCi" customClass="ProjectViewController" customModule="photoManagementAppB" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4O9-Y2-YPE"/>
+                        <viewControllerLayoutGuide type="bottom" id="H4E-Vz-csH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="IrX-5T-3fQ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="0Mf-nA-dje">
+                                <rect key="frame" x="25" y="69" width="550" height="29"/>
+                                <segments>
+                                    <segment title="In Progress"/>
+                                    <segment title="Complete"/>
+                                    <segment title="Favorite"/>
+                                </segments>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="0Mf-nA-dje" firstAttribute="leading" secondItem="IrX-5T-3fQ" secondAttribute="leadingMargin" constant="5" id="TDW-GM-Jrj"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="0Mf-nA-dje" secondAttribute="trailing" constant="5" id="Ze4-tL-5Sr"/>
+                            <constraint firstItem="0Mf-nA-dje" firstAttribute="top" secondItem="4O9-Y2-YPE" secondAttribute="bottom" constant="5" id="cCg-2l-clp"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="BAg-wM-ur9"/>
+                    <connections>
+                        <segue destination="4ri-0a-sGc" kind="show" id="mRW-Da-REO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0pu-tT-hy1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2609" y="-682"/>
+        </scene>
+        <!--Photo View Controller-->
+        <scene sceneID="jRd-SM-2IQ">
+            <objects>
+                <viewController id="4ri-0a-sGc" customClass="PhotoViewController" customModule="photoManagementAppB" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RWa-or-eaU"/>
+                        <viewControllerLayoutGuide type="bottom" id="Vq9-YE-wp3"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="C9x-6G-GX8">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="98g-xu-Iiu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2609" y="101"/>
+        </scene>
+    </scenes>
 </document>
