@@ -93,7 +93,6 @@ class SegmentViewController: UIViewController {
         
         do {
             try managedContext.save()
-            print("\n\nIt Saved\n\n")
         } catch let error as NSError {
             print("Could not save \(error), \(error.userInfo)")
         }

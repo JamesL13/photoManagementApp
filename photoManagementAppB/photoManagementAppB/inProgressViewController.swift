@@ -17,10 +17,7 @@ class inProgressViewController: UIViewController, UITableViewDataSource, UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("\n\n\nAbout to try to load data\n\n\n")
         loadProject()
-        print("\n\n\nAbout to try to REload data\n\n\n")
-        //inProgressTable.reloadData()
         inProgressTable.delegate = self
         inProgressTable.dataSource = self
         // Do any additional setup after loading the view.
@@ -38,15 +35,11 @@ class inProgressViewController: UIViewController, UITableViewDataSource, UITable
     func loadProject()
     {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        print("\n\n\nLine 1")
         let managedContext = appDelegate.managedObjectContext
-        print("\n\n\nLine 2")
         let fetchRequest = NSFetchRequest(entityName:"Project")
-        print("\n\n\nLine 3")
         
         do {
             let fetchedResults = try managedContext.executeFetchRequest(fetchRequest) as? [NSManagedObject]
-            print("\n\n\nLine 4")
             
             if let results = fetchedResults {
                 test = results
