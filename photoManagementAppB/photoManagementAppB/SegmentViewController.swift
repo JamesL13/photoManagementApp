@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class SegmentViewController: UIViewController {
 
@@ -23,9 +24,24 @@ class SegmentViewController: UIViewController {
     var completeViewController : CompleteViewController?
     var favoriteViewController : FavoriteViewController?
     
+    /* Array Lists to store Project Data (In Progress, Complete, and Favorite) */
+    var inProgressProjects: NSManagedObject?
+    
+    var name = "Test" as AnyObject
+    var pdescription = "This is a test" as AnyObject
+    var keywords = "Test1" as AnyObject
+    var status = false as AnyObject
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        if let inProgressProjects = inProgressProjects {
+            name = inProgressProjects.valueForKey("projectName")!
+            pdescription = inProgressProjects.valueForKey("projectDescription")!
+            keywords = inProgressProjects.valueForKey("projectKeywords")!
+            status = inProgressProjects.valueForKey("projectFavorited")!
+        }
+        
         // Do any additional setup after loading the view.
     }
 
@@ -44,6 +60,7 @@ class SegmentViewController: UIViewController {
             inProgressContainer.hidden = true;
             completeContainer.hidden = true;
             favoriteContainer.hidden = false;
+            saveProject()
         }
         else if (SegmentControl.selectedSegmentIndex == 1)
         {
@@ -57,6 +74,30 @@ class SegmentViewController: UIViewController {
             completeContainer.hidden = true;
             favoriteContainer.hidden = true;
         }
+    }
+    
+    func saveProject()
+    {
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let managedContext = appDelegate.managedObjectContext
+        
+        if inProgressProjects == nil {
+            let arrayEntity = NSEntityDescription.entityForName("Project", inManagedObjectContext: managedContext)
+            inProgressProjects = NSManagedObject(entity: arrayEntity!, insertIntoManagedObjectContext: managedContext)
+        }
+        
+        inProgressProjects?.setValue(name, forKey: "projectName")
+        inProgressProjects?.setValue(pdescription, forKey: "projectDescription")
+        inProgressProjects?.setValue(keywords, forKey: "projectKeywords")
+        inProgressProjects?.setValue(status, forKey: "projectFavorited")
+        
+        do {
+            try managedContext.save()
+        } catch let error as NSError {
+            print("Could not save \(error), \(error.userInfo)")
+        }
+        
+        self.navigationController?.popToRootViewControllerAnimated(true)
     }
     
     /*
