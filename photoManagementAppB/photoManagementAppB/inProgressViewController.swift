@@ -9,9 +9,7 @@
 import UIKit
 import CoreData
 
-class inProgressViewController: UIViewController/*, UITableViewDataSource, UITableViewDelegate */{
-    
-    //var test: [String] = ["Test 1", "Test 2", "Test 3", "Test 4", "Test 5"]
+class inProgressViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var test = [NSManagedObject]()
 
@@ -19,9 +17,12 @@ class inProgressViewController: UIViewController/*, UITableViewDataSource, UITab
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("\n\n\nAbout to try to load data\n\n\n")
         loadProject()
-        //inProgressTable.delegate = self
-        //inProgressTable.dataSource = self
+        print("\n\n\nAbout to try to REload data\n\n\n")
+        //inProgressTable.reloadData()
+        inProgressTable.delegate = self
+        inProgressTable.dataSource = self
         // Do any additional setup after loading the view.
     }
 
@@ -37,11 +38,15 @@ class inProgressViewController: UIViewController/*, UITableViewDataSource, UITab
     func loadProject()
     {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        print("\n\n\nLine 1")
         let managedContext = appDelegate.managedObjectContext
+        print("\n\n\nLine 2")
         let fetchRequest = NSFetchRequest(entityName:"Project")
+        print("\n\n\nLine 3")
         
         do {
             let fetchedResults = try managedContext.executeFetchRequest(fetchRequest) as? [NSManagedObject]
+            print("\n\n\nLine 4")
             
             if let results = fetchedResults {
                 test = results
@@ -61,7 +66,7 @@ class inProgressViewController: UIViewController/*, UITableViewDataSource, UITab
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
         
-        let title = test[indexPath.row].valueForKey("name") as! String
+        let title = test[indexPath.row].valueForKey("projectName") as! String
         cell.textLabel?.text = title
         
         print("Title: " + title)

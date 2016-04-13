@@ -41,7 +41,7 @@ class SegmentViewController: UIViewController {
             keywords = inProgressProjects.valueForKey("projectKeywords")!
             status = inProgressProjects.valueForKey("projectFavorited")!
         }
-        
+        saveProject()
         // Do any additional setup after loading the view.
     }
 
@@ -93,6 +93,7 @@ class SegmentViewController: UIViewController {
         
         do {
             try managedContext.save()
+            print("\n\nIt Saved\n\n")
         } catch let error as NSError {
             print("Could not save \(error), \(error.userInfo)")
         }
