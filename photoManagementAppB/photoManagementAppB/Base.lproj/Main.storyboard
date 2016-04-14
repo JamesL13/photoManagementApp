@@ -317,7 +317,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="zIW-kp-RYx" kind="show" id="xYO-Me-lem"/>
+                                            <segue destination="zIW-kp-RYx" kind="show" identifier="project" id="xYO-Me-lem"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

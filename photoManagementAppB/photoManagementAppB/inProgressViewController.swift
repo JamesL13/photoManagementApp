@@ -97,6 +97,17 @@ class inProgressViewController: UIViewController, UITableViewDataSource, UITable
         
         return [deleteRowAction, markRowAction, favoriteRowAction];
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let destinationViewController = segue.destinationViewController
+        
+        if let newProjectViewController = destinationViewController as? NewProjectViewController {
+            if (segue.identifier == "project")
+            {
+                newProjectViewController.newProject = test[inProgressTable.indexPathForSelectedRow!.row]
+            }
+        }
+    }
 
     /*
     // MARK: - Navigation
