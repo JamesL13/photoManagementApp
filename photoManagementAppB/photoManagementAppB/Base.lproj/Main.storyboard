@@ -296,7 +296,7 @@
         <!--In Progress View Controller-->
         <scene sceneID="zDT-g3-JBu">
             <objects>
-                <viewController id="U3o-6G-tRc" customClass="inProgressViewController" customModule="photoManagementAppB" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="U3o-6G-tRc" customClass="InProgressViewController" customModule="photoManagementAppB" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7Jd-na-uWF"/>
                         <viewControllerLayoutGuide type="bottom" id="0fH-hD-bFD"/>
