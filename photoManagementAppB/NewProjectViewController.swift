@@ -24,11 +24,6 @@ class NewProjectViewController: UIViewController {
         projectDescriptionField.layer.borderWidth = 0.5
         projectDescriptionField.layer.cornerRadius = 5.0
         // Do any additional setup after loading the view.
-        if let newProject = newProject {
-            projectNameField.text = newProject.valueForKey("projectName") as? String
-            projectKeywordField.text = newProject.valueForKey("projectKeywords") as? String
-            projectDescriptionField.text = newProject.valueForKey("projectDescription") as? String
-        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,10 +36,8 @@ class NewProjectViewController: UIViewController {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedContext = appDelegate.managedObjectContext
         
-        if newProject == nil {
-            let newProjectEntity = NSEntityDescription.entityForName("Project", inManagedObjectContext: managedContext)
-            newProject = NSManagedObject(entity: newProjectEntity!, insertIntoManagedObjectContext: managedContext)
-        }
+        let newProjectEntity = NSEntityDescription.entityForName("Project", inManagedObjectContext: managedContext)
+        newProject = NSManagedObject(entity: newProjectEntity!, insertIntoManagedObjectContext: managedContext)
         
         newProject?.setValue(projectNameField.text, forKey: "projectName")
         newProject?.setValue(projectKeywordField.text, forKey: "projectKeywords")

@@ -17,7 +17,6 @@ class inProgressViewController: UIViewController, UITableViewDataSource, UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadProject()
         inProgressTable.delegate = self
         inProgressTable.dataSource = self
         // Do any additional setup after loading the view.
@@ -64,16 +63,11 @@ class inProgressViewController: UIViewController, UITableViewDataSource, UITable
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
         
-        let title = test[indexPath.row].valueForKey("projectName") as! String
+        let title = test[indexPath.row].valueForKey("projectName") as? String
         cell.textLabel?.text = title
-        
-        print("Title: " + title)
         
         return cell
     }
-    
-    
-    
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
