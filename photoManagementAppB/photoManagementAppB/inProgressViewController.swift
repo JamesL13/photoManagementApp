@@ -17,12 +17,16 @@ class inProgressViewController: UIViewController, UITableViewDataSource, UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadProject()
         inProgressTable.delegate = self
         inProgressTable.dataSource = self
         // Do any additional setup after loading the view.
     }
 
+    override func viewWillAppear(animated: Bool) {
+        loadProject()
+        inProgressTable.reloadData()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -53,22 +57,17 @@ class inProgressViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return test.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
         
-        let title = test[indexPath.row].valueForKey("projectName") as! String
+        let title = test[indexPath.row].valueForKey("projectName") as? String
         cell.textLabel?.text = title
-        
-        print("Title: " + title)
         
         return cell
     }
-    
-    
-    
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
@@ -97,6 +96,17 @@ class inProgressViewController: UIViewController, UITableViewDataSource, UITable
         });
         
         return [deleteRowAction, markRowAction, favoriteRowAction];
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let destinationViewController = segue.destinationViewController
+        
+        if let newProjectViewController = destinationViewController as? NewProjectViewController {
+            if (segue.identifier == "project")
+            {
+                newProjectViewController.newProject = test[inProgressTable.indexPathForSelectedRow!.row]
+            }
+        }
     }
 
     /*
