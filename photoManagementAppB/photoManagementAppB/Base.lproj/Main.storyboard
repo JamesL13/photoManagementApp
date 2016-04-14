@@ -208,7 +208,9 @@
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="textView" destination="cuX-8e-gEI" id="wVk-rQ-yif"/>
+                        <outlet property="projectDescriptionField" destination="cuX-8e-gEI" id="tCZ-3y-kao"/>
+                        <outlet property="projectKeywordField" destination="5ke-A2-pmJ" id="ZVM-5z-BzJ"/>
+                        <outlet property="projectNameField" destination="AhI-jF-kd8" id="fEP-BY-dfb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PrE-FR-Xnj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -227,24 +229,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wMW-Gm-Kdb">
-                                <rect key="frame" x="0.0" y="64" width="600" height="426"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wMW-Gm-Kdb">
+                                <rect key="frame" x="0.0" y="64" width="600" height="382"/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Photo Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kAV-6I-lkU">
-                                <rect key="frame" x="252" y="510" width="96" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Ddn-Vr-h6c" firstAttribute="top" secondItem="wMW-Gm-Kdb" secondAttribute="bottom" constant="110" id="0eT-LJ-L4v"/>
-                            <constraint firstItem="kAV-6I-lkU" firstAttribute="top" secondItem="wMW-Gm-Kdb" secondAttribute="bottom" constant="20" id="4mn-pm-pea"/>
                             <constraint firstItem="wMW-Gm-Kdb" firstAttribute="top" secondItem="Yk9-Ea-dgJ" secondAttribute="bottom" id="97v-tM-ar5"/>
-                            <constraint firstItem="kAV-6I-lkU" firstAttribute="centerX" secondItem="LfZ-u7-g89" secondAttribute="centerX" id="Ghm-Uw-cfe"/>
                             <constraint firstAttribute="trailing" secondItem="wMW-Gm-Kdb" secondAttribute="trailing" id="NRi-BV-lu8"/>
                             <constraint firstItem="wMW-Gm-Kdb" firstAttribute="leading" secondItem="LfZ-u7-g89" secondAttribute="leading" id="PLu-NM-xMz"/>
-                            <constraint firstItem="kAV-6I-lkU" firstAttribute="leading" secondItem="wMW-Gm-Kdb" secondAttribute="trailing" constant="-348" id="XyH-KZ-aYa"/>
                         </constraints>
                     </view>
                     <toolbarItems>
@@ -352,7 +346,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2LK-VY-DRF" id="U2S-ff-oRn">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
