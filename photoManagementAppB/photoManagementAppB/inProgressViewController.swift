@@ -71,8 +71,9 @@ class inProgressViewController: UIViewController, UITableViewDataSource, UITable
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            //test.removeObjectAtIndex(indexPath.row)
-            //tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            print("Here")
+            test.removeAtIndex(indexPath.row)
+            inProgressTable.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
         }
@@ -81,7 +82,7 @@ class inProgressViewController: UIViewController, UITableViewDataSource, UITable
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
         
         let markRowAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Mark as Complete", handler:{action, indexpath in
-            print("MORE•ACTION");
+            print("Mark•ACTION");
         });
         markRowAction.backgroundColor = UIColor.blueColor();
         
@@ -93,6 +94,9 @@ class inProgressViewController: UIViewController, UITableViewDataSource, UITable
         
         let deleteRowAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Delete", handler:{action, indexpath in
             print("DELETE•ACTION")
+            //self.test.removeAtIndex(indexPath.row)
+            self.saveDeletedProject(indexPath.row)
+            self.inProgressTable.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         });
         
         return [deleteRowAction, markRowAction, favoriteRowAction];
@@ -107,6 +111,25 @@ class inProgressViewController: UIViewController, UITableViewDataSource, UITable
                 newProjectViewController.newProject = test[inProgressTable.indexPathForSelectedRow!.row]
             }
         }
+    }
+    
+    func saveDeletedProject(index: Int)
+    {
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let managedContext = appDelegate.managedObjectContext
+        
+        let project = test[index]
+        test.removeAtIndex(index)
+        managedContext.deleteObject(project)
+        
+        do {
+            try managedContext.save()
+        } catch let error as NSError {
+            print("Could not create new project")
+            print("Could not save \(error), \(error.userInfo)")
+        }
+        
+        self.navigationController?.popToRootViewControllerAnimated(true)
     }
 
     /*
