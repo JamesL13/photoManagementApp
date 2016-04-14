@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class inProgressViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class InProgressViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var projects = [NSManagedObject]()
 
