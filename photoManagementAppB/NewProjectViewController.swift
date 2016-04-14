@@ -10,8 +10,14 @@ import UIKit
 
 class NewProjectViewController: UIViewController {
 
+    @IBOutlet weak var textView: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        let borderColor = UIColor(red:204.0/255.0, green:204.0/255.0, blue:204.0/255.0, alpha:1.0)
+        textView.layer.borderColor = borderColor.CGColor
+        textView.layer.borderWidth = 0.5
+        textView.layer.cornerRadius = 5.0
 
         // Do any additional setup after loading the view.
     }
