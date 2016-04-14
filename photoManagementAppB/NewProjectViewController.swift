@@ -15,15 +15,12 @@ class NewProjectViewController: UIViewController {
     @IBOutlet weak var projectKeywordField: UITextField!
     @IBOutlet weak var projectDescriptionField: UITextView!
     
-    var projectList = [NSManagedObject]()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         let borderColor = UIColor(red:204.0/255.0, green:204.0/255.0, blue:204.0/255.0, alpha:1.0)
         projectDescriptionField.layer.borderColor = borderColor.CGColor
         projectDescriptionField.layer.borderWidth = 0.5
         projectDescriptionField.layer.cornerRadius = 5.0
-        projectNameField.text = projectList[0].valueForKey("projectName")
         // Do any additional setup after loading the view.
     }
 
@@ -32,24 +29,19 @@ class NewProjectViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func loadProjectList()
+    func saveNewProject()
     {
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let managedContext = appDelegate.managedObjectContext
-        let fetchRequest = NSFetchRequest(entityName:"Project")
-        
-        do {
-            let fetchedResults = try managedContext.executeFetchRequest(fetchRequest) as? [NSManagedObject]
-            
-            if let results = fetchedResults {
-                projectList = results
-            }
-            else {
-                print("Could not fetch array")
-            }
-        } catch {
-            return
-        }
+        /* Function that saves the new project to the appropriate Project array */
+    }
+    
+    func createProjectData()
+    {
+        /* Function that creates a new Project based on the user info in the UI Elements */
+    }
+    
+    /* Saves the new project */
+    @IBAction func saveButton(sender: AnyObject) {
+        saveNewProject()
     }
     
     /*

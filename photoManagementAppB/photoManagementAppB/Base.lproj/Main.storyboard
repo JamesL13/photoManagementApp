@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="R4D-Vj-Ehe">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="R4D-Vj-Ehe">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -200,9 +200,9 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="JKt-iv-wKy">
-                        <barButtonItem key="rightBarButtonItem" title="Select" id="d5I-bw-VQT">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="d5I-bw-VQT">
                             <connections>
-                                <segue destination="ycb-Wr-jOd" kind="show" id="Hts-Wq-QQn"/>
+                                <action selector="saveButton:" destination="zIW-kp-RYx" id="zcT-Ds-8wh"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -216,39 +216,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PrE-FR-Xnj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-6057" y="-1378"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="7Pr-ZO-0Nv">
-            <objects>
-                <viewController id="ycb-Wr-jOd" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Yk9-Ea-dgJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="Ddn-Vr-h6c"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="LfZ-u7-g89">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wMW-Gm-Kdb">
-                                <rect key="frame" x="0.0" y="64" width="600" height="382"/>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="Ddn-Vr-h6c" firstAttribute="top" secondItem="wMW-Gm-Kdb" secondAttribute="bottom" constant="110" id="0eT-LJ-L4v"/>
-                            <constraint firstItem="wMW-Gm-Kdb" firstAttribute="top" secondItem="Yk9-Ea-dgJ" secondAttribute="bottom" id="97v-tM-ar5"/>
-                            <constraint firstAttribute="trailing" secondItem="wMW-Gm-Kdb" secondAttribute="trailing" id="NRi-BV-lu8"/>
-                            <constraint firstItem="wMW-Gm-Kdb" firstAttribute="leading" secondItem="LfZ-u7-g89" secondAttribute="leading" id="PLu-NM-xMz"/>
-                        </constraints>
-                    </view>
-                    <toolbarItems>
-                        <barButtonItem title="Item" id="q6r-7N-MqX"/>
-                    </toolbarItems>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ggk-xl-oRr" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-5185" y="-1378"/>
         </scene>
         <!--Favorite View Controller-->
         <scene sceneID="Dgg-MM-pJs">
