@@ -7,16 +7,17 @@
 //
 
 import UIKit
+import CoreData
 
 class inProgressViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    var test: [String] = ["Test 1", "Test 2", "Test 3", "Test 4", "Test 5"]
+    var test = [NSManagedObject]()
 
     @IBOutlet weak var inProgressTable: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        loadProject()
         inProgressTable.delegate = self
         inProgressTable.dataSource = self
         // Do any additional setup after loading the view.
@@ -31,15 +32,39 @@ class inProgressViewController: UIViewController, UITableViewDataSource, UITable
         return 1
     }
     
+    func loadProject()
+    {
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let managedContext = appDelegate.managedObjectContext
+        let fetchRequest = NSFetchRequest(entityName:"Project")
+        
+        do {
+            let fetchedResults = try managedContext.executeFetchRequest(fetchRequest) as? [NSManagedObject]
+            
+            if let results = fetchedResults {
+                test = results
+            }
+            else {
+                print("Could not fetch array")
+            }
+        } catch {
+            return
+        }
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return test.count
+        return 1
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell")
-        cell?.textLabel?.text = test[indexPath.row]
-        return cell!
+        let title = test[indexPath.row].valueForKey("projectName") as! String
+        cell.textLabel?.text = title
+        
+        print("Title: " + title)
+        
+        return cell
     }
     
     
