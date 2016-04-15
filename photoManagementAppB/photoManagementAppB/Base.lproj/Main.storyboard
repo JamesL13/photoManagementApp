@@ -52,10 +52,6 @@
                                     <segue destination="U3o-6G-tRc" kind="embed" id="4In-yY-Vzi"/>
                                 </connections>
                             </containerView>
-                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="25x-ir-MVs">
-                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="mK4-lv-RvF">
                                 <rect key="frame" x="0.0" y="64" width="600" height="45"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -123,7 +119,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="-6915" y="-1378"/>
+            <point key="canvasLocation" x="-6923" y="-1538"/>
         </scene>
         <!--New Project View Controller-->
         <scene sceneID="MAD-zL-9h2">
@@ -134,20 +130,20 @@
                         <viewControllerLayoutGuide type="bottom" id="VB2-tK-n4w"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Zah-1O-gng">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="450"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Project Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AhI-jF-kd8">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Project Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AhI-jF-kd8">
                                 <rect key="frame" x="20" y="84" width="560" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Project Keywords" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5ke-A2-pmJ">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Project Keywords" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5ke-A2-pmJ">
                                 <rect key="frame" x="20" y="134" width="560" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" text="Project Description: " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cuX-8e-gEI">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Project Description: " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cuX-8e-gEI">
                                 <rect key="frame" x="20" y="184" width="560" height="200"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -156,7 +152,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0Ao-Tq-S1u">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0Ao-Tq-S1u">
                                 <rect key="frame" x="0.0" y="404" width="600" height="196"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="zaQ-CN-3Kp">
                                     <size key="itemSize" width="50" height="50"/>
@@ -215,7 +211,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PrE-FR-Xnj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-6081" y="-1352"/>
+            <point key="canvasLocation" x="-5921" y="-1400"/>
         </scene>
         <!--Favorite View Controller-->
         <scene sceneID="Dgg-MM-pJs">
@@ -313,7 +309,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2LK-VY-DRF" id="U2S-ff-oRn">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
@@ -345,10 +341,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="esP-sC-4fl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-7616" y="-592"/>
+            <point key="canvasLocation" x="-7846" y="-647"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="xYO-Me-lem"/>
+        <segue reference="tTv-5A-yQF"/>
     </inferredMetricsTieBreakers>
 </document>
