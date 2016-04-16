@@ -134,21 +134,21 @@
                         <viewControllerLayoutGuide type="bottom" id="VB2-tK-n4w"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Zah-1O-gng">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="450"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Project Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AhI-jF-kd8">
-                                <rect key="frame" x="20" y="20" width="560" height="30"/>
+                                <rect key="frame" x="20" y="84" width="560" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Project Keywords" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5ke-A2-pmJ">
-                                <rect key="frame" x="20" y="70" width="560" height="30"/>
+                                <rect key="frame" x="20" y="134" width="560" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Project Description: " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cuX-8e-gEI">
-                                <rect key="frame" x="20" y="120" width="560" height="200"/>
+                                <rect key="frame" x="20" y="184" width="560" height="200"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="pHn-oQ-hqr"/>
@@ -156,16 +156,24 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0Ao-Tq-S1u">
-                                <rect key="frame" x="0.0" y="340" width="600" height="110"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="zaQ-CN-3Kp">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xo3-XR-HVE">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="toy-fL-bk5"/>
+                                    <barButtonItem systemItem="action" id="WCi-yN-XoK"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="t3s-Vp-SjK"/>
+                                </items>
+                            </toolbar>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="5CX-ge-uvm">
+                                <rect key="frame" x="0.0" y="404" width="600" height="99"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Uwd-zH-aJ6">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="TPM-Cx-5c4">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="I50-0s-d2I">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -182,20 +190,23 @@
                             <constraint firstAttribute="trailingMargin" secondItem="cuX-8e-gEI" secondAttribute="trailing" id="2Gd-UZ-1xd"/>
                             <constraint firstAttribute="trailingMargin" secondItem="AhI-jF-kd8" secondAttribute="trailing" id="3WM-PZ-zMv"/>
                             <constraint firstItem="5ke-A2-pmJ" firstAttribute="top" secondItem="AhI-jF-kd8" secondAttribute="bottom" constant="20" id="4li-CT-2TF"/>
+                            <constraint firstItem="Xo3-XR-HVE" firstAttribute="leading" secondItem="Zah-1O-gng" secondAttribute="leading" id="5wo-o9-Ecq"/>
+                            <constraint firstItem="VB2-tK-n4w" firstAttribute="top" secondItem="Xo3-XR-HVE" secondAttribute="bottom" id="8DR-AQ-47u"/>
                             <constraint firstItem="5ke-A2-pmJ" firstAttribute="leading" secondItem="Zah-1O-gng" secondAttribute="leadingMargin" id="9h8-9j-zpt"/>
                             <constraint firstAttribute="trailingMargin" secondItem="5ke-A2-pmJ" secondAttribute="trailing" id="BAF-HH-gZr"/>
                             <constraint firstItem="AhI-jF-kd8" firstAttribute="top" secondItem="BPC-3M-IZG" secondAttribute="bottom" constant="20" id="CQ3-cc-4Js"/>
                             <constraint firstItem="cuX-8e-gEI" firstAttribute="leading" secondItem="Zah-1O-gng" secondAttribute="leadingMargin" id="Efk-WC-PHQ"/>
                             <constraint firstItem="AhI-jF-kd8" firstAttribute="centerX" secondItem="Zah-1O-gng" secondAttribute="centerX" id="IVy-56-bps"/>
-                            <constraint firstItem="0Ao-Tq-S1u" firstAttribute="top" secondItem="cuX-8e-gEI" secondAttribute="bottom" constant="20" id="JYC-Of-Vkc"/>
-                            <constraint firstAttribute="trailing" secondItem="0Ao-Tq-S1u" secondAttribute="trailing" id="Oxu-gE-UWk"/>
+                            <constraint firstItem="5CX-ge-uvm" firstAttribute="centerY" secondItem="Zah-1O-gng" secondAttribute="centerY" id="IZe-lg-oc1"/>
                             <constraint firstItem="cuX-8e-gEI" firstAttribute="top" secondItem="5ke-A2-pmJ" secondAttribute="bottom" constant="20" id="W7c-kG-OdG"/>
-                            <constraint firstItem="0Ao-Tq-S1u" firstAttribute="leading" secondItem="Zah-1O-gng" secondAttribute="leading" id="YUx-rm-bRW"/>
+                            <constraint firstAttribute="trailing" secondItem="5CX-ge-uvm" secondAttribute="trailing" id="aad-Hj-JZM"/>
                             <constraint firstItem="cuX-8e-gEI" firstAttribute="centerX" secondItem="Zah-1O-gng" secondAttribute="centerX" id="app-jc-WZ5"/>
                             <constraint firstItem="5ke-A2-pmJ" firstAttribute="centerX" secondItem="Zah-1O-gng" secondAttribute="centerX" id="eDV-Ev-SQO"/>
-                            <constraint firstItem="0Ao-Tq-S1u" firstAttribute="centerX" secondItem="Zah-1O-gng" secondAttribute="centerX" id="giP-06-0HW"/>
+                            <constraint firstItem="5CX-ge-uvm" firstAttribute="centerX" secondItem="Zah-1O-gng" secondAttribute="centerX" id="fYO-kG-uqQ"/>
+                            <constraint firstAttribute="trailing" secondItem="Xo3-XR-HVE" secondAttribute="trailing" id="hPI-LO-sJc"/>
                             <constraint firstItem="AhI-jF-kd8" firstAttribute="leading" secondItem="Zah-1O-gng" secondAttribute="leadingMargin" id="hnB-6z-wll"/>
-                            <constraint firstItem="VB2-tK-n4w" firstAttribute="top" secondItem="0Ao-Tq-S1u" secondAttribute="bottom" id="mGF-fa-lo7"/>
+                            <constraint firstItem="5CX-ge-uvm" firstAttribute="top" secondItem="cuX-8e-gEI" secondAttribute="bottom" constant="20" id="k1R-Ar-DGc"/>
+                            <constraint firstItem="5CX-ge-uvm" firstAttribute="leading" secondItem="Zah-1O-gng" secondAttribute="leading" id="yXG-zS-kO3"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -211,7 +222,6 @@
                         <outlet property="projectDescriptionField" destination="cuX-8e-gEI" id="tCZ-3y-kao"/>
                         <outlet property="projectKeywordField" destination="5ke-A2-pmJ" id="ZVM-5z-BzJ"/>
                         <outlet property="projectNameField" destination="AhI-jF-kd8" id="fEP-BY-dfb"/>
-                        <outlet property="projectPhotos" destination="0Ao-Tq-S1u" id="wiR-Ww-olF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PrE-FR-Xnj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -350,6 +360,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="xYO-Me-lem"/>
+        <segue reference="tTv-5A-yQF"/>
     </inferredMetricsTieBreakers>
 </document>
