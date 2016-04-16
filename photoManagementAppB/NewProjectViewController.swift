@@ -16,6 +16,9 @@ class NewProjectViewController: UIViewController {
     @IBOutlet weak var projectKeywordField: UITextField!
     @IBOutlet weak var projectDescriptionField: UITextView!
     
+    /* Collection View of the View Controller */
+    @IBOutlet weak var projectPhotos: UICollectionView!
+    
     /* Current project pulled from core data */
     var project: NSManagedObject?
     
