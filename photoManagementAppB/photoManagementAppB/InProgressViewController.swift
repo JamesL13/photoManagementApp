@@ -108,7 +108,7 @@ class InProgressViewController: UIViewController, UITableViewDataSource, UITable
         if let newProjectViewController = destinationViewController as? NewProjectViewController {
             if (segue.identifier == "project")
             {
-                newProjectViewController.newProject = projects[inProgressTable.indexPathForSelectedRow!.row]
+                newProjectViewController.project = projects[inProgressTable.indexPathForSelectedRow!.row]
             }
         }
     }

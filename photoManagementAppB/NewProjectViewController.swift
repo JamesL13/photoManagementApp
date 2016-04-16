@@ -11,23 +11,26 @@ import CoreData
 
 class NewProjectViewController: UIViewController {
 
+    /* Text Fields and Views of the View Controller */
     @IBOutlet weak var projectNameField: UITextField!
     @IBOutlet weak var projectKeywordField: UITextField!
     @IBOutlet weak var projectDescriptionField: UITextView!
     
-    var newProject: NSManagedObject?
+    /* Current project pulled from core data */
+    var project: NSManagedObject?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        /* Set the border of the text view to match the text fields */
         let borderColor = UIColor(red:204.0/255.0, green:204.0/255.0, blue:204.0/255.0, alpha:1.0)
         projectDescriptionField.layer.borderColor = borderColor.CGColor
         projectDescriptionField.layer.borderWidth = 0.5
         projectDescriptionField.layer.cornerRadius = 5.0
-        // Do any additional setup after loading the view.
-        if let newProject = newProject {
-            projectNameField.text = newProject.valueForKey("projectName") as? String
-            projectKeywordField.text = newProject.valueForKey("projectKeywords") as? String
-            projectDescriptionField.text = newProject.valueForKey("projectDescription") as? String
+        /* Displays the information of a pre-existing project */
+        if let editProject = project {
+            projectNameField.text = editProject.valueForKey("projectName") as? String
+            projectKeywordField.text = editProject.valueForKey("projectKeywords") as? String
+            projectDescriptionField.text = editProject.valueForKey("projectDescription") as? String
         }
     }
 
@@ -36,21 +39,22 @@ class NewProjectViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func saveNewProject()
+    /* Function that save the new/updated project into core data */
+    func saveProject()
     {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedContext = appDelegate.managedObjectContext
         
-        
-        if newProject == nil {
+        /* Check for if project is nil (new project being created) */
+        if project == nil {
             let newProjectEntity = NSEntityDescription.entityForName("Project", inManagedObjectContext: managedContext)
-            newProject = NSManagedObject(entity: newProjectEntity!, insertIntoManagedObjectContext: managedContext)
+            project = NSManagedObject(entity: newProjectEntity!, insertIntoManagedObjectContext: managedContext)
         }
         
-        newProject?.setValue(projectNameField.text, forKey: "projectName")
-        newProject?.setValue(projectKeywordField.text, forKey: "projectKeywords")
-        newProject?.setValue(projectDescriptionField.text, forKey: "projectDescription")
-        newProject?.setValue(false, forKey: "projectFavorited")
+        project?.setValue(projectNameField.text, forKey: "projectName")
+        project?.setValue(projectKeywordField.text, forKey: "projectKeywords")
+        project?.setValue(projectDescriptionField.text, forKey: "projectDescription")
+        project?.setValue(false, forKey: "projectFavorited")
         
         do {
             try managedContext.save()
@@ -59,12 +63,13 @@ class NewProjectViewController: UIViewController {
             print("Could not save \(error), \(error.userInfo)")
         }
         
+        /* Return to previous navigation location upon creation/edit of project */
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
     
     /* Saves the new project */
     @IBAction func saveButton(sender: AnyObject) {
-        saveNewProject()
+        saveProject()
     }
     
     /*
