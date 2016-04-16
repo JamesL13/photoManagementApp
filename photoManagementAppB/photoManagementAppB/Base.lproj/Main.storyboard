@@ -160,7 +160,11 @@
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="toy-fL-bk5"/>
-                                    <barButtonItem systemItem="action" id="WCi-yN-XoK"/>
+                                    <barButtonItem systemItem="action" id="WCi-yN-XoK">
+                                        <connections>
+                                            <action selector="addPhotos:" destination="zIW-kp-RYx" id="9UY-I9-SrY"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="t3s-Vp-SjK"/>
                                 </items>
                             </toolbar>
@@ -222,6 +226,7 @@
                         <outlet property="projectDescriptionField" destination="cuX-8e-gEI" id="tCZ-3y-kao"/>
                         <outlet property="projectKeywordField" destination="5ke-A2-pmJ" id="ZVM-5z-BzJ"/>
                         <outlet property="projectNameField" destination="AhI-jF-kd8" id="fEP-BY-dfb"/>
+                        <outlet property="projectPhotos" destination="5CX-ge-uvm" id="Gmh-Y2-xLv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PrE-FR-Xnj" userLabel="First Responder" sceneMemberID="firstResponder"/>

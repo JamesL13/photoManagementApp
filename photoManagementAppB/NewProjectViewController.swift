@@ -75,6 +75,12 @@ class NewProjectViewController: UIViewController {
         saveProject()
     }
     
+    /* Adds Photos to the project */
+    @IBAction func addPhotos(sender: AnyObject) {
+        
+    }
+    
+    
     /*
     // MARK: - Navigation
 
