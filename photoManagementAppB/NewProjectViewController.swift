@@ -77,7 +77,9 @@ class NewProjectViewController: UIViewController {
     
     /* Adds Photos to the project */
     @IBAction func addPhotos(sender: AnyObject) {
-        
+        /* Open native camera roll to select pictures (UIImagePicker) */
+        /* Add the selected pictures to the projects corresponding array */
+        /* Save the array to Core Data?? */
     }
     
     
