@@ -20,7 +20,7 @@ class SegmentViewController: UIViewController {
     @IBOutlet weak var favoriteContainer: UIView!
     
     /* Segment Control View Controllers */
-    var inprogressViewController : inProgressViewController?
+    var inprogressViewController : InProgressViewController?
     var completeViewController : CompleteViewController?
     var favoriteViewController : FavoriteViewController?
     

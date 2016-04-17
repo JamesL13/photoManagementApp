@@ -9,9 +9,9 @@
 import UIKit
 import CoreData
 
-class inProgressViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class InProgressViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    var test = [NSManagedObject]()
+    var projects = [NSManagedObject]()
 
     @IBOutlet weak var inProgressTable: UITableView!
     
@@ -46,7 +46,7 @@ class inProgressViewController: UIViewController, UITableViewDataSource, UITable
             let fetchedResults = try managedContext.executeFetchRequest(fetchRequest) as? [NSManagedObject]
             
             if let results = fetchedResults {
-                test = results
+                projects = results
             }
             else {
                 print("Could not fetch array")
@@ -57,13 +57,13 @@ class inProgressViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return test.count
+        return projects.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
         
-        let title = test[indexPath.row].valueForKey("projectName") as? String
+        let title = projects[indexPath.row].valueForKey("projectName") as? String
         cell.textLabel?.text = title
         
         return cell
@@ -72,7 +72,7 @@ class inProgressViewController: UIViewController, UITableViewDataSource, UITable
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             print("Here")
-            test.removeAtIndex(indexPath.row)
+            projects.removeAtIndex(indexPath.row)
             inProgressTable.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
@@ -108,7 +108,7 @@ class inProgressViewController: UIViewController, UITableViewDataSource, UITable
         if let newProjectViewController = destinationViewController as? NewProjectViewController {
             if (segue.identifier == "project")
             {
-                newProjectViewController.newProject = test[inProgressTable.indexPathForSelectedRow!.row]
+                newProjectViewController.newProject = projects[inProgressTable.indexPathForSelectedRow!.row]
             }
         }
     }
@@ -118,8 +118,8 @@ class inProgressViewController: UIViewController, UITableViewDataSource, UITable
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedContext = appDelegate.managedObjectContext
         
-        let project = test[index]
-        test.removeAtIndex(index)
+        let project = projects[index]
+        projects.removeAtIndex(index)
         managedContext.deleteObject(project)
         
         do {

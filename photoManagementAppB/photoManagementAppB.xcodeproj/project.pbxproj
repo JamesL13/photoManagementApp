@@ -14,7 +14,7 @@
 		6444DAB51C920002002BF3A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6444DAB31C920002002BF3A2 /* LaunchScreen.storyboard */; };
 		6766741E1CB7491600C52806 /* NewProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6766741D1CB7491600C52806 /* NewProjectViewController.swift */; };
 		A8089CCC1CB6D24100C0B964 /* SegmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8089CCB1CB6D24100C0B964 /* SegmentViewController.swift */; };
-		A8089CCE1CB6D7B400C0B964 /* inProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8089CCD1CB6D7B400C0B964 /* inProgressViewController.swift */; };
+		A8089CCE1CB6D7B400C0B964 /* InProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8089CCD1CB6D7B400C0B964 /* InProgressViewController.swift */; };
 		A8089CD01CB6D7E700C0B964 /* CompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8089CCF1CB6D7E700C0B964 /* CompleteViewController.swift */; };
 		A8089CD21CB6D80000C0B964 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8089CD11CB6D80000C0B964 /* FavoriteViewController.swift */; };
 /* End PBXBuildFile section */
@@ -29,7 +29,7 @@
 		6444DAB61C920002002BF3A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6766741D1CB7491600C52806 /* NewProjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewProjectViewController.swift; path = ../NewProjectViewController.swift; sourceTree = "<group>"; };
 		A8089CCB1CB6D24100C0B964 /* SegmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentViewController.swift; sourceTree = "<group>"; };
-		A8089CCD1CB6D7B400C0B964 /* inProgressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = inProgressViewController.swift; sourceTree = "<group>"; };
+		A8089CCD1CB6D7B400C0B964 /* InProgressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InProgressViewController.swift; sourceTree = "<group>"; };
 		A8089CCF1CB6D7E700C0B964 /* CompleteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompleteViewController.swift; sourceTree = "<group>"; };
 		A8089CD11CB6D80000C0B964 /* FavoriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -73,7 +73,7 @@
 				6444DAB61C920002002BF3A2 /* Info.plist */,
 				6444DAAE1C920002002BF3A2 /* photoManagementAppB.xcdatamodeld */,
 				A8089CCB1CB6D24100C0B964 /* SegmentViewController.swift */,
-				A8089CCD1CB6D7B400C0B964 /* inProgressViewController.swift */,
+				A8089CCD1CB6D7B400C0B964 /* InProgressViewController.swift */,
 				A8089CCF1CB6D7E700C0B964 /* CompleteViewController.swift */,
 			);
 			path = photoManagementAppB;
@@ -151,7 +151,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A8089CCE1CB6D7B400C0B964 /* inProgressViewController.swift in Sources */,
+				A8089CCE1CB6D7B400C0B964 /* InProgressViewController.swift in Sources */,
 				6444DAB01C920002002BF3A2 /* photoManagementAppB.xcdatamodeld in Sources */,
 				A8089CCC1CB6D24100C0B964 /* SegmentViewController.swift in Sources */,
 				6766741E1CB7491600C52806 /* NewProjectViewController.swift in Sources */,
