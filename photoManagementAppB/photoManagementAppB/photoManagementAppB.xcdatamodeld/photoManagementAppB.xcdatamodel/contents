@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10171" systemVersion="15D21" minimumToolsVersion="Automatic">
-    <entity name="Project" syncable="YES">
-        <attribute name="projectDescription" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="projectFavorited" optional="YES" attributeType="Boolean" syncable="YES"/>
-        <attribute name="projectKeywords" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="projectName" optional="YES" attributeType="String" syncable="YES"/>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10171" systemVersion="15E65" minimumToolsVersion="Automatic">
+    <entity name="Project" representedClassName="Project" syncable="YES">
+        <attribute name="projectCompleted" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="projectDescription" attributeType="String" syncable="YES"/>
+        <attribute name="projectFavorited" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="projectKeywords" attributeType="String" syncable="YES"/>
+        <attribute name="projectName" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Project" positionX="-63" positionY="-18" width="128" height="105"/>
+        <element name="Project" positionX="-63" positionY="-18" width="128" height="120"/>
     </elements>
 </model>

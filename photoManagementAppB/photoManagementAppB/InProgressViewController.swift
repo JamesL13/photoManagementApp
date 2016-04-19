@@ -67,7 +67,7 @@ class InProgressViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func saveDeletedProject(index: Int) {
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let appDelegate = AppDelegate.getInstance()
         let managedContext = appDelegate.managedObjectContext
         
         let project = projects[index]
