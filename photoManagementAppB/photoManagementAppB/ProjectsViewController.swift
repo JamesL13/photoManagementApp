@@ -195,7 +195,12 @@ class ProjectsViewController: UIViewController, UITableViewDataSource, UITableVi
         
         let deleteRowAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Delete", handler:{action, indexpath in
             print("DELETE•ACTION")
-            self.saveDeletedProject(indexPath)
+            let alert = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
+            alert.addAction(UIAlertAction(title: "Delete", style: .Destructive, handler: nil))
+            alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+            //alert.preferredAction.
+            self.presentViewController(alert, animated: true, completion: nil)
+            //self.saveDeletedProject(indexPath)
         });
         
         return [deleteRowAction, markRowAction, favoriteRowAction];
