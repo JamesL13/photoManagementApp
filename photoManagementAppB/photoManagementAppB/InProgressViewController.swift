@@ -9,17 +9,28 @@
 import UIKit
 import CoreData
 
-class InProgressViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class InProgressViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchResultsUpdating {
     
     var projects = [NSManagedObject]()
 
     @IBOutlet weak var inProgressTable: UITableView!
+    
+    
+//    let searchController = UISearchController(searchResultsController: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         inProgressTable.delegate = self
         inProgressTable.dataSource = self
         // Do any additional setup after loading the view.
+        
+        
+//        self.searchController.searchResultsUpdater = self
+//        self.searchController.hidesNavigationBarDuringPresentation = false
+//        self.searchController.dimsBackgroundDuringPresentation = false
+//        self.searchController.searchBar.sizeToFit()
+//        self.inProgressTable.tableHeaderView = searchController.searchBar
+        
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -36,8 +47,7 @@ class InProgressViewController: UIViewController, UITableViewDataSource, UITable
         return 1
     }
     
-    func loadProject()
-    {
+    func loadProject() {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedContext = appDelegate.managedObjectContext
         let fetchRequest = NSFetchRequest(entityName:"Project")
@@ -56,12 +66,32 @@ class InProgressViewController: UIViewController, UITableViewDataSource, UITable
         }
     }
     
+    func saveDeletedProject(index: Int) {
+        let appDelegate = AppDelegate.getInstance()
+        let managedContext = appDelegate.managedObjectContext
+        
+        let project = projects[index]
+        projects.removeAtIndex(index)
+        managedContext.deleteObject(project)
+        
+        do {
+            try managedContext.save()
+        } catch let error as NSError {
+            print("Could not create new project")
+            print("Could not save \(error), \(error.userInfo)")
+        }
+        
+        self.navigationController?.popToRootViewControllerAnimated(true)
+    }
+    
+    //MARK: - UITableViewDataSource
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return projects.count
     }
     
+    //MARK: - UITableViewDelegate
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("ProjectCell", forIndexPath: indexPath)
         
         let title = projects[indexPath.row].valueForKey("projectName") as? String
         cell.textLabel?.text = title
@@ -102,44 +132,21 @@ class InProgressViewController: UIViewController, UITableViewDataSource, UITable
         return [deleteRowAction, markRowAction, favoriteRowAction];
     }
     
+    //MARK: - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let destinationViewController = segue.destinationViewController
-        
+        print("HEREE!!!!!!!")
         if let newProjectViewController = destinationViewController as? NewProjectViewController {
             if (segue.identifier == "project")
             {
+                print("HEREE!!!!!!!")
                 newProjectViewController.newProject = projects[inProgressTable.indexPathForSelectedRow!.row]
             }
         }
     }
     
-    func saveDeletedProject(index: Int)
-    {
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let managedContext = appDelegate.managedObjectContext
+    //MARK: - UISearchResultsUpdating
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
         
-        let project = projects[index]
-        projects.removeAtIndex(index)
-        managedContext.deleteObject(project)
-        
-        do {
-            try managedContext.save()
-        } catch let error as NSError {
-            print("Could not create new project")
-            print("Could not save \(error), \(error.userInfo)")
-        }
-        
-        self.navigationController?.popToRootViewControllerAnimated(true)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

@@ -24,10 +24,10 @@ class NewProjectViewController: UIViewController {
         projectDescriptionField.layer.borderWidth = 0.5
         projectDescriptionField.layer.cornerRadius = 5.0
         // Do any additional setup after loading the view.
-        if let newProject = newProject {
-            projectNameField.text = newProject.valueForKey("projectName") as? String
-            projectKeywordField.text = newProject.valueForKey("projectKeywords") as? String
-            projectDescriptionField.text = newProject.valueForKey("projectDescription") as? String
+        if let editProject = newProject {
+            projectNameField.text = editProject.valueForKey("projectName") as? String
+            projectKeywordField.text = editProject.valueForKey("projectKeywords") as? String
+            projectDescriptionField.text = editProject.valueForKey("projectDescription") as? String
         }
     }
 
@@ -51,6 +51,7 @@ class NewProjectViewController: UIViewController {
         newProject?.setValue(projectKeywordField.text, forKey: "projectKeywords")
         newProject?.setValue(projectDescriptionField.text, forKey: "projectDescription")
         newProject?.setValue(false, forKey: "projectFavorited")
+        newProject?.setValue(false, forKey: "projectCompleted")
         
         do {
             try managedContext.save()

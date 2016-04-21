@@ -12,8 +12,13 @@
 		6444DAB01C920002002BF3A2 /* photoManagementAppB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6444DAAE1C920002002BF3A2 /* photoManagementAppB.xcdatamodeld */; };
 		6444DAB21C920002002BF3A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6444DAB11C920002002BF3A2 /* Assets.xcassets */; };
 		6444DAB51C920002002BF3A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6444DAB31C920002002BF3A2 /* LaunchScreen.storyboard */; };
+		670687CE1CC193F3009E3F45 /* Project+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670687CC1CC193F3009E3F45 /* Project+CoreDataProperties.swift */; };
+		670687CF1CC193F3009E3F45 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670687CD1CC193F3009E3F45 /* Project.swift */; };
+		670687DA1CC1A471009E3F45 /* ProjectsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 670687D91CC1A471009E3F45 /* ProjectsHeaderView.xib */; };
+		670687DC1CC1A557009E3F45 /* NibDesignable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670687DB1CC1A557009E3F45 /* NibDesignable.swift */; };
+		670687DE1CC1A577009E3F45 /* ProjectsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670687DD1CC1A577009E3F45 /* ProjectsHeaderView.swift */; };
 		6766741E1CB7491600C52806 /* NewProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6766741D1CB7491600C52806 /* NewProjectViewController.swift */; };
-		A8089CCC1CB6D24100C0B964 /* SegmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8089CCB1CB6D24100C0B964 /* SegmentViewController.swift */; };
+		A8089CCC1CB6D24100C0B964 /* ProjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8089CCB1CB6D24100C0B964 /* ProjectsViewController.swift */; };
 		A8089CCE1CB6D7B400C0B964 /* InProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8089CCD1CB6D7B400C0B964 /* InProgressViewController.swift */; };
 		A8089CD01CB6D7E700C0B964 /* CompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8089CCF1CB6D7E700C0B964 /* CompleteViewController.swift */; };
 		A8089CD21CB6D80000C0B964 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8089CD11CB6D80000C0B964 /* FavoriteViewController.swift */; };
@@ -27,8 +32,13 @@
 		6444DAB11C920002002BF3A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6444DAB41C920002002BF3A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6444DAB61C920002002BF3A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		670687CC1CC193F3009E3F45 /* Project+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Project+CoreDataProperties.swift"; path = "photoManagementAppB/Project+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		670687CD1CC193F3009E3F45 /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Project.swift; path = photoManagementAppB/Project.swift; sourceTree = "<group>"; };
+		670687D91CC1A471009E3F45 /* ProjectsHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectsHeaderView.xib; sourceTree = "<group>"; };
+		670687DB1CC1A557009E3F45 /* NibDesignable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibDesignable.swift; sourceTree = "<group>"; };
+		670687DD1CC1A577009E3F45 /* ProjectsHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsHeaderView.swift; sourceTree = "<group>"; };
 		6766741D1CB7491600C52806 /* NewProjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewProjectViewController.swift; path = ../NewProjectViewController.swift; sourceTree = "<group>"; };
-		A8089CCB1CB6D24100C0B964 /* SegmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentViewController.swift; sourceTree = "<group>"; };
+		A8089CCB1CB6D24100C0B964 /* ProjectsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsViewController.swift; sourceTree = "<group>"; };
 		A8089CCD1CB6D7B400C0B964 /* InProgressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InProgressViewController.swift; sourceTree = "<group>"; };
 		A8089CCF1CB6D7E700C0B964 /* CompleteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompleteViewController.swift; sourceTree = "<group>"; };
 		A8089CD11CB6D80000C0B964 /* FavoriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
@@ -64,19 +74,41 @@
 		6444DAA61C920002002BF3A2 /* photoManagementAppB */ = {
 			isa = PBXGroup;
 			children = (
-				6766741D1CB7491600C52806 /* NewProjectViewController.swift */,
+				670687D21CC19B45009E3F45 /* ProjectsComponents */,
 				6444DAA71C920002002BF3A2 /* AppDelegate.swift */,
-				6444DAAB1C920002002BF3A2 /* Main.storyboard */,
+				6766741D1CB7491600C52806 /* NewProjectViewController.swift */,
 				A8089CD11CB6D80000C0B964 /* FavoriteViewController.swift */,
-				6444DAB11C920002002BF3A2 /* Assets.xcassets */,
-				6444DAB31C920002002BF3A2 /* LaunchScreen.storyboard */,
-				6444DAB61C920002002BF3A2 /* Info.plist */,
-				6444DAAE1C920002002BF3A2 /* photoManagementAppB.xcdatamodeld */,
-				A8089CCB1CB6D24100C0B964 /* SegmentViewController.swift */,
 				A8089CCD1CB6D7B400C0B964 /* InProgressViewController.swift */,
 				A8089CCF1CB6D7E700C0B964 /* CompleteViewController.swift */,
+				6444DAAB1C920002002BF3A2 /* Main.storyboard */,
+				6444DAB31C920002002BF3A2 /* LaunchScreen.storyboard */,
+				670687C41CC1938B009E3F45 /* Model */,
+				6444DAB11C920002002BF3A2 /* Assets.xcassets */,
+				6444DAB61C920002002BF3A2 /* Info.plist */,
+				670687DB1CC1A557009E3F45 /* NibDesignable.swift */,
 			);
 			path = photoManagementAppB;
+			sourceTree = "<group>";
+		};
+		670687C41CC1938B009E3F45 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				670687CD1CC193F3009E3F45 /* Project.swift */,
+				670687CC1CC193F3009E3F45 /* Project+CoreDataProperties.swift */,
+				6444DAAE1C920002002BF3A2 /* photoManagementAppB.xcdatamodeld */,
+			);
+			name = Model;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		670687D21CC19B45009E3F45 /* ProjectsComponents */ = {
+			isa = PBXGroup;
+			children = (
+				A8089CCB1CB6D24100C0B964 /* ProjectsViewController.swift */,
+				670687DD1CC1A577009E3F45 /* ProjectsHeaderView.swift */,
+				670687D91CC1A471009E3F45 /* ProjectsHeaderView.xib */,
+			);
+			name = ProjectsComponents;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -105,7 +137,7 @@
 		6444DA9C1C920002002BF3A2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0720;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = GroupB;
 				TargetAttributes = {
@@ -139,6 +171,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6444DAB51C920002002BF3A2 /* LaunchScreen.storyboard in Resources */,
+				670687DA1CC1A471009E3F45 /* ProjectsHeaderView.xib in Resources */,
 				6444DAB21C920002002BF3A2 /* Assets.xcassets in Resources */,
 				6444DAAD1C920002002BF3A2 /* Main.storyboard in Resources */,
 			);
@@ -152,10 +185,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8089CCE1CB6D7B400C0B964 /* InProgressViewController.swift in Sources */,
+				670687CE1CC193F3009E3F45 /* Project+CoreDataProperties.swift in Sources */,
 				6444DAB01C920002002BF3A2 /* photoManagementAppB.xcdatamodeld in Sources */,
-				A8089CCC1CB6D24100C0B964 /* SegmentViewController.swift in Sources */,
+				670687DC1CC1A557009E3F45 /* NibDesignable.swift in Sources */,
+				A8089CCC1CB6D24100C0B964 /* ProjectsViewController.swift in Sources */,
 				6766741E1CB7491600C52806 /* NewProjectViewController.swift in Sources */,
+				670687CF1CC193F3009E3F45 /* Project.swift in Sources */,
 				A8089CD01CB6D7E700C0B964 /* CompleteViewController.swift in Sources */,
+				670687DE1CC1A577009E3F45 /* ProjectsHeaderView.swift in Sources */,
 				A8089CD21CB6D80000C0B964 /* FavoriteViewController.swift in Sources */,
 				6444DAA81C920002002BF3A2 /* AppDelegate.swift in Sources */,
 			);
@@ -270,10 +307,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = photoManagementAppB/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.missouri.cs.photoManagementAppB;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -281,10 +321,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = photoManagementAppB/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.missouri.cs.photoManagementAppB;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INSTALL_OBJC_HEADER = NO;
 			};
 			name = Release;
 		};
@@ -318,7 +360,8 @@
 				6444DAAF1C920002002BF3A2 /* photoManagementAppB.xcdatamodel */,
 			);
 			currentVersion = 6444DAAF1C920002002BF3A2 /* photoManagementAppB.xcdatamodel */;
-			path = photoManagementAppB.xcdatamodeld;
+			name = photoManagementAppB.xcdatamodeld;
+			path = photoManagementAppB/photoManagementAppB.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
