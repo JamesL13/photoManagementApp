@@ -91,7 +91,7 @@ class InProgressViewController: UIViewController, UITableViewDataSource, UITable
     
     //MARK: - UITableViewDelegate
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("ProjectCell", forIndexPath: indexPath)
         
         let title = projects[indexPath.row].valueForKey("projectName") as? String
         cell.textLabel?.text = title
@@ -135,10 +135,11 @@ class InProgressViewController: UIViewController, UITableViewDataSource, UITable
     //MARK: - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let destinationViewController = segue.destinationViewController
-        
+        print("HEREE!!!!!!!")
         if let newProjectViewController = destinationViewController as? NewProjectViewController {
             if (segue.identifier == "project")
             {
+                print("HEREE!!!!!!!")
                 newProjectViewController.newProject = projects[inProgressTable.indexPathForSelectedRow!.row]
             }
         }

@@ -61,6 +61,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="zIW-kp-RYx" kind="show" identifier="project" id="WTg-Z2-HwZ"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -80,7 +83,7 @@
                     <navigationItem key="navigationItem" title="Projects" id="BAg-wM-ur9">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="6w3-YQ-KOz">
                             <connections>
-                                <segue destination="zIW-kp-RYx" kind="show" id="tTv-5A-yQF"/>
+                                <segue destination="zIW-kp-RYx" kind="show" identifier="" id="tTv-5A-yQF"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -185,4 +188,7 @@
             <point key="canvasLocation" x="-6493" y="-1378"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="WTg-Z2-HwZ"/>
+    </inferredMetricsTieBreakers>
 </document>
