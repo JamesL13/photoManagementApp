@@ -125,7 +125,7 @@ class ProjectsViewController: UIViewController, UITableViewDataSource, UITableVi
         let project = self.fetchedResultsController!.objectAtIndexPath(indexPath) as! Project
         
         cell.textLabel!.text = project.projectName
-        cell.detailTextLabel!.text = project.projectFavorited.stringValue
+        cell.detailTextLabel!.text = project.projectKeywords
         
         
         //TODO: set up image
@@ -181,7 +181,8 @@ class ProjectsViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
         
         let markRowAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Completed", handler:{action, indexpath in
-            print("Mark•ACTION");
+            print("Completed•ACTION");
+            self.saveCompletedProject(indexPath)
         });
         markRowAction.backgroundColor = UIColor.blueColor();
         
@@ -229,6 +230,25 @@ class ProjectsViewController: UIViewController, UITableViewDataSource, UITableVi
             try managedContext.save()
         } catch let error as NSError {
             print("Could not save favorited project")
+            print("Could not save \(error), \(error.userInfo)")
+        }
+        //self.navigationController?.popToRootViewControllerAnimated(true)
+    }
+    
+    func saveCompletedProject(index: NSIndexPath)
+    {
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let managedContext = appDelegate.managedObjectContext
+        if (self.fetchedResultsController?.fetchedObjects![index.row].valueForKey("projectCompleted"))! as! NSObject == true {
+            self.fetchedResultsController?.fetchedObjects![index.row].setValue(false, forKey: "projectCompleted")
+        } else {
+            self.fetchedResultsController?.fetchedObjects![index.row].setValue(true, forKey: "projectCompleted")
+        }
+        
+        do {
+            try managedContext.save()
+        } catch let error as NSError {
+            print("Could not save completed project")
             print("Could not save \(error), \(error.userInfo)")
         }
         //self.navigationController?.popToRootViewControllerAnimated(true)
