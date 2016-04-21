@@ -131,7 +131,11 @@
                                 <items>
                                     <barButtonItem systemItem="action" id="aCy-9p-7nd"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="hEW-Nm-5i0"/>
-                                    <barButtonItem style="plain" systemItem="bookmarks" id="dfQ-mY-Mk6"/>
+                                    <barButtonItem style="plain" systemItem="bookmarks" id="dfQ-mY-Mk6">
+                                        <connections>
+                                            <action selector="favoriteProject:" destination="zIW-kp-RYx" id="VHe-pN-aBx"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="gHA-nj-UDP"/>
                                     <barButtonItem systemItem="organize" id="98X-QH-Pt3"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="a9l-Pq-xcq"/>
@@ -176,6 +180,7 @@
                         <outlet property="projectDescriptionField" destination="cuX-8e-gEI" id="tCZ-3y-kao"/>
                         <outlet property="projectKeywordField" destination="5ke-A2-pmJ" id="ZVM-5z-BzJ"/>
                         <outlet property="projectNameField" destination="AhI-jF-kd8" id="fEP-BY-dfb"/>
+                        <outlet property="toolBar" destination="D3G-II-Jnv" id="gWb-DJ-GlM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PrE-FR-Xnj" userLabel="First Responder" sceneMemberID="firstResponder"/>

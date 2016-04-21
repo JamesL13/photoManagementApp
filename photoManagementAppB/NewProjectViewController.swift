@@ -14,6 +14,7 @@ class NewProjectViewController: UIViewController {
     @IBOutlet weak var projectNameField: UITextField!
     @IBOutlet weak var projectKeywordField: UITextField!
     @IBOutlet weak var projectDescriptionField: UITextView!
+    @IBOutlet weak var toolBar: UIToolbar!
     
     var newProject: NSManagedObject?
     
@@ -21,6 +22,7 @@ class NewProjectViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.toolBar.hidden = true
         let borderColor = UIColor(red:204.0/255.0, green:204.0/255.0, blue:204.0/255.0, alpha:1.0)
         projectDescriptionField.layer.borderColor = borderColor.CGColor
         projectDescriptionField.layer.borderWidth = 0.5
@@ -30,6 +32,7 @@ class NewProjectViewController: UIViewController {
             projectNameField.text = editProject.valueForKey("projectName") as? String
             projectKeywordField.text = editProject.valueForKey("projectKeywords") as? String
             projectDescriptionField.text = editProject.valueForKey("projectDescription") as? String
+            self.toolBar.hidden = false
         }
     }
 
@@ -47,12 +50,18 @@ class NewProjectViewController: UIViewController {
         if newProject == nil {
             let newProjectEntity = NSEntityDescription.entityForName("Project", inManagedObjectContext: managedContext)
             newProject = NSManagedObject(entity: newProjectEntity!, insertIntoManagedObjectContext: managedContext)
+            newProject?.setValue(false, forKey: "projectFavorited")
         }
         
         newProject?.setValue(projectNameField.text, forKey: "projectName")
         newProject?.setValue(projectKeywordField.text, forKey: "projectKeywords")
         newProject?.setValue(projectDescriptionField.text, forKey: "projectDescription")
-        newProject?.setValue(false, forKey: "projectFavorited")
+        if (newProject?.valueForKey("projectFavorited"))! as! NSObject == true {
+            newProject?.setValue(true, forKey: "projectFavorited")
+        } else {
+            newProject?.setValue(true, forKey: "projectFavorited")
+        }
+        //newProject?.setValue(false, forKey: "projectFavorited")
         newProject?.setValue(false, forKey: "projectCompleted")
         
         do {
@@ -70,8 +79,6 @@ class NewProjectViewController: UIViewController {
         saveNewProject()
     }
     
-    //self.saveDeletedProject(indexPath)
-    
     @IBAction func deleteProject(sender: AnyObject) {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedContext = appDelegate.managedObjectContext
@@ -85,22 +92,26 @@ class NewProjectViewController: UIViewController {
         }
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
-    /*func saveDeletedProject(index: NSIndexPath)
-    {
+    
+    @IBAction func favoriteProject(sender: AnyObject) {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedContext = appDelegate.managedObjectContext
-        managedContext.deleteObject(self.fetchedResultsController?.objectAtIndexPath(index) as! NSManagedObject)
+        
+        if (newProject?.valueForKey("projectFavorited"))! as! NSObject == true {
+            newProject?.setValue(false, forKey: "projectFavorited")
+        } else {
+            newProject?.setValue(true, forKey: "projectFavorited")
+        }
         
         do {
             try managedContext.save()
         } catch let error as NSError {
-            print("Could not save new project")
+            print("Could not save favorited project")
             print("Could not save \(error), \(error.userInfo)")
         }
-        self.navigationController?.popToRootViewControllerAnimated(true)
-    }*/
-    
-    func saveFavoritedProject(index: NSIndexPath)
+        //self.navigationController?.popToRootViewControllerAnimated(true)
+    }
+    /*func saveFavoritedProject(index: NSIndexPath)
     {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedContext = appDelegate.managedObjectContext
@@ -117,7 +128,7 @@ class NewProjectViewController: UIViewController {
             print("Could not save \(error), \(error.userInfo)")
         }
         //self.navigationController?.popToRootViewControllerAnimated(true)
-    }
+    }*/
     
     /*
     // MARK: - Navigation
