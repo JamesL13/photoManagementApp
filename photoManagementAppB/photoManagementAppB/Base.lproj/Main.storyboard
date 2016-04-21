@@ -135,7 +135,11 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="gHA-nj-UDP"/>
                                     <barButtonItem systemItem="organize" id="98X-QH-Pt3"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="a9l-Pq-xcq"/>
-                                    <barButtonItem systemItem="trash" id="1IY-qv-pP5"/>
+                                    <barButtonItem systemItem="trash" id="1IY-qv-pP5">
+                                        <connections>
+                                            <action selector="deleteProject:" destination="zIW-kp-RYx" id="UEI-G9-ojR"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>

@@ -17,6 +17,8 @@ class NewProjectViewController: UIViewController {
     
     var newProject: NSManagedObject?
     
+    var fetchedResultsController: NSFetchedResultsController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let borderColor = UIColor(red:204.0/255.0, green:204.0/255.0, blue:204.0/255.0, alpha:1.0)
@@ -66,6 +68,55 @@ class NewProjectViewController: UIViewController {
     /* Saves the new project */
     @IBAction func saveButton(sender: AnyObject) {
         saveNewProject()
+    }
+    
+    //self.saveDeletedProject(indexPath)
+    
+    @IBAction func deleteProject(sender: AnyObject) {
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let managedContext = appDelegate.managedObjectContext
+        managedContext.deleteObject(newProject!)
+        
+        do {
+            try managedContext.save()
+        } catch let error as NSError {
+            print("Could not save new project")
+            print("Could not save \(error), \(error.userInfo)")
+        }
+        self.navigationController?.popToRootViewControllerAnimated(true)
+    }
+    /*func saveDeletedProject(index: NSIndexPath)
+    {
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let managedContext = appDelegate.managedObjectContext
+        managedContext.deleteObject(self.fetchedResultsController?.objectAtIndexPath(index) as! NSManagedObject)
+        
+        do {
+            try managedContext.save()
+        } catch let error as NSError {
+            print("Could not save new project")
+            print("Could not save \(error), \(error.userInfo)")
+        }
+        self.navigationController?.popToRootViewControllerAnimated(true)
+    }*/
+    
+    func saveFavoritedProject(index: NSIndexPath)
+    {
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let managedContext = appDelegate.managedObjectContext
+        if (self.fetchedResultsController?.fetchedObjects![index.row].valueForKey("projectFavorited"))! as! NSObject == true {
+            self.fetchedResultsController?.fetchedObjects![index.row].setValue(false, forKey: "projectFavorited")
+        } else {
+            self.fetchedResultsController?.fetchedObjects![index.row].setValue(true, forKey: "projectFavorited")
+        }
+        
+        do {
+            try managedContext.save()
+        } catch let error as NSError {
+            print("Could not save favorited project")
+            print("Could not save \(error), \(error.userInfo)")
+        }
+        //self.navigationController?.popToRootViewControllerAnimated(true)
     }
     
     /*
