@@ -52,8 +52,10 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
             if (photo.count > 0) {
                 print("There are photos in core data to display")
                 for index in 0...(photo.count - 1) {
-                    let imageToDisplay: UIImage! = UIImage(data: photo[index].valueForKey("photo") as! NSData)
-                    imageList.append(imageToDisplay)
+                    if(photo[index].valueForKey("project") as? String == projectNameField.text) {
+                        let imageToDisplay: UIImage! = UIImage(data: photo[index].valueForKey("photo") as! NSData)
+                        imageList.append(imageToDisplay)
+                    }
                 }
             }
         }
@@ -218,6 +220,7 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
         let imageData: NSData! = UIImagePNGRepresentation(pickedImage)
         
         newPhoto?.setValue(imageData, forKey: "photo")
+        newPhoto?.setValue(projectNameField.text, forKey: "project")
         
         do {
             try managedContext.save()
