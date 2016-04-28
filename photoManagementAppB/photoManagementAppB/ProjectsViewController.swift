@@ -163,6 +163,7 @@ class ProjectsViewController: UIViewController, UITableViewDataSource, UITableVi
             if (segue.identifier == "project")
             {
                 newProjectViewController.newProject = self.fetchedResultsController?.fetchedObjects![tableView.indexPathForSelectedRow!.row] as! Project
+                newProjectViewController.fetchedResultsController = self.fetchedResultsController
             }
         }
     
@@ -193,7 +194,7 @@ class ProjectsViewController: UIViewController, UITableViewDataSource, UITableVi
         
         favoriteRowAction.backgroundColor = UIColor.orangeColor()
         
-        let deleteRowAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Delete", handler:{action, indexpath in
+        let deleteRowAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Remove", handler:{action, indexpath in
             print("DELETE•ACTION")
             let alert = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
             let deleteProject = UIAlertAction(title: "Delete", style: .Destructive) { (action) in self.saveDeletedProject(indexPath) }
@@ -236,7 +237,6 @@ class ProjectsViewController: UIViewController, UITableViewDataSource, UITableVi
             print("Could not save favorited project")
             print("Could not save \(error), \(error.userInfo)")
         }
-        //self.navigationController?.popToRootViewControllerAnimated(true)
     }
     
     func saveCompletedProject(index: NSIndexPath)
@@ -255,6 +255,5 @@ class ProjectsViewController: UIViewController, UITableViewDataSource, UITableVi
             print("Could not save completed project")
             print("Could not save \(error), \(error.userInfo)")
         }
-        //self.navigationController?.popToRootViewControllerAnimated(true)
     }
 }
