@@ -109,26 +109,7 @@ class NewProjectViewController: UIViewController {
             print("Could not save favorited project")
             print("Could not save \(error), \(error.userInfo)")
         }
-        //self.navigationController?.popToRootViewControllerAnimated(true)
     }
-    /*func saveFavoritedProject(index: NSIndexPath)
-    {
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        let managedContext = appDelegate.managedObjectContext
-        if (self.fetchedResultsController?.fetchedObjects![index.row].valueForKey("projectFavorited"))! as! NSObject == true {
-            self.fetchedResultsController?.fetchedObjects![index.row].setValue(false, forKey: "projectFavorited")
-        } else {
-            self.fetchedResultsController?.fetchedObjects![index.row].setValue(true, forKey: "projectFavorited")
-        }
-        
-        do {
-            try managedContext.save()
-        } catch let error as NSError {
-            print("Could not save favorited project")
-            print("Could not save \(error), \(error.userInfo)")
-        }
-        //self.navigationController?.popToRootViewControllerAnimated(true)
-    }*/
     
     /*
     // MARK: - Navigation

@@ -237,7 +237,6 @@ class ProjectsViewController: UIViewController, UITableViewDataSource, UITableVi
             print("Could not save favorited project")
             print("Could not save \(error), \(error.userInfo)")
         }
-        //self.navigationController?.popToRootViewControllerAnimated(true)
     }
     
     func saveCompletedProject(index: NSIndexPath)
@@ -256,6 +255,5 @@ class ProjectsViewController: UIViewController, UITableViewDataSource, UITableVi
             print("Could not save completed project")
             print("Could not save \(error), \(error.userInfo)")
         }
-        //self.navigationController?.popToRootViewControllerAnimated(true)
     }
 }
