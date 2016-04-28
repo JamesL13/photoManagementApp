@@ -80,6 +80,15 @@ class NewProjectViewController: UIViewController {
     }
     
     @IBAction func deleteProject(sender: AnyObject) {
+        print("DELETE•ACTION")
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
+        let deleteProject = UIAlertAction(title: "Delete", style: .Destructive) { (action) in self.saveDeletedProject(sender) }
+        alert.addAction(deleteProject)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func saveDeletedProject(sender: AnyObject) {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedContext = appDelegate.managedObjectContext
         managedContext.deleteObject(newProject!)
@@ -92,6 +101,15 @@ class NewProjectViewController: UIViewController {
         }
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
+    
+    /*
+     print("DELETE•ACTION")
+     let alert = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
+     let deleteProject = UIAlertAction(title: "Delete", style: .Destructive) { (action) in self.saveDeletedProject(indexPath) }
+     alert.addAction(deleteProject)
+     alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+     self.presentViewController(alert, animated: true, completion: nil)
+     */
     
     @IBAction func favoriteProject(sender: AnyObject) {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
