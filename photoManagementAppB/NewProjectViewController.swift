@@ -50,10 +50,14 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
         
         if (loadPhoto()) {
             if (photo.count > 0) {
+                print("there are photos to display from core data")
                 print("There are photos in core data to display")
                 for index in 0...(photo.count - 1) {
-                    let imageToDisplay: UIImage! = UIImage(data: photo[index].valueForKey("photo") as! NSData)
-                    imageList.append(imageToDisplay)
+                    if(photo[index].valueForKey("project") as! Project == self.newProject) {
+                        let imageToDisplay: UIImage! = UIImage(data: photo[index].valueForKey("photo") as! NSData)
+                        //imageView.contentMode = .ScaleAspectFit
+                        imageList.append(imageToDisplay)
+                    }
                 }
             }
         }
@@ -219,6 +223,8 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
         
         newPhoto?.setValue(imageData, forKey: "photo")
         
+        newPhoto?.setValue(self.newProject, forKey: "project");
+        
         do {
             try managedContext.save()
             print("Save Successful")
@@ -250,7 +256,11 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
             let fetchedResults = try managedContext.executeFetchRequest(fetchRequest) as? [NSManagedObject]
             
             if let results = fetchedResults {
-                photo = results
+                for result in results {
+                    if result.valueForKey("project") as? Project == self.newProject {
+                        photo.append(result)
+                    }
+                }
                 return true
             }
             else {

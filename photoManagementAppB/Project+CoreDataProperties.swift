@@ -2,7 +2,7 @@
 //  Project+CoreDataProperties.swift
 //  photoManagementAppB
 //
-//  Created by MU IT Program on 4/15/16.
+//  Created by MU IT Program on 4/29/16.
 //  Copyright © 2016 GroupB. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -14,10 +14,11 @@ import CoreData
 
 extension Project {
 
-    @NSManaged var projectDescription: String!
-    @NSManaged var projectFavorited: NSNumber!
-    @NSManaged var projectCompleted: NSNumber!
-    @NSManaged var projectKeywords: String!
-    @NSManaged var projectName: String!
+    @NSManaged var projectCompleted: NSNumber?
+    @NSManaged var projectDescription: String?
+    @NSManaged var projectFavorited: NSNumber?
+    @NSManaged var projectKeywords: String?
+    @NSManaged var projectName: String?
+    @NSManaged var photo: NSSet?
 
 }
