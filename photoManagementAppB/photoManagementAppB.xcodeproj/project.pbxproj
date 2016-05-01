@@ -12,8 +12,6 @@
 		6444DAB01C920002002BF3A2 /* photoManagementAppB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6444DAAE1C920002002BF3A2 /* photoManagementAppB.xcdatamodeld */; };
 		6444DAB21C920002002BF3A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6444DAB11C920002002BF3A2 /* Assets.xcassets */; };
 		6444DAB51C920002002BF3A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6444DAB31C920002002BF3A2 /* LaunchScreen.storyboard */; };
-		670687CE1CC193F3009E3F45 /* Project+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670687CC1CC193F3009E3F45 /* Project+CoreDataProperties.swift */; };
-		670687CF1CC193F3009E3F45 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670687CD1CC193F3009E3F45 /* Project.swift */; };
 		670687DA1CC1A471009E3F45 /* ProjectsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 670687D91CC1A471009E3F45 /* ProjectsHeaderView.xib */; };
 		670687DC1CC1A557009E3F45 /* NibDesignable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670687DB1CC1A557009E3F45 /* NibDesignable.swift */; };
 		670687DE1CC1A577009E3F45 /* ProjectsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670687DD1CC1A577009E3F45 /* ProjectsHeaderView.swift */; };
@@ -58,6 +56,10 @@
 		676674741CD1AE6300C52806 /* Photo7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6766744C1CD1AE6300C52806 /* Photo7.jpg */; };
 		676674751CD1AE6300C52806 /* Photo8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6766744D1CD1AE6300C52806 /* Photo8.jpg */; };
 		676674761CD1AE6300C52806 /* Photo9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6766744E1CD1AE6300C52806 /* Photo9.jpg */; };
+		6766747A1CD3EBFC00C52806 /* Photo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676674771CD3EBFC00C52806 /* Photo+CoreDataProperties.swift */; };
+		6766747B1CD3EBFC00C52806 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676674781CD3EBFC00C52806 /* Photo.swift */; };
+		6766747F1CD3EC9D00C52806 /* Project+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6766747D1CD3EC9D00C52806 /* Project+CoreDataProperties.swift */; };
+		676674801CD3EC9D00C52806 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6766747E1CD3EC9D00C52806 /* Project.swift */; };
 		A8089CCC1CB6D24100C0B964 /* ProjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8089CCB1CB6D24100C0B964 /* ProjectsViewController.swift */; };
 		A8089CCE1CB6D7B400C0B964 /* InProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8089CCD1CB6D7B400C0B964 /* InProgressViewController.swift */; };
 		A8089CD01CB6D7E700C0B964 /* CompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8089CCF1CB6D7E700C0B964 /* CompleteViewController.swift */; };
@@ -72,8 +74,6 @@
 		6444DAB11C920002002BF3A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6444DAB41C920002002BF3A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6444DAB61C920002002BF3A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		670687CC1CC193F3009E3F45 /* Project+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Project+CoreDataProperties.swift"; path = "photoManagementAppB/Project+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		670687CD1CC193F3009E3F45 /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Project.swift; path = photoManagementAppB/Project.swift; sourceTree = "<group>"; };
 		670687D91CC1A471009E3F45 /* ProjectsHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectsHeaderView.xib; sourceTree = "<group>"; };
 		670687DB1CC1A557009E3F45 /* NibDesignable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibDesignable.swift; sourceTree = "<group>"; };
 		670687DD1CC1A577009E3F45 /* ProjectsHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsHeaderView.swift; sourceTree = "<group>"; };
@@ -118,6 +118,10 @@
 		6766744C1CD1AE6300C52806 /* Photo7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Photo7.jpg; sourceTree = "<group>"; };
 		6766744D1CD1AE6300C52806 /* Photo8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Photo8.jpg; sourceTree = "<group>"; };
 		6766744E1CD1AE6300C52806 /* Photo9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Photo9.jpg; sourceTree = "<group>"; };
+		676674771CD3EBFC00C52806 /* Photo+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Photo+CoreDataProperties.swift"; path = "photoManagementAppB/Photo+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		676674781CD3EBFC00C52806 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Photo.swift; path = photoManagementAppB/Photo.swift; sourceTree = "<group>"; };
+		6766747D1CD3EC9D00C52806 /* Project+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Project+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		6766747E1CD3EC9D00C52806 /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		A8089CCB1CB6D24100C0B964 /* ProjectsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsViewController.swift; sourceTree = "<group>"; };
 		A8089CCD1CB6D7B400C0B964 /* InProgressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InProgressViewController.swift; sourceTree = "<group>"; };
 		A8089CCF1CB6D7E700C0B964 /* CompleteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompleteViewController.swift; sourceTree = "<group>"; };
@@ -174,8 +178,10 @@
 		670687C41CC1938B009E3F45 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				670687CD1CC193F3009E3F45 /* Project.swift */,
-				670687CC1CC193F3009E3F45 /* Project+CoreDataProperties.swift */,
+				6766747D1CD3EC9D00C52806 /* Project+CoreDataProperties.swift */,
+				6766747E1CD3EC9D00C52806 /* Project.swift */,
+				676674771CD3EBFC00C52806 /* Photo+CoreDataProperties.swift */,
+				676674781CD3EBFC00C52806 /* Photo.swift */,
 				6444DAAE1C920002002BF3A2 /* photoManagementAppB.xcdatamodeld */,
 			);
 			name = Model;
@@ -353,12 +359,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8089CCE1CB6D7B400C0B964 /* InProgressViewController.swift in Sources */,
-				670687CE1CC193F3009E3F45 /* Project+CoreDataProperties.swift in Sources */,
 				6444DAB01C920002002BF3A2 /* photoManagementAppB.xcdatamodeld in Sources */,
+				6766747F1CD3EC9D00C52806 /* Project+CoreDataProperties.swift in Sources */,
 				670687DC1CC1A557009E3F45 /* NibDesignable.swift in Sources */,
 				A8089CCC1CB6D24100C0B964 /* ProjectsViewController.swift in Sources */,
+				676674801CD3EC9D00C52806 /* Project.swift in Sources */,
 				6766741E1CB7491600C52806 /* NewProjectViewController.swift in Sources */,
-				670687CF1CC193F3009E3F45 /* Project.swift in Sources */,
+				6766747B1CD3EBFC00C52806 /* Photo.swift in Sources */,
+				6766747A1CD3EBFC00C52806 /* Photo+CoreDataProperties.swift in Sources */,
 				A8089CD01CB6D7E700C0B964 /* CompleteViewController.swift in Sources */,
 				670687DE1CC1A577009E3F45 /* ProjectsHeaderView.swift in Sources */,
 				A8089CD21CB6D80000C0B964 /* FavoriteViewController.swift in Sources */,
