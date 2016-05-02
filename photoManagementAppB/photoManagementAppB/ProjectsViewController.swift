@@ -12,6 +12,7 @@ import CoreData
 class ProjectsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate, UISearchResultsUpdating, ProjectsHeaderViewDelegate {
 
     static let CELL_IDENTIFIER = "ProjectCell"
+    var projects = [NSManagedObject]()
     
     let searchController = UISearchController(searchResultsController: nil)
     
@@ -124,7 +125,8 @@ class ProjectsViewController: UIViewController, UITableViewDataSource, UITableVi
         let project = self.fetchedResultsController!.objectAtIndexPath(indexPath) as! Project
         
         cell.textLabel!.text = project.projectName
-        cell.detailTextLabel!.text = project.projectDescription
+        cell.detailTextLabel!.text = project.projectKeywords
+        
         
         //TODO: set up image
         cell.imageView!.image = nil
@@ -155,6 +157,103 @@ class ProjectsViewController: UIViewController, UITableViewDataSource, UITableVi
     
     // MARK: - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let destinationViewController = segue.destinationViewController
         
+        if let newProjectViewController = destinationViewController as? NewProjectViewController {
+            if (segue.identifier == "project")
+            {
+                newProjectViewController.newProject = self.fetchedResultsController?.fetchedObjects![tableView.indexPathForSelectedRow!.row] as! Project
+                newProjectViewController.fetchedResultsController = self.fetchedResultsController
+            }
+        }
+    
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            print("Here")
+            projects.removeAtIndex(indexPath.row)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        } else if editingStyle == .Insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
+        }
+    }
+    
+    func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+        
+        let markRowAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Completed", handler:{action, indexpath in
+            print("Completed•ACTION");
+            self.saveCompletedProject(indexPath)
+        });
+        markRowAction.backgroundColor = UIColor.blueColor();
+        
+        let favoriteRowAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Favorite", handler:{action, indexpath in
+            print("Favorite•ACTION")
+            self.saveFavoritedProject(indexPath)
+        });
+        
+        favoriteRowAction.backgroundColor = UIColor.orangeColor()
+        
+        let deleteRowAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Remove", handler:{action, indexpath in
+            print("DELETE•ACTION")
+            let alert = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
+            let deleteProject = UIAlertAction(title: "Delete", style: .Destructive) { (action) in self.saveDeletedProject(indexPath) }
+            alert.addAction(deleteProject)
+            alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+        });
+        
+        return [deleteRowAction, markRowAction, favoriteRowAction];
+    }
+    
+    func saveDeletedProject(index: NSIndexPath)
+    {
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let managedContext = appDelegate.managedObjectContext
+        managedContext.deleteObject(self.fetchedResultsController?.objectAtIndexPath(index) as! NSManagedObject)
+        
+        do {
+            try managedContext.save()
+        } catch let error as NSError {
+            print("Could not save new project")
+            print("Could not save \(error), \(error.userInfo)")
+        }
+        self.navigationController?.popToRootViewControllerAnimated(true)
+    }
+    
+    func saveFavoritedProject(index: NSIndexPath)
+    {
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let managedContext = appDelegate.managedObjectContext
+        if (self.fetchedResultsController?.fetchedObjects![index.row].valueForKey("projectFavorited"))! as! NSObject == true {
+            self.fetchedResultsController?.fetchedObjects![index.row].setValue(false, forKey: "projectFavorited")
+        } else {
+            self.fetchedResultsController?.fetchedObjects![index.row].setValue(true, forKey: "projectFavorited")
+        }
+        
+        do {
+            try managedContext.save()
+        } catch let error as NSError {
+            print("Could not save favorited project")
+            print("Could not save \(error), \(error.userInfo)")
+        }
+    }
+    
+    func saveCompletedProject(index: NSIndexPath)
+    {
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let managedContext = appDelegate.managedObjectContext
+        if (self.fetchedResultsController?.fetchedObjects![index.row].valueForKey("projectCompleted"))! as! NSObject == true {
+            self.fetchedResultsController?.fetchedObjects![index.row].setValue(false, forKey: "projectCompleted")
+        } else {
+            self.fetchedResultsController?.fetchedObjects![index.row].setValue(true, forKey: "projectCompleted")
+        }
+        
+        do {
+            try managedContext.save()
+        } catch let error as NSError {
+            print("Could not save completed project")
+            print("Could not save \(error), \(error.userInfo)")
+        }
     }
 }

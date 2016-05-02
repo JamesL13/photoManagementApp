@@ -61,6 +61,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="zIW-kp-RYx" kind="show" identifier="project" id="WTg-Z2-HwZ"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -80,7 +83,7 @@
                     <navigationItem key="navigationItem" title="Projects" id="BAg-wM-ur9">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="6w3-YQ-KOz">
                             <connections>
-                                <segue destination="zIW-kp-RYx" kind="show" id="tTv-5A-yQF"/>
+                                <segue destination="zIW-kp-RYx" kind="show" identifier="" id="tTv-5A-yQF"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -123,26 +126,26 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0Ao-Tq-S1u">
-                                <rect key="frame" x="0.0" y="404" width="600" height="196"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="zaQ-CN-3Kp">
-                                    <size key="itemSize" width="50" height="50"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="TPM-Cx-5c4">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D3G-II-Jnv">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem systemItem="action" id="aCy-9p-7nd"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="hEW-Nm-5i0"/>
+                                    <barButtonItem style="plain" systemItem="bookmarks" id="dfQ-mY-Mk6">
+                                        <connections>
+                                            <action selector="favoriteProject:" destination="zIW-kp-RYx" id="VHe-pN-aBx"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="gHA-nj-UDP"/>
+                                    <barButtonItem systemItem="organize" id="98X-QH-Pt3"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="a9l-Pq-xcq"/>
+                                    <barButtonItem systemItem="trash" id="1IY-qv-pP5">
+                                        <connections>
+                                            <action selector="deleteProject:" destination="zIW-kp-RYx" id="UEI-G9-ojR"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -154,15 +157,14 @@
                             <constraint firstItem="AhI-jF-kd8" firstAttribute="top" secondItem="BPC-3M-IZG" secondAttribute="bottom" constant="20" id="CQ3-cc-4Js"/>
                             <constraint firstItem="cuX-8e-gEI" firstAttribute="leading" secondItem="Zah-1O-gng" secondAttribute="leadingMargin" id="Efk-WC-PHQ"/>
                             <constraint firstItem="AhI-jF-kd8" firstAttribute="centerX" secondItem="Zah-1O-gng" secondAttribute="centerX" id="IVy-56-bps"/>
-                            <constraint firstItem="0Ao-Tq-S1u" firstAttribute="top" secondItem="cuX-8e-gEI" secondAttribute="bottom" constant="20" id="JYC-Of-Vkc"/>
-                            <constraint firstAttribute="trailing" secondItem="0Ao-Tq-S1u" secondAttribute="trailing" id="Oxu-gE-UWk"/>
+                            <constraint firstAttribute="trailing" secondItem="D3G-II-Jnv" secondAttribute="trailing" id="OH3-c2-hQK"/>
                             <constraint firstItem="cuX-8e-gEI" firstAttribute="top" secondItem="5ke-A2-pmJ" secondAttribute="bottom" constant="20" id="W7c-kG-OdG"/>
-                            <constraint firstItem="0Ao-Tq-S1u" firstAttribute="leading" secondItem="Zah-1O-gng" secondAttribute="leading" id="YUx-rm-bRW"/>
                             <constraint firstItem="cuX-8e-gEI" firstAttribute="centerX" secondItem="Zah-1O-gng" secondAttribute="centerX" id="app-jc-WZ5"/>
+                            <constraint firstItem="VB2-tK-n4w" firstAttribute="top" secondItem="D3G-II-Jnv" secondAttribute="bottom" id="axI-gW-mfj"/>
+                            <constraint firstItem="D3G-II-Jnv" firstAttribute="centerX" secondItem="Zah-1O-gng" secondAttribute="centerX" id="d6b-p8-yeC"/>
                             <constraint firstItem="5ke-A2-pmJ" firstAttribute="centerX" secondItem="Zah-1O-gng" secondAttribute="centerX" id="eDV-Ev-SQO"/>
-                            <constraint firstItem="0Ao-Tq-S1u" firstAttribute="centerX" secondItem="Zah-1O-gng" secondAttribute="centerX" id="giP-06-0HW"/>
+                            <constraint firstItem="D3G-II-Jnv" firstAttribute="leading" secondItem="Zah-1O-gng" secondAttribute="leading" id="fNy-Z6-amQ"/>
                             <constraint firstItem="AhI-jF-kd8" firstAttribute="leading" secondItem="Zah-1O-gng" secondAttribute="leadingMargin" id="hnB-6z-wll"/>
-                            <constraint firstItem="VB2-tK-n4w" firstAttribute="top" secondItem="0Ao-Tq-S1u" secondAttribute="bottom" id="mGF-fa-lo7"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -178,6 +180,7 @@
                         <outlet property="projectDescriptionField" destination="cuX-8e-gEI" id="tCZ-3y-kao"/>
                         <outlet property="projectKeywordField" destination="5ke-A2-pmJ" id="ZVM-5z-BzJ"/>
                         <outlet property="projectNameField" destination="AhI-jF-kd8" id="fEP-BY-dfb"/>
+                        <outlet property="toolBar" destination="D3G-II-Jnv" id="gWb-DJ-GlM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PrE-FR-Xnj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -185,4 +188,7 @@
             <point key="canvasLocation" x="-6493" y="-1378"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="WTg-Z2-HwZ"/>
+    </inferredMetricsTieBreakers>
 </document>
