@@ -165,7 +165,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="90" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B3V-ax-peS">
+                                                <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="B3V-ax-peS">
                                                     <rect key="frame" x="0.0" y="0.0" width="97" height="69"/>
                                                 </imageView>
                                             </subviews>
@@ -176,13 +176,21 @@
                                             <constraint firstItem="B3V-ax-peS" firstAttribute="top" secondItem="aqt-ez-ElJ" secondAttribute="top" id="HeX-ll-K3U"/>
                                             <constraint firstItem="B3V-ax-peS" firstAttribute="leading" secondItem="aqt-ez-ElJ" secondAttribute="leadingMargin" id="Jfy-EG-7VA"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="B3V-ax-peS" secondAttribute="bottom" id="JgP-L1-vbB"/>
-                                            <constraint firstAttribute="bottom" secondItem="B3V-ax-peS" secondAttribute="bottom" id="Laz-IJ-uJP"/>
+                                            <constraint firstAttribute="bottom" secondItem="B3V-ax-peS" secondAttribute="bottom" constant="-9" id="Laz-IJ-uJP"/>
                                             <constraint firstItem="B3V-ax-peS" firstAttribute="top" secondItem="aqt-ez-ElJ" secondAttribute="topMargin" id="Z03-dZ-EeK"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="B3V-ax-peS" secondAttribute="trailing" id="gzx-Xc-wyx"/>
                                             <constraint firstItem="B3V-ax-peS" firstAttribute="leading" secondItem="aqt-ez-ElJ" secondAttribute="leading" id="pAz-tO-tIr"/>
-                                            <constraint firstAttribute="trailing" secondItem="B3V-ax-peS" secondAttribute="trailing" id="xEA-2u-N6c"/>
+                                            <constraint firstAttribute="trailing" secondItem="B3V-ax-peS" secondAttribute="trailing" constant="-7" id="xEA-2u-N6c"/>
                                         </constraints>
                                         <size key="customSize" width="90" height="60"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="Jfy-EG-7VA"/>
+                                                <exclude reference="JgP-L1-vbB"/>
+                                                <exclude reference="Z03-dZ-EeK"/>
+                                                <exclude reference="gzx-Xc-wyx"/>
+                                            </mask>
+                                        </variation>
                                         <connections>
                                             <segue destination="WWF-8G-6KL" kind="show" identifier="photoView" id="yXM-lF-P0b"/>
                                         </connections>
@@ -193,8 +201,8 @@
                                     <outlet property="delegate" destination="zIW-kp-RYx" id="3y7-eg-37r"/>
                                 </connections>
                             </collectionView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" text="Project Description: " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cuX-8e-gEI">
-                                <rect key="frame" x="20" y="186" width="560" height="200"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Project Description: " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cuX-8e-gEI">
+                                <rect key="frame" x="20" y="184" width="560" height="200"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="pHn-oQ-hqr"/>
@@ -227,6 +235,11 @@
                             <constraint firstItem="AhI-jF-kd8" firstAttribute="leading" secondItem="Zah-1O-gng" secondAttribute="leadingMargin" id="hnB-6z-wll"/>
                             <constraint firstAttribute="trailing" secondItem="js2-q1-MtM" secondAttribute="trailing" id="wT1-3q-uiv"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="1TR-sl-g1d"/>
+                            </mask>
+                        </variation>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Project Title" id="JKt-iv-wKy">
@@ -342,6 +355,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="600" height="600"/>
                     <connections>
                         <outlet property="imageView" destination="V6t-0b-1Ha" id="cv4-KQ-yu8"/>
                         <outlet property="navigationItem" destination="yy5-Dj-kjR" id="uJV-jZ-ihk"/>
