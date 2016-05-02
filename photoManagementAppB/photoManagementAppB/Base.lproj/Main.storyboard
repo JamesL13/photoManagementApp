@@ -294,7 +294,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vj8-uM-mVj">
-                                <rect key="frame" x="0.0" y="512" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
                                     <barButtonItem systemItem="action" id="iWS-rB-i2B"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="RTd-At-sO5"/>
@@ -341,7 +341,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="imageView" destination="V6t-0b-1Ha" id="cv4-KQ-yu8"/>
                         <outlet property="navigationItem" destination="yy5-Dj-kjR" id="uJV-jZ-ihk"/>
