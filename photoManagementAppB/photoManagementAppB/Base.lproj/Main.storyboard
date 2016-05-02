@@ -95,7 +95,7 @@
             </objects>
             <point key="canvasLocation" x="-7371" y="-1378"/>
         </scene>
-        <!--Project-->
+        <!--Project Title-->
         <scene sceneID="MAD-zL-9h2">
             <objects>
                 <viewController id="zIW-kp-RYx" customClass="NewProjectViewController" customModule="photoManagementAppB" customModuleProvider="target" sceneMemberID="viewController">
@@ -229,7 +229,7 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Project" id="JKt-iv-wKy">
+                    <navigationItem key="navigationItem" title="Project Title" id="JKt-iv-wKy">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="d5I-bw-VQT">
                             <connections>
                                 <action selector="saveButton:" destination="zIW-kp-RYx" id="zcT-Ds-8wh"/>
@@ -249,7 +249,7 @@
             </objects>
             <point key="canvasLocation" x="-6493" y="-1378"/>
         </scene>
-        <!--Photo-->
+        <!--Photo Title-->
         <scene sceneID="gUF-JX-PYP">
             <objects>
                 <viewController id="WWF-8G-6KL" customClass="NewPhotoViewController" customModule="photoManagementAppB" customModuleProvider="target" sceneMemberID="viewController">
@@ -293,8 +293,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vj8-uM-mVj">
-                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vj8-uM-mVj">
+                                <rect key="frame" x="0.0" y="512" width="600" height="44"/>
                                 <items>
                                     <barButtonItem systemItem="action" id="iWS-rB-i2B"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="RTd-At-sO5"/>
@@ -334,7 +334,7 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Photo" id="yy5-Dj-kjR">
+                    <navigationItem key="navigationItem" title="Photo Title" id="yy5-Dj-kjR">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="fXT-KH-PF0">
                             <connections>
                                 <action selector="savePhoto:" destination="WWF-8G-6KL" id="hYe-BI-f81"/>
