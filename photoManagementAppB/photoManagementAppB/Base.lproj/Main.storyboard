@@ -42,18 +42,18 @@
                                         <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0aZ-dk-tE2" id="ZHJ-At-8Ux">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="&lt;&lt;Title&gt;&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nBH-XF-InK">
-                                                    <rect key="frame" x="15" y="5" width="72" height="20"/>
+                                                    <rect key="frame" x="15" y="6" width="72" height="19.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="&lt;&lt;Subtitle&gt;&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TsE-Tf-Ttf">
-                                                    <rect key="frame" x="15" y="25" width="70" height="14"/>
+                                                    <rect key="frame" x="15" y="25.5" width="69.5" height="13.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -95,7 +95,7 @@
             </objects>
             <point key="canvasLocation" x="-7371" y="-1378"/>
         </scene>
-        <!--New Project View Controller-->
+        <!--Project Title-->
         <scene sceneID="MAD-zL-9h2">
             <objects>
                 <viewController id="zIW-kp-RYx" customClass="NewProjectViewController" customModule="photoManagementAppB" customModuleProvider="target" sceneMemberID="viewController">
@@ -183,6 +183,9 @@
                                             <constraint firstAttribute="trailing" secondItem="B3V-ax-peS" secondAttribute="trailing" id="xEA-2u-N6c"/>
                                         </constraints>
                                         <size key="customSize" width="90" height="60"/>
+                                        <connections>
+                                            <segue destination="WWF-8G-6KL" kind="show" identifier="photoView" id="yXM-lF-P0b"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
@@ -226,9 +229,8 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="JKt-iv-wKy">
-                        <nil key="title"/>
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="d5I-bw-VQT">
+                    <navigationItem key="navigationItem" title="Project Title" id="JKt-iv-wKy">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="d5I-bw-VQT">
                             <connections>
                                 <action selector="saveButton:" destination="zIW-kp-RYx" id="zcT-Ds-8wh"/>
                             </connections>
@@ -236,6 +238,7 @@
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="photoCollectionView" destination="js2-q1-MtM" id="956-ve-sfe"/>
                         <outlet property="projectDescriptionField" destination="cuX-8e-gEI" id="tCZ-3y-kao"/>
                         <outlet property="projectKeywordField" destination="5ke-A2-pmJ" id="ZVM-5z-BzJ"/>
                         <outlet property="projectNameField" destination="AhI-jF-kd8" id="fEP-BY-dfb"/>
@@ -245,6 +248,124 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PrE-FR-Xnj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-6493" y="-1378"/>
+        </scene>
+        <!--Photo Title-->
+        <scene sceneID="gUF-JX-PYP">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cIN-0F-cQH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="WWF-8G-6KL" customClass="NewPhotoViewController" customModule="photoManagementAppB" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="a2k-GF-AO8"/>
+                        <viewControllerLayoutGuide type="bottom" id="gvV-fJ-g31"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="i3F-8q-DXd">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vj8-uM-mVj">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem systemItem="action" id="iWS-rB-i2B"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="RTd-At-sO5"/>
+                                    <barButtonItem systemItem="organize" id="Xxe-FB-Ohj"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="POq-Qm-sBv"/>
+                                    <barButtonItem systemItem="trash" id="pQb-d1-Q8i"/>
+                                </items>
+                            </toolbar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="V6t-0b-1Ha">
+                                <rect key="frame" x="175" y="100" width="250" height="175"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="2Es-1O-1cU"/>
+                                    <constraint firstAttribute="height" constant="175" id="IEg-vG-jTz"/>
+                                </constraints>
+                            </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Photo Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O43-GK-WFN">
+                                <rect key="frame" x="20" y="295" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Caption" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AHh-oS-lWN">
+                                <rect key="frame" x="20" y="345" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Keywords" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OgJ-rk-2ql">
+                                <rect key="frame" x="20" y="395" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sjx-NF-Fgy">
+                                <rect key="frame" x="20" y="445" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Photographer" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8wq-1D-Yfc">
+                                <rect key="frame" x="20" y="495" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="AHh-oS-lWN" secondAttribute="trailing" id="0vd-VW-GaV"/>
+                            <constraint firstItem="O43-GK-WFN" firstAttribute="leading" secondItem="i3F-8q-DXd" secondAttribute="leadingMargin" id="4Ij-Ca-RZM"/>
+                            <constraint firstItem="Vj8-uM-mVj" firstAttribute="leading" secondItem="i3F-8q-DXd" secondAttribute="leading" id="4rr-Y1-FNB"/>
+                            <constraint firstItem="O43-GK-WFN" firstAttribute="top" secondItem="V6t-0b-1Ha" secondAttribute="bottom" constant="20" id="EhI-fH-w52"/>
+                            <constraint firstItem="8wq-1D-Yfc" firstAttribute="leading" secondItem="i3F-8q-DXd" secondAttribute="leadingMargin" id="F08-PK-cbJ"/>
+                            <constraint firstItem="8wq-1D-Yfc" firstAttribute="top" secondItem="sjx-NF-Fgy" secondAttribute="bottom" constant="20" id="Fgn-tc-L1V"/>
+                            <constraint firstItem="AHh-oS-lWN" firstAttribute="top" secondItem="O43-GK-WFN" secondAttribute="bottom" constant="20" id="HTX-kU-zRy"/>
+                            <constraint firstItem="sjx-NF-Fgy" firstAttribute="leading" secondItem="i3F-8q-DXd" secondAttribute="leadingMargin" id="IXW-km-M1L"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="OgJ-rk-2ql" secondAttribute="trailing" id="Klz-O8-lB9"/>
+                            <constraint firstItem="OgJ-rk-2ql" firstAttribute="centerX" secondItem="AHh-oS-lWN" secondAttribute="centerX" id="TiC-TZ-79N"/>
+                            <constraint firstItem="8wq-1D-Yfc" firstAttribute="centerX" secondItem="sjx-NF-Fgy" secondAttribute="centerX" id="VbV-VF-yp1"/>
+                            <constraint firstItem="8wq-1D-Yfc" firstAttribute="trailing" secondItem="i3F-8q-DXd" secondAttribute="trailingMargin" id="WBo-f3-1JY"/>
+                            <constraint firstItem="AHh-oS-lWN" firstAttribute="centerX" secondItem="O43-GK-WFN" secondAttribute="centerX" id="XfZ-UK-xol"/>
+                            <constraint firstItem="sjx-NF-Fgy" firstAttribute="top" secondItem="OgJ-rk-2ql" secondAttribute="bottom" constant="20" id="aQc-Kv-9fI"/>
+                            <constraint firstAttribute="trailing" secondItem="Vj8-uM-mVj" secondAttribute="trailing" id="akB-gE-9O9"/>
+                            <constraint firstItem="O43-GK-WFN" firstAttribute="centerX" secondItem="V6t-0b-1Ha" secondAttribute="centerX" id="cBN-87-sFo"/>
+                            <constraint firstItem="AHh-oS-lWN" firstAttribute="leading" secondItem="i3F-8q-DXd" secondAttribute="leadingMargin" id="gER-KA-EbY"/>
+                            <constraint firstItem="OgJ-rk-2ql" firstAttribute="leading" secondItem="i3F-8q-DXd" secondAttribute="leadingMargin" id="igt-SI-kFQ"/>
+                            <constraint firstItem="sjx-NF-Fgy" firstAttribute="centerX" secondItem="OgJ-rk-2ql" secondAttribute="centerX" id="kOn-0F-x2V"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="O43-GK-WFN" secondAttribute="trailing" id="lvd-wh-iUa"/>
+                            <constraint firstItem="V6t-0b-1Ha" firstAttribute="top" secondItem="a2k-GF-AO8" secondAttribute="bottom" constant="36" id="p2J-Rr-stl"/>
+                            <constraint firstItem="V6t-0b-1Ha" firstAttribute="centerX" secondItem="i3F-8q-DXd" secondAttribute="centerX" id="qTh-Ng-LH8"/>
+                            <constraint firstItem="gvV-fJ-g31" firstAttribute="top" secondItem="Vj8-uM-mVj" secondAttribute="bottom" id="rr2-jG-kjP"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="sjx-NF-Fgy" secondAttribute="trailing" id="txf-hv-22o"/>
+                            <constraint firstItem="OgJ-rk-2ql" firstAttribute="top" secondItem="AHh-oS-lWN" secondAttribute="bottom" constant="20" id="wyt-zs-o3w"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems>
+                        <barButtonItem title="Save" id="RM9-Cd-0BS">
+                            <connections>
+                                <action selector="saveButton:" destination="zIW-kp-RYx" id="dNl-LH-BFI"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem title="Save" id="4WW-fv-VZH">
+                            <connections>
+                                <action selector="saveButton:" destination="zIW-kp-RYx" id="uuL-UD-B25"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <navigationItem key="navigationItem" title="Photo Title" id="yy5-Dj-kjR">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="fXT-KH-PF0">
+                            <connections>
+                                <action selector="savePhoto:" destination="WWF-8G-6KL" id="hYe-BI-f81"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="imageView" destination="V6t-0b-1Ha" id="cv4-KQ-yu8"/>
+                        <outlet property="navigationItem" destination="yy5-Dj-kjR" id="uJV-jZ-ihk"/>
+                        <outlet property="photoCaptionField" destination="AHh-oS-lWN" id="Vy6-VI-fLn"/>
+                        <outlet property="photoKeywordsField" destination="OgJ-rk-2ql" id="WVc-1H-pmA"/>
+                        <outlet property="photoLocationField" destination="sjx-NF-Fgy" id="PrI-lZ-9yf"/>
+                        <outlet property="photoNameField" destination="O43-GK-WFN" id="Wal-UF-eXH"/>
+                        <outlet property="photoPhotographerField" destination="8wq-1D-Yfc" id="dER-o2-EQh"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="-5695" y="-1378"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

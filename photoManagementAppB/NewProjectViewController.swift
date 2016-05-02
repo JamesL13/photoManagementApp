@@ -15,6 +15,7 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
     @IBOutlet weak var projectKeywordField: UITextField!
     @IBOutlet weak var projectDescriptionField: UITextView!
     @IBOutlet weak var toolBar: UIToolbar!
+    @IBOutlet weak var photoCollectionView: UICollectionView!
     
     var newProject: NSManagedObject?
     
@@ -38,6 +39,7 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
         projectDescriptionField.layer.cornerRadius = 5.0
         // Do any additional setup after loading the view.
         if let editProject = newProject {
+            self.navigationItem.title = editProject.valueForKey("projectName") as? String
             projectNameField.text = editProject.valueForKey("projectName") as? String
             projectKeywordField.text = editProject.valueForKey("projectKeywords") as? String
             projectDescriptionField.text = editProject.valueForKey("projectDescription") as? String
@@ -268,6 +270,23 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
             }
         } catch {
             return false
+        }
+    }
+    
+    // MARK: - Navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        /* Get the first object of the array returned because only a single image can be selected at a time */
+        let path = photoCollectionView.indexPathsForSelectedItems()![0].item
+        
+        let destinationViewController = segue.destinationViewController
+        
+        if let newPhotoViewController = destinationViewController as? NewPhotoViewController {
+            if (segue.identifier == "photoView")
+            {
+                newPhotoViewController.photo = self.photo[path] as? Photo
+                newPhotoViewController.fetchedResultsController = self.fetchedResultsController
+            }
         }
     }
     
