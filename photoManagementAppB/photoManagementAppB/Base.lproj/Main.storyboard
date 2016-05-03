@@ -95,7 +95,7 @@
             </objects>
             <point key="canvasLocation" x="-7371" y="-1378"/>
         </scene>
-        <!--Project Title-->
+        <!--Project-->
         <scene sceneID="MAD-zL-9h2">
             <objects>
                 <viewController id="zIW-kp-RYx" customClass="NewProjectViewController" customModule="photoManagementAppB" customModuleProvider="target" sceneMemberID="viewController">
@@ -242,7 +242,7 @@
                         </variation>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Project Title" id="JKt-iv-wKy">
+                    <navigationItem key="navigationItem" title="Project" id="JKt-iv-wKy">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="d5I-bw-VQT">
                             <connections>
                                 <action selector="saveButton:" destination="zIW-kp-RYx" id="zcT-Ds-8wh"/>
@@ -262,7 +262,7 @@
             </objects>
             <point key="canvasLocation" x="-6493" y="-1378"/>
         </scene>
-        <!--Photo Title-->
+        <!--Photo-->
         <scene sceneID="gUF-JX-PYP">
             <objects>
                 <viewController id="WWF-8G-6KL" customClass="NewPhotoViewController" customModule="photoManagementAppB" customModuleProvider="target" sceneMemberID="viewController">
@@ -347,7 +347,7 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Photo Title" id="yy5-Dj-kjR">
+                    <navigationItem key="navigationItem" title="Photo" id="yy5-Dj-kjR">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="fXT-KH-PF0">
                             <connections>
                                 <action selector="savePhoto:" destination="WWF-8G-6KL" id="hYe-BI-f81"/>
