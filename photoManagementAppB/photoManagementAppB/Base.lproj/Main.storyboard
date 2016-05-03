@@ -151,8 +151,8 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="js2-q1-MtM">
                                 <rect key="frame" x="0.0" y="394" width="600" height="162"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.052975194323212627" alpha="1" colorSpace="calibratedRGB"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="TNh-ei-cYf">
-                                    <size key="itemSize" width="97" height="69"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="qCD-dQ-eXG">
+                                    <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -271,43 +271,11 @@
                         <viewControllerLayoutGuide type="bottom" id="gvV-fJ-g31"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="i3F-8q-DXd">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="910"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="V6t-0b-1Ha">
-                                <rect key="frame" x="175" y="100" width="250" height="175"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="250" id="2Es-1O-1cU"/>
-                                    <constraint firstAttribute="height" constant="175" id="IEg-vG-jTz"/>
-                                </constraints>
-                            </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Photo Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O43-GK-WFN">
-                                <rect key="frame" x="20" y="295" width="560" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Caption" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AHh-oS-lWN">
-                                <rect key="frame" x="20" y="345" width="560" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Keywords" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OgJ-rk-2ql">
-                                <rect key="frame" x="20" y="395" width="560" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sjx-NF-Fgy">
-                                <rect key="frame" x="20" y="445" width="560" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Photographer" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8wq-1D-Yfc">
-                                <rect key="frame" x="20" y="495" width="560" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vj8-uM-mVj">
-                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="866" width="600" height="44"/>
                                 <items>
                                     <barButtonItem systemItem="action" id="iWS-rB-i2B"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="RTd-At-sO5"/>
@@ -316,34 +284,88 @@
                                     <barButtonItem systemItem="trash" id="pQb-d1-Q8i"/>
                                 </items>
                             </toolbar>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vd8-Wv-MhX">
+                                <rect key="frame" x="0.0" y="64" width="600" height="802"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YDc-OC-DXE">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="800"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BI7-Dj-Rsb">
+                                                <rect key="frame" x="0.0" y="0.0" width="600" height="480"/>
+                                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="480" id="s1b-cG-acz"/>
+                                                </constraints>
+                                            </imageView>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Photo Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UXs-nd-sUK">
+                                                <rect key="frame" x="20" y="530" width="561" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Photo Caption" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PEU-IM-zM7">
+                                                <rect key="frame" x="20" y="580" width="561.5" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Photo Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Dw-xD-5pb">
+                                                <rect key="frame" x="20" y="680" width="561.5" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Photo Photographer" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zoD-cy-eFd">
+                                                <rect key="frame" x="20" y="730" width="561.5" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Photo Keywords" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TtH-O8-ec8">
+                                                <rect key="frame" x="20" y="630" width="560.5" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="zoD-cy-eFd" firstAttribute="centerX" secondItem="8Dw-xD-5pb" secondAttribute="centerX" id="1mZ-lR-Lal"/>
+                                            <constraint firstItem="8Dw-xD-5pb" firstAttribute="centerX" secondItem="TtH-O8-ec8" secondAttribute="centerX" id="3os-71-Ddf"/>
+                                            <constraint firstItem="PEU-IM-zM7" firstAttribute="top" secondItem="UXs-nd-sUK" secondAttribute="bottom" constant="20" id="70F-e6-HZ6"/>
+                                            <constraint firstItem="PEU-IM-zM7" firstAttribute="leading" secondItem="YDc-OC-DXE" secondAttribute="leading" constant="20" id="7gA-Xn-4UW"/>
+                                            <constraint firstItem="BI7-Dj-Rsb" firstAttribute="top" secondItem="YDc-OC-DXE" secondAttribute="top" id="8dp-oD-IpV"/>
+                                            <constraint firstItem="zoD-cy-eFd" firstAttribute="top" secondItem="8Dw-xD-5pb" secondAttribute="bottom" constant="20" id="Alo-tC-4pU"/>
+                                            <constraint firstItem="TtH-O8-ec8" firstAttribute="leading" secondItem="YDc-OC-DXE" secondAttribute="leading" constant="20" id="Fn8-rB-qZ9"/>
+                                            <constraint firstItem="UXs-nd-sUK" firstAttribute="leading" secondItem="YDc-OC-DXE" secondAttribute="leading" constant="20" id="Fza-j3-YXT"/>
+                                            <constraint firstItem="UXs-nd-sUK" firstAttribute="centerX" secondItem="BI7-Dj-Rsb" secondAttribute="centerX" id="OlJ-ND-8vL"/>
+                                            <constraint firstAttribute="height" constant="800" id="ShF-r4-Slr"/>
+                                            <constraint firstItem="8Dw-xD-5pb" firstAttribute="top" secondItem="TtH-O8-ec8" secondAttribute="bottom" constant="20" id="TN3-ON-iCq"/>
+                                            <constraint firstItem="8Dw-xD-5pb" firstAttribute="leading" secondItem="YDc-OC-DXE" secondAttribute="leading" constant="20" id="Tv2-8L-Ejd"/>
+                                            <constraint firstItem="TtH-O8-ec8" firstAttribute="centerX" secondItem="PEU-IM-zM7" secondAttribute="centerX" id="WdL-SP-92h"/>
+                                            <constraint firstItem="BI7-Dj-Rsb" firstAttribute="width" secondItem="YDc-OC-DXE" secondAttribute="width" id="aMK-uv-iCb"/>
+                                            <constraint firstItem="zoD-cy-eFd" firstAttribute="leading" secondItem="YDc-OC-DXE" secondAttribute="leading" constant="20" id="d64-3u-Pbg"/>
+                                            <constraint firstItem="PEU-IM-zM7" firstAttribute="centerX" secondItem="UXs-nd-sUK" secondAttribute="centerX" id="kVo-3h-Dcv"/>
+                                            <constraint firstItem="BI7-Dj-Rsb" firstAttribute="leading" secondItem="YDc-OC-DXE" secondAttribute="leading" id="rha-NU-ree"/>
+                                            <constraint firstItem="UXs-nd-sUK" firstAttribute="top" secondItem="BI7-Dj-Rsb" secondAttribute="bottom" constant="50" id="vzR-4h-MnB"/>
+                                            <constraint firstItem="TtH-O8-ec8" firstAttribute="top" secondItem="PEU-IM-zM7" secondAttribute="bottom" constant="20" id="x0h-dR-Z6j"/>
+                                            <constraint firstAttribute="trailing" secondItem="BI7-Dj-Rsb" secondAttribute="trailing" id="zuI-jN-lEr"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="YDc-OC-DXE" secondAttribute="bottom" id="26C-4k-cKu"/>
+                                    <constraint firstAttribute="trailing" secondItem="YDc-OC-DXE" secondAttribute="trailing" id="Pni-Ty-FeY"/>
+                                    <constraint firstItem="YDc-OC-DXE" firstAttribute="leading" secondItem="Vd8-Wv-MhX" secondAttribute="leading" id="c3n-pL-kyt"/>
+                                    <constraint firstItem="YDc-OC-DXE" firstAttribute="top" secondItem="Vd8-Wv-MhX" secondAttribute="top" id="onJ-O7-GcL"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="AHh-oS-lWN" secondAttribute="trailing" id="0vd-VW-GaV"/>
-                            <constraint firstItem="O43-GK-WFN" firstAttribute="leading" secondItem="i3F-8q-DXd" secondAttribute="leadingMargin" id="4Ij-Ca-RZM"/>
+                            <constraint firstItem="Vd8-Wv-MhX" firstAttribute="top" secondItem="a2k-GF-AO8" secondAttribute="bottom" id="2Xu-ba-QXy"/>
                             <constraint firstItem="Vj8-uM-mVj" firstAttribute="leading" secondItem="i3F-8q-DXd" secondAttribute="leading" id="4rr-Y1-FNB"/>
-                            <constraint firstItem="O43-GK-WFN" firstAttribute="top" secondItem="V6t-0b-1Ha" secondAttribute="bottom" constant="20" id="EhI-fH-w52"/>
-                            <constraint firstItem="8wq-1D-Yfc" firstAttribute="leading" secondItem="i3F-8q-DXd" secondAttribute="leadingMargin" id="F08-PK-cbJ"/>
-                            <constraint firstItem="8wq-1D-Yfc" firstAttribute="top" secondItem="sjx-NF-Fgy" secondAttribute="bottom" constant="20" id="Fgn-tc-L1V"/>
-                            <constraint firstItem="AHh-oS-lWN" firstAttribute="top" secondItem="O43-GK-WFN" secondAttribute="bottom" constant="20" id="HTX-kU-zRy"/>
-                            <constraint firstItem="sjx-NF-Fgy" firstAttribute="leading" secondItem="i3F-8q-DXd" secondAttribute="leadingMargin" id="IXW-km-M1L"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="OgJ-rk-2ql" secondAttribute="trailing" id="Klz-O8-lB9"/>
-                            <constraint firstItem="OgJ-rk-2ql" firstAttribute="centerX" secondItem="AHh-oS-lWN" secondAttribute="centerX" id="TiC-TZ-79N"/>
-                            <constraint firstItem="8wq-1D-Yfc" firstAttribute="centerX" secondItem="sjx-NF-Fgy" secondAttribute="centerX" id="VbV-VF-yp1"/>
-                            <constraint firstItem="8wq-1D-Yfc" firstAttribute="trailing" secondItem="i3F-8q-DXd" secondAttribute="trailingMargin" id="WBo-f3-1JY"/>
-                            <constraint firstItem="AHh-oS-lWN" firstAttribute="centerX" secondItem="O43-GK-WFN" secondAttribute="centerX" id="XfZ-UK-xol"/>
-                            <constraint firstItem="sjx-NF-Fgy" firstAttribute="top" secondItem="OgJ-rk-2ql" secondAttribute="bottom" constant="20" id="aQc-Kv-9fI"/>
+                            <constraint firstItem="YDc-OC-DXE" firstAttribute="width" secondItem="i3F-8q-DXd" secondAttribute="width" id="6P8-sa-c3y"/>
+                            <constraint firstItem="Vj8-uM-mVj" firstAttribute="top" secondItem="Vd8-Wv-MhX" secondAttribute="bottom" id="8yG-IE-8WA"/>
+                            <constraint firstItem="Vd8-Wv-MhX" firstAttribute="leading" secondItem="i3F-8q-DXd" secondAttribute="leading" id="RhM-4H-JCg"/>
                             <constraint firstAttribute="trailing" secondItem="Vj8-uM-mVj" secondAttribute="trailing" id="akB-gE-9O9"/>
-                            <constraint firstItem="O43-GK-WFN" firstAttribute="centerX" secondItem="V6t-0b-1Ha" secondAttribute="centerX" id="cBN-87-sFo"/>
-                            <constraint firstItem="AHh-oS-lWN" firstAttribute="leading" secondItem="i3F-8q-DXd" secondAttribute="leadingMargin" id="gER-KA-EbY"/>
-                            <constraint firstItem="OgJ-rk-2ql" firstAttribute="leading" secondItem="i3F-8q-DXd" secondAttribute="leadingMargin" id="igt-SI-kFQ"/>
-                            <constraint firstItem="sjx-NF-Fgy" firstAttribute="centerX" secondItem="OgJ-rk-2ql" secondAttribute="centerX" id="kOn-0F-x2V"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="O43-GK-WFN" secondAttribute="trailing" id="lvd-wh-iUa"/>
-                            <constraint firstItem="V6t-0b-1Ha" firstAttribute="top" secondItem="a2k-GF-AO8" secondAttribute="bottom" constant="36" id="p2J-Rr-stl"/>
-                            <constraint firstItem="V6t-0b-1Ha" firstAttribute="centerX" secondItem="i3F-8q-DXd" secondAttribute="centerX" id="qTh-Ng-LH8"/>
                             <constraint firstItem="gvV-fJ-g31" firstAttribute="top" secondItem="Vj8-uM-mVj" secondAttribute="bottom" id="rr2-jG-kjP"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="sjx-NF-Fgy" secondAttribute="trailing" id="txf-hv-22o"/>
-                            <constraint firstItem="OgJ-rk-2ql" firstAttribute="top" secondItem="AHh-oS-lWN" secondAttribute="bottom" constant="20" id="wyt-zs-o3w"/>
+                            <constraint firstAttribute="trailing" secondItem="Vd8-Wv-MhX" secondAttribute="trailing" id="wap-CR-XkN"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -356,15 +378,15 @@
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="600" height="600"/>
+                    <size key="freeformSize" width="600" height="910"/>
                     <connections>
-                        <outlet property="imageView" destination="V6t-0b-1Ha" id="cv4-KQ-yu8"/>
+                        <outlet property="imageView" destination="BI7-Dj-Rsb" id="Ffk-zd-bTs"/>
                         <outlet property="navigationItem" destination="yy5-Dj-kjR" id="uJV-jZ-ihk"/>
-                        <outlet property="photoCaptionField" destination="AHh-oS-lWN" id="Vy6-VI-fLn"/>
-                        <outlet property="photoKeywordsField" destination="OgJ-rk-2ql" id="WVc-1H-pmA"/>
-                        <outlet property="photoLocationField" destination="sjx-NF-Fgy" id="PrI-lZ-9yf"/>
-                        <outlet property="photoNameField" destination="O43-GK-WFN" id="Wal-UF-eXH"/>
-                        <outlet property="photoPhotographerField" destination="8wq-1D-Yfc" id="dER-o2-EQh"/>
+                        <outlet property="photoCaptionField" destination="PEU-IM-zM7" id="DHN-HT-XFY"/>
+                        <outlet property="photoKeywordsField" destination="TtH-O8-ec8" id="hrk-Pz-J29"/>
+                        <outlet property="photoLocationField" destination="8Dw-xD-5pb" id="k7x-8s-c7d"/>
+                        <outlet property="photoNameField" destination="UXs-nd-sUK" id="nB0-cA-Fij"/>
+                        <outlet property="photoPhotographerField" destination="zoD-cy-eFd" id="1Te-Ui-BFy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cIN-0F-cQH" userLabel="First Responder" sceneMemberID="firstResponder"/>
