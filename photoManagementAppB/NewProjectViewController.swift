@@ -69,6 +69,27 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
         
         imagePicker.delegate = self
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.photo = []
+        self.imageList = []
+        
+        if (loadPhoto()) {
+            if (photo.count > 0) {
+                print("there are photos to display from core data")
+                print("There are photos in core data to display")
+                for index in 0...(photo.count - 1) {
+                    if(photo[index].valueForKey("project") as? Project == self.newProject) {
+                        let imageToDisplay: UIImage! = UIImage(data: photo[index].valueForKey("photo") as! NSData)
+                        //imageView.contentMode = .ScaleAspectFit
+                        imageList.append(imageToDisplay)
+                    }
+                }
+            }
+        }
+        
+        photoCollectionView.reloadData()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -223,7 +244,7 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
         imagePicker.allowsEditing = false
         imagePicker.sourceType = .PhotoLibrary
         presentViewController(imagePicker, animated: true, completion: nil)
-        
+
         /*Add the selected pictures to the projects corresponding array*/
         
         /*Save array to core data*/
@@ -234,16 +255,14 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
     {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedContext = appDelegate.managedObjectContext
-        
-        if newPhoto == nil {
+
             let newPhotoEntity = NSEntityDescription.entityForName("Photo", inManagedObjectContext: managedContext)
             newPhoto = NSManagedObject(entity: newPhotoEntity!, insertIntoManagedObjectContext: managedContext)
-        }
         
         let imageData: NSData! = UIImagePNGRepresentation(pickedImage)
         
         newPhoto?.setValue(imageData, forKey: "photo")
-        newPhoto?.setValue(self.newProject, forKey: "project");
+        newPhoto?.setValue(self.newProject, forKey: "project")
         
         do {
             try managedContext.save()

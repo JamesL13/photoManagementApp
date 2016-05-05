@@ -35,6 +35,7 @@ class NewPhotoViewController: UIViewController {
             photoLocationField.text = editPhoto.valueForKey("photoLocation") as? String
             photoPhotographerField.text = editPhoto.valueForKey("photoPhotographer") as? String
         }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -97,6 +98,7 @@ class NewPhotoViewController: UIViewController {
             print("Could not save new project")
             print("Could not save \(error), \(error.userInfo)")
         }
+        
         
         self.navigationController?.popViewControllerAnimated(true)
     }
