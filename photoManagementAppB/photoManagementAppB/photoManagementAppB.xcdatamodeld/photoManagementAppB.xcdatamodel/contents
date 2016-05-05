@@ -3,6 +3,7 @@
     <entity name="Photo" representedClassName=".Photo" syncable="YES">
         <attribute name="photo" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
         <attribute name="photoCaption" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="photoFlagged" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="photoKeywords" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="photoLocation" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="photoName" optional="YES" attributeType="String" syncable="YES"/>
@@ -18,7 +19,7 @@
         <relationship name="photo" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Photo" inverseName="project" inverseEntity="Photo" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Photo" positionX="-45" positionY="36" width="128" height="150"/>
+        <element name="Photo" positionX="-45" positionY="36" width="128" height="165"/>
         <element name="Project" positionX="-63" positionY="-18" width="128" height="135"/>
     </elements>
 </model>

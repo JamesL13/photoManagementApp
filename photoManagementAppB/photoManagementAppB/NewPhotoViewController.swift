@@ -61,12 +61,7 @@ class NewPhotoViewController: UIViewController {
     {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedContext = appDelegate.managedObjectContext
-        
-        /*if photo == nil {
-            let newPhotoEntity = NSEntityDescription.entityForName("Photo", inManagedObjectContext: managedContext)
-            photo = NSManagedObject(entity: newPhotoEntity!, insertIntoManagedObjectContext: managedContext)
-        }*/
-        
+
         photo?.setValue(photoNameField.text, forKey: "photoName")
         photo?.setValue(photoCaptionField.text, forKey: "photoCaption")
         photo?.setValue(photoKeywordsField.text, forKey: "photoKeywords")
@@ -103,6 +98,15 @@ class NewPhotoViewController: UIViewController {
         self.navigationController?.popViewControllerAnimated(true)
     }
     
+    @IBAction func flagPhoto(sender: AnyObject) {
+        if photo?.valueForKey("photoFlagged") as? Bool == true {
+            photo?.setValue(false, forKey: "photoFlagged")
+            print("photo unflagged")
+        } else {
+            photo?.setValue(true, forKey: "photoFlagged")
+            print("photo flagged")
+        }
+    }
 
     /*
     // MARK: - Navigation

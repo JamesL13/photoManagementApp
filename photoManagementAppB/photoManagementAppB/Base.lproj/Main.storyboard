@@ -356,7 +356,11 @@
                                 <items>
                                     <barButtonItem systemItem="action" id="iWS-rB-i2B"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="RTd-At-sO5"/>
-                                    <barButtonItem systemItem="organize" id="Xxe-FB-Ohj"/>
+                                    <barButtonItem systemItem="organize" id="Xxe-FB-Ohj">
+                                        <connections>
+                                            <action selector="flagPhoto:" destination="WWF-8G-6KL" id="zdR-Ve-fOq"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="POq-Qm-sBv"/>
                                     <barButtonItem systemItem="trash" id="pQb-d1-Q8i">
                                         <connections>

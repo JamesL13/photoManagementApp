@@ -9,8 +9,9 @@
 import UIKit
 import CoreData
 import Social
+import MessageUI
 
-class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
+class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, MFMailComposeViewControllerDelegate  {
 
     @IBOutlet weak var projectNameField: UITextField!
     @IBOutlet weak var projectKeywordField: UITextField!
@@ -263,6 +264,7 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
         
         newPhoto?.setValue(imageData, forKey: "photo")
         newPhoto?.setValue(self.newProject, forKey: "project")
+        newPhoto?.setValue(false, forKey: "photoFlagged")
         
         do {
             try managedContext.save()
@@ -335,10 +337,25 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
         let shareProject = UIAlertAction(title: "Facebook", style: .Default) { (action) in self.shareOnFacebook()  }
         alert.addAction(shareProject)
-        let tweetProject = UIAlertAction(title: "Twitter", style: .Default) { (action) in self.shareOnTwitter()  }
-        alert.addAction(tweetProject)
+        let mailProject = UIAlertAction(title: "Email", style: .Default) { (action) in self.shareOnMail()  }
+        alert.addAction(mailProject)
         alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
         self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func shareOnMail() {
+        let mailComposerVC = MFMailComposeViewController()
+        mailComposerVC.mailComposeDelegate = self // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
+        
+        mailComposerVC.setToRecipients(["gakf38@mail.missouri.edu"])
+        mailComposerVC.setSubject("Sending you an in-app e-mail...")
+        mailComposerVC.setMessageBody("Sending e-mail in-app is not so bad!", isHTML: false)
+        
+        if MFMailComposeViewController.canSendMail() {
+            self.presentViewController(mailComposerVC, animated: true, completion: nil)
+        } else {
+            print("email failed")
+        }
     }
     
     func shareOnFacebook() {
@@ -359,7 +376,7 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
         }
     }
     
-    func shareOnTwitter() {
+    /*func shareOnTwitter() {
         if SLComposeViewController.isAvailableForServiceType(SLServiceTypeTwitter){
             let twitterSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
             let projectName = newProject?.valueForKey("projectName") as? String
@@ -375,7 +392,7 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
         }
-    }
+    }*/
     
     // MARK: - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
