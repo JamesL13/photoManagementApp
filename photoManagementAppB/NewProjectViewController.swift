@@ -48,10 +48,6 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
             self.toolBar.hidden = false
         }
         
-        /*for index in 0...(3) {
-            imageList.append("Photo\(index).jpg")
-        }*/
-        
         if (loadPhoto()) {
             if (photo.count > 0) {
                 print("there are photos to display from core data")
@@ -65,8 +61,6 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
                 }
             }
         }
-        
-        //loadPhoto()
         
         imagePicker.delegate = self
     }
