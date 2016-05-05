@@ -120,7 +120,11 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D3G-II-Jnv">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
-                                    <barButtonItem systemItem="action" id="aCy-9p-7nd"/>
+                                    <barButtonItem systemItem="action" id="aCy-9p-7nd">
+                                        <connections>
+                                            <action selector="shareOnSocialMedia:" destination="zIW-kp-RYx" id="FMn-Zf-oKA"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="hEW-Nm-5i0"/>
                                     <barButtonItem style="plain" systemItem="bookmarks" id="dfQ-mY-Mk6">
                                         <connections>
@@ -128,18 +132,17 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="gHA-nj-UDP"/>
-                                    <barButtonItem style="plain" id="L2Y-9g-ScL">
-                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nuL-M9-Hlx">
-                                            <rect key="frame" x="283" y="7" width="38" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="PLUS"/>
-                                            <connections>
-                                                <action selector="addPhoto:" destination="zIW-kp-RYx" eventType="touchUpInside" id="2Ai-Du-IYn"/>
-                                            </connections>
-                                        </button>
+                                    <barButtonItem style="plain" systemItem="add" id="L2Y-9g-ScL">
+                                        <connections>
+                                            <action selector="addPhoto:" destination="zIW-kp-RYx" id="xSi-uV-ATG"/>
+                                        </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="705-ui-FFo"/>
-                                    <barButtonItem systemItem="organize" id="98X-QH-Pt3"/>
+                                    <barButtonItem systemItem="organize" id="98X-QH-Pt3">
+                                        <connections>
+                                            <action selector="completeProject:" destination="zIW-kp-RYx" id="JhQ-zc-zYC"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="a9l-Pq-xcq"/>
                                     <barButtonItem systemItem="trash" id="1IY-qv-pP5">
                                         <connections>
@@ -150,7 +153,7 @@
                             </toolbar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="js2-q1-MtM">
                                 <rect key="frame" x="0.0" y="394" width="600" height="162"/>
-                                <color key="backgroundColor" red="0.0" green="1" blue="0.052975194323212627" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="TNh-ei-cYf">
                                     <size key="itemSize" width="97" height="69"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>

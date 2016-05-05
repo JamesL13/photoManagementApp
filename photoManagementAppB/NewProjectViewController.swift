@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Social
 
 class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
 
@@ -53,7 +54,7 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
                 print("there are photos to display from core data")
                 print("There are photos in core data to display")
                 for index in 0...(photo.count - 1) {
-                    if(photo[index].valueForKey("project") as! Project == self.newProject) {
+                    if(photo[index].valueForKey("project") as? Project == self.newProject) {
                         let imageToDisplay: UIImage! = UIImage(data: photo[index].valueForKey("photo") as! NSData)
                         //imageView.contentMode = .ScaleAspectFit
                         imageList.append(imageToDisplay)
@@ -147,6 +148,24 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
             try managedContext.save()
         } catch let error as NSError {
             print("Could not save favorited project")
+            print("Could not save \(error), \(error.userInfo)")
+        }
+    }
+    
+    @IBAction func completeProject(sender: AnyObject) {
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let managedContext = appDelegate.managedObjectContext
+        
+        if (newProject?.valueForKey("projectCompleted"))! as! NSObject == true {
+            newProject?.setValue(false, forKey: "projectCompleted")
+        } else {
+            newProject?.setValue(true, forKey: "projectCompleted")
+        }
+        
+        do {
+            try managedContext.save()
+        } catch let error as NSError {
+            print("Could not save completed project")
             print("Could not save \(error), \(error.userInfo)")
         }
     }
@@ -269,6 +288,52 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
             }
         } catch {
             return false
+        }
+    }
+    @IBAction func shareOnSocialMedia(sender: AnyObject) {
+        print("SHARE•ACTION")
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
+        let shareProject = UIAlertAction(title: "Facebook", style: .Default) { (action) in self.shareOnFacebook()  }
+        alert.addAction(shareProject)
+        let tweetProject = UIAlertAction(title: "Twitter", style: .Default) { (action) in self.shareOnTwitter()  }
+        alert.addAction(tweetProject)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func shareOnFacebook() {
+        if SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook){
+            let facebookSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
+            let projectName = newProject?.valueForKey("projectName") as? String
+            let descriptionOfProject = newProject?.valueForKey("projectDescription") as? String
+            facebookSheet.setInitialText(projectName! + ": " + descriptionOfProject!)
+            for index in 0...(photo.count - 1) {
+                let imageToDisplay: UIImage! = UIImage(data: photo[index].valueForKey("photo") as! NSData)
+                facebookSheet.addImage(imageToDisplay)
+            }
+            self.presentViewController(facebookSheet, animated: true, completion: nil)
+        } else {
+            let alert = UIAlertController(title: "Accounts", message: "Please login to a Facebook account to share.", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func shareOnTwitter() {
+        if SLComposeViewController.isAvailableForServiceType(SLServiceTypeTwitter){
+            let twitterSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
+            let projectName = newProject?.valueForKey("projectName") as? String
+            let descriptionOfProject = newProject?.valueForKey("projectDescription") as? String
+            twitterSheet.setInitialText(projectName! + ":" + descriptionOfProject!)
+            for index in 0...(2) {
+                let imageToDisplay: UIImage! = UIImage(data: photo[index].valueForKey("photo") as! NSData)
+                twitterSheet.addImage(imageToDisplay)
+            }
+            self.presentViewController(twitterSheet, animated: true, completion: nil)
+        } else {
+            let alert = UIAlertController(title: "Accounts", message: "Please login to a Twitter account to share.", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
         }
     }
     
