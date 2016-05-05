@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10171" systemVersion="15E65" minimumToolsVersion="Automatic">
+    <entity name="Photo" representedClassName=".Photo" syncable="YES">
+        <attribute name="photo" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+        <attribute name="photoCaption" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="photoKeywords" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="photoLocation" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="photoName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="photoPhotographer" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="project" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Project" inverseName="photo" inverseEntity="Project" syncable="YES"/>
+    </entity>
     <entity name="Project" representedClassName="Project" syncable="YES">
         <attribute name="projectCompleted" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="projectDescription" attributeType="String" syncable="YES"/>
         <attribute name="projectFavorited" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="projectKeywords" attributeType="String" syncable="YES"/>
         <attribute name="projectName" attributeType="String" syncable="YES"/>
+        <relationship name="photo" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Photo" inverseName="project" inverseEntity="Photo" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Project" positionX="-63" positionY="-18" width="128" height="120"/>
+        <element name="Photo" positionX="-45" positionY="36" width="128" height="150"/>
+        <element name="Project" positionX="-63" positionY="-18" width="128" height="135"/>
     </elements>
 </model>
