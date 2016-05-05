@@ -21,13 +21,11 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
     
     var newProject: NSManagedObject?
     
-    //var imageList = [String]()
     var imageList = [UIImage]()
     
     var photo = [NSManagedObject]()
     var newPhoto: NSManagedObject?
-    
-    
+        
     var fetchedResultsController: NSFetchedResultsController?
     
     let imagePicker = UIImagePickerController()

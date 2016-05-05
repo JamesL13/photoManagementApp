@@ -100,7 +100,6 @@ class NewPhotoViewController: UIViewController, MFMailComposeViewControllerDeleg
             print("Could not save \(error), \(error.userInfo)")
         }
         
-        
         self.navigationController?.popViewControllerAnimated(true)
     }
     
