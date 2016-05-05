@@ -252,6 +252,26 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
             print("Could not save the photo")
             print("Could not save \(error), \(error.userInfo)")
         }
+        
+        self.photo = []
+        self.imageList = []
+        
+        if (loadPhoto()) {
+            if (photo.count > 0) {
+                print("there are photos to display from core data")
+                print("There are photos in core data to display")
+                for index in 0...(photo.count - 1) {
+                    if(photo[index].valueForKey("project") as? Project == self.newProject) {
+                        let imageToDisplay: UIImage! = UIImage(data: photo[index].valueForKey("photo") as! NSData)
+                        //imageView.contentMode = .ScaleAspectFit
+                        imageList.append(imageToDisplay)
+                    }
+                }
+            }
+        }
+
+        photoCollectionView.reloadData()
+        
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
