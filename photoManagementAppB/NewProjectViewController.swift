@@ -376,24 +376,6 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
         }
     }
     
-    /*func shareOnTwitter() {
-        if SLComposeViewController.isAvailableForServiceType(SLServiceTypeTwitter){
-            let twitterSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
-            let projectName = newProject?.valueForKey("projectName") as? String
-            let descriptionOfProject = newProject?.valueForKey("projectDescription") as? String
-            twitterSheet.setInitialText(projectName! + ":" + descriptionOfProject!)
-            for index in 0...(2) {
-                let imageToDisplay: UIImage! = UIImage(data: photo[index].valueForKey("photo") as! NSData)
-                twitterSheet.addImage(imageToDisplay)
-            }
-            self.presentViewController(twitterSheet, animated: true, completion: nil)
-        } else {
-            let alert = UIAlertController(title: "Accounts", message: "Please login to a Twitter account to share.", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
-        }
-    }*/
-    
     // MARK: - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         

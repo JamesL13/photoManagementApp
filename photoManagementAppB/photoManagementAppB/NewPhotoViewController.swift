@@ -8,8 +8,10 @@
 
 import UIKit
 import CoreData
+import Social
+import MessageUI
 
-class NewPhotoViewController: UIViewController {
+class NewPhotoViewController: UIViewController, MFMailComposeViewControllerDelegate {
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var photoNameField: UITextField!
@@ -45,6 +47,10 @@ class NewPhotoViewController: UIViewController {
     
     @IBAction func savePhoto(sender: AnyObject) {
         savePhoto()
+    }
+    
+    @IBAction func sharePhoto(sender: AnyObject) {
+        sharePhoto()
     }
     
     @IBAction func deletePhoto(sender: AnyObject) {
@@ -96,6 +102,72 @@ class NewPhotoViewController: UIViewController {
         
         
         self.navigationController?.popViewControllerAnimated(true)
+    }
+    
+    func sharePhoto() {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
+        let sharePhoto = UIAlertAction(title: "Facebook", style: .Default) { (action) in self.shareOnFacebook()  }
+        alert.addAction(sharePhoto)
+        let tweetPhoto = UIAlertAction(title: "Twitter", style: .Default) { (action) in self.shareOnTwitter() }
+        alert.addAction(tweetPhoto)
+        let mailPhoto = UIAlertAction(title: "Email", style: .Default) { (action) in self.shareOnMail()  }
+        alert.addAction(mailPhoto)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func shareOnMail() {
+        let mailComposerVC = MFMailComposeViewController()
+        mailComposerVC.mailComposeDelegate = self
+        
+        let photoName = photo?.valueForKey("photoName") as? String
+        let captionOfPhoto = photo?.valueForKey("photoCaption") as? String
+        
+        mailComposerVC.setToRecipients(["gakf38@mail.missouri.edu"])
+        mailComposerVC.setSubject(photoName!)
+        mailComposerVC.setMessageBody(captionOfPhoto!, isHTML: false)
+        
+        if MFMailComposeViewController.canSendMail() {
+            self.presentViewController(mailComposerVC, animated: true, completion: nil)
+        } else {
+            print("email failed")
+        }
+    }
+    
+    func shareOnFacebook() {
+        if SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook) {
+            let facebookSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
+            let photoName = photo?.valueForKey("photoName") as? String
+            let captionOfPhoto = photo?.valueForKey("photoCaption") as? String
+            facebookSheet.setInitialText(photoName! + ":\n" + captionOfPhoto!)
+            let imageToDisplay: UIImage! = UIImage(data: photo?.valueForKey("photo") as! NSData)
+            facebookSheet.addImage(imageToDisplay)
+            self.presentViewController(facebookSheet, animated: true, completion: nil)
+        } else {
+            let alert = UIAlertController(title: "Accounts", message: "Please login to a Facebook account to share.", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func shareOnTwitter() {
+        if SLComposeViewController.isAvailableForServiceType(SLServiceTypeTwitter) {
+            let twitterSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
+            let photoName = photo?.valueForKey("photoName") as? String
+            let captionOfPhoto = photo?.valueForKey("photoCaption") as? String
+            twitterSheet.setInitialText(photoName! + ": " + captionOfPhoto!)
+            let imageToDisplay: UIImage! = UIImage(data: photo?.valueForKey("photo") as! NSData)
+            twitterSheet.addImage(imageToDisplay)
+            
+            self.presentViewController(twitterSheet, animated: true, completion: nil)
+            
+        } else {
+            
+            let alert = UIAlertController(title: "Accounts", message: "Please login to a Twitter account to share.", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
     }
     
     @IBAction func flagPhoto(sender: AnyObject) {
