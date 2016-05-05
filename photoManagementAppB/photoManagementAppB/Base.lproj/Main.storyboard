@@ -148,6 +148,15 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Project Description: " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cuX-8e-gEI">
+                                <rect key="frame" x="20" y="184" width="560" height="200"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="pHn-oQ-hqr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="js2-q1-MtM">
                                 <rect key="frame" x="0.0" y="394" width="600" height="162"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.052975194323212627" alpha="1" colorSpace="calibratedRGB"/>
@@ -201,15 +210,6 @@
                                     <outlet property="delegate" destination="zIW-kp-RYx" id="3y7-eg-37r"/>
                                 </connections>
                             </collectionView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Project Description: " textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cuX-8e-gEI">
-                                <rect key="frame" x="20" y="184" width="560" height="200"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="pHn-oQ-hqr"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -265,7 +265,7 @@
         <!--Photo-->
         <scene sceneID="gUF-JX-PYP">
             <objects>
-                <viewController id="WWF-8G-6KL" customClass="NewPhotoViewController" customModule="photoManagementAppB" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="WWF-8G-6KL" customClass="NewPhotoViewController" customModule="photoManagementAppB" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="a2k-GF-AO8"/>
                         <viewControllerLayoutGuide type="bottom" id="gvV-fJ-g31"/>
