@@ -46,6 +46,15 @@ class NewPhotoViewController: UIViewController {
         savePhoto()
     }
     
+    @IBAction func deletePhoto(sender: AnyObject) {
+        print("DELETE•ACTION")
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
+        let deletePhoto = UIAlertAction(title: "Delete", style: .Destructive) { (action) in self.deletePhoto() }
+        alert.addAction(deletePhoto)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
     /* Function that saves a photo to core data */
     func savePhoto()
     {
@@ -68,6 +77,24 @@ class NewPhotoViewController: UIViewController {
             print("Save Successful")
         } catch let error as NSError {
             print("Could not save the photo")
+            print("Could not save \(error), \(error.userInfo)")
+        }
+        
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+    
+    func deletePhoto()
+    {
+        print("Delete this photo!")
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let managedContext = appDelegate.managedObjectContext
+        managedContext.deleteObject(self.photo!)
+        
+        do {
+            try managedContext.save()
+        } catch let error as NSError {
+            print("Could not save new project")
             print("Could not save \(error), \(error.userInfo)")
         }
         
