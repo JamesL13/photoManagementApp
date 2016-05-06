@@ -17,20 +17,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This will bug Gurt" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KKY-pP-eYT">
-                                <rect key="frame" x="180" y="290" width="241" height="21"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Photo Taxi.png" translatesAutoresizingMaskIntoConstraints="NO" id="Bie-zg-uca">
+                                <rect key="frame" x="175" y="175" width="250" height="250"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="241" id="HoM-WR-U5F"/>
+                                    <constraint firstAttribute="width" constant="250" id="NlR-4p-XX6"/>
+                                    <constraint firstAttribute="height" constant="250" id="wEx-uB-jmk"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get your photos where they need to be." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q3V-PL-dsz">
+                                <rect key="frame" x="131.5" y="435" width="337.5" height="23"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Photo Taxi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LIR-ju-YwI">
+                                <rect key="frame" x="240" y="132.5" width="120.5" height="32.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="KKY-pP-eYT" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Ag9-Tf-uPO"/>
-                            <constraint firstItem="KKY-pP-eYT" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="ahB-rJ-JNv"/>
+                            <constraint firstItem="Bie-zg-uca" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="11T-gS-Es4"/>
+                            <constraint firstItem="q3V-PL-dsz" firstAttribute="centerX" secondItem="Bie-zg-uca" secondAttribute="centerX" id="8ME-sn-HiR"/>
+                            <constraint firstItem="LIR-ju-YwI" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="CWa-DM-T4G"/>
+                            <constraint firstItem="Bie-zg-uca" firstAttribute="top" secondItem="LIR-ju-YwI" secondAttribute="bottom" constant="10" id="d6k-MO-PFS"/>
+                            <constraint firstItem="Bie-zg-uca" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="sCT-eb-Mg5"/>
+                            <constraint firstItem="q3V-PL-dsz" firstAttribute="top" secondItem="Bie-zg-uca" secondAttribute="bottom" constant="10" id="uLW-w1-JdU"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -39,4 +53,7 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Photo Taxi.png" width="4267" height="4267"/>
+    </resources>
 </document>

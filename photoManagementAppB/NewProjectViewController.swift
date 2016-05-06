@@ -9,8 +9,9 @@
 import UIKit
 import CoreData
 import Social
+import MessageUI
 
-class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate  {
+class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, MFMailComposeViewControllerDelegate  {
 
     @IBOutlet weak var projectNameField: UITextField!
     @IBOutlet weak var projectKeywordField: UITextField!
@@ -20,13 +21,11 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
     
     var newProject: NSManagedObject?
     
-    //var imageList = [String]()
     var imageList = [UIImage]()
     
     var photo = [NSManagedObject]()
     var newPhoto: NSManagedObject?
-    
-    
+        
     var fetchedResultsController: NSFetchedResultsController?
     
     let imagePicker = UIImagePickerController()
@@ -47,10 +46,6 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
             self.toolBar.hidden = false
         }
         
-        /*for index in 0...(3) {
-            imageList.append("Photo\(index).jpg")
-        }*/
-        
         if (loadPhoto()) {
             if (photo.count > 0) {
                 print("there are photos to display from core data")
@@ -64,8 +59,6 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
                 }
             }
         }
-        
-        //loadPhoto()
         
         imagePicker.delegate = self
     }
@@ -263,6 +256,7 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
         
         newPhoto?.setValue(imageData, forKey: "photo")
         newPhoto?.setValue(self.newProject, forKey: "project")
+        newPhoto?.setValue(false, forKey: "photoFlagged")
         
         do {
             try managedContext.save()
@@ -335,10 +329,39 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
         let shareProject = UIAlertAction(title: "Facebook", style: .Default) { (action) in self.shareOnFacebook()  }
         alert.addAction(shareProject)
-        let tweetProject = UIAlertAction(title: "Twitter", style: .Default) { (action) in self.shareOnTwitter()  }
-        alert.addAction(tweetProject)
+        let mailProject = UIAlertAction(title: "Email", style: .Default) { (action) in self.shareOnMail()  }
+        alert.addAction(mailProject)
         alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
         self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func shareOnMail() {
+        let mailComposerVC = MFMailComposeViewController()
+        mailComposerVC.mailComposeDelegate = self
+        let projectName = newProject?.valueForKey("projectName") as? String
+        let descriptionOfProject = newProject?.valueForKey("projectDescription") as? String
+        
+        if(projectName != nil && descriptionOfProject != nil) {
+        
+            mailComposerVC.setSubject(projectName!)
+            mailComposerVC.setMessageBody(descriptionOfProject!, isHTML: false)
+        }
+        
+        for index in 0...(photo.count - 1) {
+            let imageToDisplay = photo[index].valueForKey("photo") as! NSData
+            mailComposerVC.addAttachmentData(imageToDisplay, mimeType: "image/jpeg", fileName: projectName! + " Photo\(index)")
+        }
+        
+        if MFMailComposeViewController.canSendMail() {
+            self.presentViewController(mailComposerVC, animated: true, completion: nil)
+        } else {
+            print("email failed")
+        }
+    }
+    
+    /* Function to close the Mail View Controller */
+    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+        controller.dismissViewControllerAnimated(true, completion: nil)
     }
     
     func shareOnFacebook() {
@@ -346,7 +369,9 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
             let facebookSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
             let projectName = newProject?.valueForKey("projectName") as? String
             let descriptionOfProject = newProject?.valueForKey("projectDescription") as? String
-            facebookSheet.setInitialText(projectName! + ": " + descriptionOfProject!)
+            if(projectName != nil && descriptionOfProject != nil) {
+                facebookSheet.setInitialText(projectName! + ": " + descriptionOfProject!)
+            }
             for index in 0...(photo.count - 1) {
                 let imageToDisplay: UIImage! = UIImage(data: photo[index].valueForKey("photo") as! NSData)
                 facebookSheet.addImage(imageToDisplay)
@@ -354,24 +379,6 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
             self.presentViewController(facebookSheet, animated: true, completion: nil)
         } else {
             let alert = UIAlertController(title: "Accounts", message: "Please login to a Facebook account to share.", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
-        }
-    }
-    
-    func shareOnTwitter() {
-        if SLComposeViewController.isAvailableForServiceType(SLServiceTypeTwitter){
-            let twitterSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
-            let projectName = newProject?.valueForKey("projectName") as? String
-            let descriptionOfProject = newProject?.valueForKey("projectDescription") as? String
-            twitterSheet.setInitialText(projectName! + ":" + descriptionOfProject!)
-            for index in 0...(2) {
-                let imageToDisplay: UIImage! = UIImage(data: photo[index].valueForKey("photo") as! NSData)
-                twitterSheet.addImage(imageToDisplay)
-            }
-            self.presentViewController(twitterSheet, animated: true, completion: nil)
-        } else {
-            let alert = UIAlertController(title: "Accounts", message: "Please login to a Twitter account to share.", preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
         }
