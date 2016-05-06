@@ -337,11 +337,20 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
     
     func shareOnMail() {
         let mailComposerVC = MFMailComposeViewController()
-        mailComposerVC.mailComposeDelegate = self // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
+        mailComposerVC.mailComposeDelegate = self
+        let projectName = newProject?.valueForKey("projectName") as? String
+        let descriptionOfProject = newProject?.valueForKey("projectDescription") as? String
         
-        mailComposerVC.setToRecipients(["gakf38@mail.missouri.edu"])
-        mailComposerVC.setSubject("Sending you an in-app e-mail...")
-        mailComposerVC.setMessageBody("Sending e-mail in-app is not so bad!", isHTML: false)
+        if(projectName != nil && descriptionOfProject != nil) {
+        
+            mailComposerVC.setSubject(projectName!)
+            mailComposerVC.setMessageBody(descriptionOfProject!, isHTML: false)
+        }
+        
+        for index in 0...(photo.count - 1) {
+            let imageToDisplay = photo[index].valueForKey("photo") as! NSData
+            mailComposerVC.addAttachmentData(imageToDisplay, mimeType: "image/jpeg", fileName: projectName! + " Photo\(index)")
+        }
         
         if MFMailComposeViewController.canSendMail() {
             self.presentViewController(mailComposerVC, animated: true, completion: nil)
@@ -350,12 +359,19 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
         }
     }
     
+    /* Function to close the Mail View Controller */
+    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+        controller.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     func shareOnFacebook() {
         if SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook){
             let facebookSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
             let projectName = newProject?.valueForKey("projectName") as? String
             let descriptionOfProject = newProject?.valueForKey("projectDescription") as? String
-            facebookSheet.setInitialText(projectName! + ": " + descriptionOfProject!)
+            if(projectName != nil && descriptionOfProject != nil) {
+                facebookSheet.setInitialText(projectName! + ": " + descriptionOfProject!)
+            }
             for index in 0...(photo.count - 1) {
                 let imageToDisplay: UIImage! = UIImage(data: photo[index].valueForKey("photo") as! NSData)
                 facebookSheet.addImage(imageToDisplay)

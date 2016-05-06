@@ -122,8 +122,14 @@ class NewPhotoViewController: UIViewController, MFMailComposeViewControllerDeleg
         let captionOfPhoto = photo?.valueForKey("photoCaption") as? String
         
         mailComposerVC.setToRecipients(["gakf38@mail.missouri.edu"])
-        mailComposerVC.setSubject(photoName!)
-        mailComposerVC.setMessageBody(captionOfPhoto!, isHTML: false)
+        if photoName != nil && captionOfPhoto != nil {
+            mailComposerVC.setSubject(photoName!)
+            mailComposerVC.setMessageBody(captionOfPhoto!, isHTML: false)
+            mailComposerVC.addAttachmentData(photo?.valueForKey("photo") as! NSData, mimeType: "image/jpeg", fileName: photoName!)
+        }
+        else {
+            mailComposerVC.addAttachmentData(photo?.valueForKey("photo") as! NSData, mimeType: "image/jpeg", fileName: "Photo Taxi Photo")
+        }
         
         if MFMailComposeViewController.canSendMail() {
             self.presentViewController(mailComposerVC, animated: true, completion: nil)
@@ -132,12 +138,19 @@ class NewPhotoViewController: UIViewController, MFMailComposeViewControllerDeleg
         }
     }
     
+    /* Function to close the Mail View Controller */
+    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+        controller.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     func shareOnFacebook() {
         if SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook) {
             let facebookSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
             let photoName = photo?.valueForKey("photoName") as? String
             let captionOfPhoto = photo?.valueForKey("photoCaption") as? String
-            facebookSheet.setInitialText(photoName! + ":\n" + captionOfPhoto!)
+            if photoName != nil && captionOfPhoto != nil {
+                facebookSheet.setInitialText(photoName! + ":\n" + captionOfPhoto!)
+            }
             let imageToDisplay: UIImage! = UIImage(data: photo?.valueForKey("photo") as! NSData)
             facebookSheet.addImage(imageToDisplay)
             self.presentViewController(facebookSheet, animated: true, completion: nil)
@@ -153,7 +166,9 @@ class NewPhotoViewController: UIViewController, MFMailComposeViewControllerDeleg
             let twitterSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
             let photoName = photo?.valueForKey("photoName") as? String
             let captionOfPhoto = photo?.valueForKey("photoCaption") as? String
-            twitterSheet.setInitialText(photoName! + ": " + captionOfPhoto!)
+            if photoName != nil && captionOfPhoto != nil {
+                twitterSheet.setInitialText(photoName! + ": " + captionOfPhoto!)
+            }
             let imageToDisplay: UIImage! = UIImage(data: photo?.valueForKey("photo") as! NSData)
             twitterSheet.addImage(imageToDisplay)
             
