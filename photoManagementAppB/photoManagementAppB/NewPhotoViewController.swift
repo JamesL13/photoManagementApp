@@ -37,7 +37,6 @@ class NewPhotoViewController: UIViewController, MFMailComposeViewControllerDeleg
             photoLocationField.text = editPhoto.valueForKey("photoLocation") as? String
             photoPhotographerField.text = editPhoto.valueForKey("photoPhotographer") as? String
         }
-        
     }
 
     override func didReceiveMemoryWarning() {
