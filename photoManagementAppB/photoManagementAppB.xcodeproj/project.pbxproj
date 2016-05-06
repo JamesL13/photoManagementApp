@@ -65,7 +65,7 @@
 		A8089CCE1CB6D7B400C0B964 /* InProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8089CCD1CB6D7B400C0B964 /* InProgressViewController.swift */; };
 		A8089CD01CB6D7E700C0B964 /* CompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8089CCF1CB6D7E700C0B964 /* CompleteViewController.swift */; };
 		A8089CD21CB6D80000C0B964 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8089CD11CB6D80000C0B964 /* FavoriteViewController.swift */; };
-		A81F12511CDBF50500BD8CA4 /* Photo Taxi.png in Resources */ = {isa = PBXBuildFile; fileRef = A81F12501CDBF50500BD8CA4 /* Photo Taxi.png */; };
+		A8E4AF741CDCFB8A00B86E4D /* Photo Taxi.png in Resources */ = {isa = PBXBuildFile; fileRef = A8E4AF731CDCFB8A00B86E4D /* Photo Taxi.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -129,7 +129,7 @@
 		A8089CCD1CB6D7B400C0B964 /* InProgressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InProgressViewController.swift; sourceTree = "<group>"; };
 		A8089CCF1CB6D7E700C0B964 /* CompleteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompleteViewController.swift; sourceTree = "<group>"; };
 		A8089CD11CB6D80000C0B964 /* FavoriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
-		A81F12501CDBF50500BD8CA4 /* Photo Taxi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Photo Taxi.png"; path = "../../../../../Photo Taxi.png"; sourceTree = "<group>"; };
+		A8E4AF731CDCFB8A00B86E4D /* Photo Taxi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Photo Taxi.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,7 +162,7 @@
 		6444DAA61C920002002BF3A2 /* photoManagementAppB */ = {
 			isa = PBXGroup;
 			children = (
-				A81F12501CDBF50500BD8CA4 /* Photo Taxi.png */,
+				A8E4AF731CDCFB8A00B86E4D /* Photo Taxi.png */,
 				676674261CD1AE6300C52806 /* trip photos */,
 				670687D21CC19B45009E3F45 /* ProjectsComponents */,
 				6444DAA71C920002002BF3A2 /* AppDelegate.swift */,
@@ -346,7 +346,7 @@
 				676674521CD1AE6300C52806 /* Photo11.jpg in Resources */,
 				6766746D1CD1AE6300C52806 /* Photo36.jpg in Resources */,
 				6766745F1CD1AE6300C52806 /* Photo23.jpg in Resources */,
-				A81F12511CDBF50500BD8CA4 /* Photo Taxi.png in Resources */,
+				A8E4AF741CDCFB8A00B86E4D /* Photo Taxi.png in Resources */,
 				676674761CD1AE6300C52806 /* Photo9.jpg in Resources */,
 				6766745A1CD1AE6300C52806 /* Photo19.jpg in Resources */,
 				676674741CD1AE6300C52806 /* Photo7.jpg in Resources */,
