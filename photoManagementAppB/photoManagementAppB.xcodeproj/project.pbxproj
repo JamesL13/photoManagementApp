@@ -66,6 +66,7 @@
 		A8089CD01CB6D7E700C0B964 /* CompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8089CCF1CB6D7E700C0B964 /* CompleteViewController.swift */; };
 		A8089CD21CB6D80000C0B964 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8089CD11CB6D80000C0B964 /* FavoriteViewController.swift */; };
 		A8E4AF741CDCFB8A00B86E4D /* Photo Taxi.png in Resources */ = {isa = PBXBuildFile; fileRef = A8E4AF731CDCFB8A00B86E4D /* Photo Taxi.png */; };
+		A8E4AF761CDD0D5A00B86E4D /* STARICON.png in Resources */ = {isa = PBXBuildFile; fileRef = A8E4AF751CDD0D5A00B86E4D /* STARICON.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -130,6 +131,7 @@
 		A8089CCF1CB6D7E700C0B964 /* CompleteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompleteViewController.swift; sourceTree = "<group>"; };
 		A8089CD11CB6D80000C0B964 /* FavoriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		A8E4AF731CDCFB8A00B86E4D /* Photo Taxi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Photo Taxi.png"; sourceTree = "<group>"; };
+		A8E4AF751CDD0D5A00B86E4D /* STARICON.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = STARICON.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +164,7 @@
 		6444DAA61C920002002BF3A2 /* photoManagementAppB */ = {
 			isa = PBXGroup;
 			children = (
+				A8E4AF751CDD0D5A00B86E4D /* STARICON.png */,
 				A8E4AF731CDCFB8A00B86E4D /* Photo Taxi.png */,
 				676674261CD1AE6300C52806 /* trip photos */,
 				670687D21CC19B45009E3F45 /* ProjectsComponents */,
@@ -314,6 +317,7 @@
 				6766746B1CD1AE6300C52806 /* Photo34.jpg in Resources */,
 				676674651CD1AE6300C52806 /* Photo29.jpg in Resources */,
 				676674711CD1AE6300C52806 /* Photo4.jpg in Resources */,
+				A8E4AF761CDD0D5A00B86E4D /* STARICON.png in Resources */,
 				6766745C1CD1AE6300C52806 /* Photo20.jpg in Resources */,
 				6766745D1CD1AE6300C52806 /* Photo21.jpg in Resources */,
 				676674691CD1AE6300C52806 /* Photo32.jpg in Resources */,
