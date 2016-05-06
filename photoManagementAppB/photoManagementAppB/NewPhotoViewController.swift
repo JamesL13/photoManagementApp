@@ -19,6 +19,7 @@ class NewPhotoViewController: UIViewController, MFMailComposeViewControllerDeleg
     @IBOutlet weak var photoKeywordsField: UITextField!
     @IBOutlet weak var photoLocationField: UITextField!
     @IBOutlet weak var photoPhotographerField: UITextField!
+    @IBOutlet weak var navBar: UINavigationItem!
     
     var photo: Photo?
     
@@ -37,11 +38,37 @@ class NewPhotoViewController: UIViewController, MFMailComposeViewControllerDeleg
             photoLocationField.text = editPhoto.valueForKey("photoLocation") as? String
             photoPhotographerField.text = editPhoto.valueForKey("photoPhotographer") as? String
         }
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action:#selector(NewPhotoViewController.imageTapped(_:)))
+        
+        imageView.addGestureRecognizer(tapGesture)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func imageTapped(sender: UITapGestureRecognizer) {
+        
+        let imageView = sender.view as! UIImageView
+        let newImageView = UIImageView(image: imageView.image)
+        newImageView.frame = self.view.frame
+        newImageView.backgroundColor = .blackColor()
+        newImageView.contentMode = .ScaleAspectFit
+        newImageView.userInteractionEnabled = true
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(NewPhotoViewController.dismissFullscreenImage(_:)))
+        newImageView.addGestureRecognizer(tap)
+        
+        self.view.addSubview(newImageView)
+
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
+    func dismissFullscreenImage(sender: UITapGestureRecognizer) {
+        sender.view?.removeFromSuperview()
+        navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     @IBAction func savePhoto(sender: AnyObject) {

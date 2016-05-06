@@ -308,7 +308,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BI7-Dj-Rsb">
+                                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BI7-Dj-Rsb">
                                                 <rect key="frame" x="0.0" y="0.0" width="600" height="480"/>
                                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
@@ -403,6 +403,7 @@
                     <size key="freeformSize" width="600" height="910"/>
                     <connections>
                         <outlet property="imageView" destination="BI7-Dj-Rsb" id="Ffk-zd-bTs"/>
+                        <outlet property="navBar" destination="yy5-Dj-kjR" id="Kg5-Xg-zwo"/>
                         <outlet property="navigationItem" destination="yy5-Dj-kjR" id="uJV-jZ-ihk"/>
                         <outlet property="photoCaptionField" destination="PEU-IM-zM7" id="DHN-HT-XFY"/>
                         <outlet property="photoKeywordsField" destination="TtH-O8-ec8" id="hrk-Pz-J29"/>
