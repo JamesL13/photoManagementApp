@@ -11,7 +11,7 @@ import CoreData
 import Social
 import MessageUI
 
-class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, MFMailComposeViewControllerDelegate, UITextViewDelegate {
+class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, MFMailComposeViewControllerDelegate, UITextViewDelegate, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var projectNameField: UITextField!
     @IBOutlet weak var projectKeywordField: UITextField!
@@ -242,6 +242,23 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
         
         return cell
     }
+    
+    
+    /* Set the size of each cell to be 1/4 of the overall collectionview size */
+    /* Set the minimum spacing for left, right, top and bottom to 1.0 */
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.size.width/4, height: collectionView.frame.size.width/4)
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+        return 0
+    }
+    
+    
     
     /*func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         selectedImageView.image = UIImage(named: imageList[indexPath.item])
