@@ -24,12 +24,6 @@
                                     <constraint firstAttribute="height" constant="250" id="wEx-uB-jmk"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Get your photos where they need to be." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q3V-PL-dsz">
-                                <rect key="frame" x="132" y="435" width="337" height="23"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Photo Taxi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LIR-ju-YwI">
                                 <rect key="frame" x="240" y="133" width="121" height="32"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
@@ -40,11 +34,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Bie-zg-uca" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="11T-gS-Es4"/>
-                            <constraint firstItem="q3V-PL-dsz" firstAttribute="centerX" secondItem="Bie-zg-uca" secondAttribute="centerX" id="8ME-sn-HiR"/>
                             <constraint firstItem="LIR-ju-YwI" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="CWa-DM-T4G"/>
                             <constraint firstItem="Bie-zg-uca" firstAttribute="top" secondItem="LIR-ju-YwI" secondAttribute="bottom" constant="10" id="d6k-MO-PFS"/>
                             <constraint firstItem="Bie-zg-uca" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="sCT-eb-Mg5"/>
-                            <constraint firstItem="q3V-PL-dsz" firstAttribute="top" secondItem="Bie-zg-uca" secondAttribute="bottom" constant="10" id="uLW-w1-JdU"/>
                         </constraints>
                     </view>
                 </viewController>
