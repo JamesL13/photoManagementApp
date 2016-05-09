@@ -26,6 +26,7 @@
 		A8089CCE1CB6D7B400C0B964 /* InProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8089CCD1CB6D7B400C0B964 /* InProgressViewController.swift */; };
 		A8089CD01CB6D7E700C0B964 /* CompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8089CCF1CB6D7E700C0B964 /* CompleteViewController.swift */; };
 		A8089CD21CB6D80000C0B964 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8089CD11CB6D80000C0B964 /* FavoriteViewController.swift */; };
+		A8E4AF741CDCFB8A00B86E4D /* Photo Taxi.png in Resources */ = {isa = PBXBuildFile; fileRef = A8E4AF731CDCFB8A00B86E4D /* Photo Taxi.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,10 @@
 		A8089CCD1CB6D7B400C0B964 /* InProgressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InProgressViewController.swift; sourceTree = "<group>"; };
 		A8089CCF1CB6D7E700C0B964 /* CompleteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompleteViewController.swift; sourceTree = "<group>"; };
 		A8089CD11CB6D80000C0B964 /* FavoriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
+<<<<<<< HEAD
+=======
+		A8E4AF731CDCFB8A00B86E4D /* Photo Taxi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Photo Taxi.png"; sourceTree = "<group>"; };
+>>>>>>> master
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,7 +87,12 @@
 		6444DAA61C920002002BF3A2 /* photoManagementAppB */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				676674831CDCFC8900C52806 /* Photo Taxi.png */,
+=======
+				A8E4AF731CDCFB8A00B86E4D /* Photo Taxi.png */,
+				676674261CD1AE6300C52806 /* trip photos */,
+>>>>>>> master
 				670687D21CC19B45009E3F45 /* ProjectsComponents */,
 				6444DAA71C920002002BF3A2 /* AppDelegate.swift */,
 				6766741D1CB7491600C52806 /* NewProjectViewController.swift */,
@@ -155,7 +165,7 @@
 				TargetAttributes = {
 					6444DAA31C920002002BF3A2 = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = 6PVFXLN3DL;
+						DevelopmentTeam = NM976UTD4M;
 					};
 				};
 			};
@@ -186,7 +196,22 @@
 				670687DA1CC1A471009E3F45 /* ProjectsHeaderView.xib in Resources */,
 				6444DAB21C920002002BF3A2 /* Assets.xcassets in Resources */,
 				6444DAAD1C920002002BF3A2 /* Main.storyboard in Resources */,
+<<<<<<< HEAD
 				676674841CDCFC8900C52806 /* Photo Taxi.png in Resources */,
+=======
+				676674521CD1AE6300C52806 /* Photo11.jpg in Resources */,
+				6766746D1CD1AE6300C52806 /* Photo36.jpg in Resources */,
+				6766745F1CD1AE6300C52806 /* Photo23.jpg in Resources */,
+				A8E4AF741CDCFB8A00B86E4D /* Photo Taxi.png in Resources */,
+				676674761CD1AE6300C52806 /* Photo9.jpg in Resources */,
+				6766745A1CD1AE6300C52806 /* Photo19.jpg in Resources */,
+				676674741CD1AE6300C52806 /* Photo7.jpg in Resources */,
+				6766746C1CD1AE6300C52806 /* Photo35.jpg in Resources */,
+				6766744F1CD1AE6300C52806 /* Photo0.jpg in Resources */,
+				676674661CD1AE6300C52806 /* Photo3.jpg in Resources */,
+				676674731CD1AE6300C52806 /* Photo6.jpg in Resources */,
+				676674631CD1AE6300C52806 /* Photo27.jpg in Resources */,
+>>>>>>> master
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,10 +349,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = photoManagementAppB/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = edu.missouri.cs.photoManagementAppB;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.missouri.cs.GarrettphotoManagementAppB;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -338,10 +366,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = photoManagementAppB/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = edu.missouri.cs.photoManagementAppB;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.missouri.cs.GarrettphotoManagementAppB;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
 			};
 			name = Release;
