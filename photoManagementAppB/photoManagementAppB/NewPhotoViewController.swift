@@ -20,6 +20,7 @@ class NewPhotoViewController: UIViewController, MFMailComposeViewControllerDeleg
     @IBOutlet weak var photoLocationField: UITextField!
     @IBOutlet weak var photoPhotographerField: UITextField!
     @IBOutlet weak var navBar: UINavigationItem!
+    @IBOutlet weak var flagPhoto: UIBarButtonItem!
     
     var photo: Photo?
     
@@ -37,6 +38,10 @@ class NewPhotoViewController: UIViewController, MFMailComposeViewControllerDeleg
             photoKeywordsField.text = editPhoto.valueForKey("photoKeywords") as? String
             photoLocationField.text = editPhoto.valueForKey("photoLocation") as? String
             photoPhotographerField.text = editPhoto.valueForKey("photoPhotographer") as? String
+            if editPhoto.valueForKey("photoFlagged") as? Bool == true {
+                print("Photo is flagged!")
+                flagPhoto.tintColor = UIColor.orangeColor()
+            }
         }
         
         let tapGesture = UITapGestureRecognizer(target: self, action:#selector(NewPhotoViewController.imageTapped(_:)))
@@ -214,9 +219,12 @@ class NewPhotoViewController: UIViewController, MFMailComposeViewControllerDeleg
         if photo?.valueForKey("photoFlagged") as? Bool == true {
             photo?.setValue(false, forKey: "photoFlagged")
             print("photo unflagged")
+            flagPhoto.tintColor = nil
         } else {
             photo?.setValue(true, forKey: "photoFlagged")
             print("photo flagged")
+            flagPhoto.tintColor = UIColor.orangeColor()
+
         }
     }
 

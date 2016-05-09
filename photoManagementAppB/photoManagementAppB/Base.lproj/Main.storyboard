@@ -396,6 +396,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="910"/>
                     <connections>
+                        <outlet property="flagPhoto" destination="Xxe-FB-Ohj" id="6FI-S2-RWT"/>
                         <outlet property="imageView" destination="BI7-Dj-Rsb" id="Ffk-zd-bTs"/>
                         <outlet property="navBar" destination="yy5-Dj-kjR" id="Kg5-Xg-zwo"/>
                         <outlet property="navigationItem" destination="yy5-Dj-kjR" id="uJV-jZ-ihk"/>
