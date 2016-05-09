@@ -123,6 +123,13 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
     
+    /* Saves the existing project on Navigation Back */
+    override func didMoveToParentViewController(parent: UIViewController?) {
+        if parent == nil && newProject != nil {
+            saveNewProject()
+        }
+    }
+    
     /* Saves the new project */
     @IBAction func saveButton(sender: AnyObject) {
         saveNewProject()
