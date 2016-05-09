@@ -368,8 +368,10 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
         }
         
         for index in 0...(photo.count - 1) {
-            let imageToDisplay = photo[index].valueForKey("photo") as! NSData
-            mailComposerVC.addAttachmentData(imageToDisplay, mimeType: "image/jpeg", fileName: projectName! + " Photo\(index)")
+            if(photo[index].valueForKey("photoFlagged") as? Bool == true) {
+                let imageToDisplay = photo[index].valueForKey("photo") as! NSData
+                mailComposerVC.addAttachmentData(imageToDisplay, mimeType: "image/jpeg", fileName: projectName! + " Photo\(index)")
+            }
         }
         
         if MFMailComposeViewController.canSendMail() {
@@ -393,8 +395,10 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
                 facebookSheet.setInitialText(projectName! + ": " + descriptionOfProject!)
             }
             for index in 0...(photo.count - 1) {
-                let imageToDisplay: UIImage! = UIImage(data: photo[index].valueForKey("photo") as! NSData)
-                facebookSheet.addImage(imageToDisplay)
+                if(photo[index].valueForKey("photoFlagged") as? Bool == true) {
+                    let imageToDisplay: UIImage! = UIImage(data: photo[index].valueForKey("photo") as! NSData)
+                    facebookSheet.addImage(imageToDisplay)
+                }
             }
             self.presentViewController(facebookSheet, animated: true, completion: nil)
         } else {
