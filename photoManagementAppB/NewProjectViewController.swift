@@ -46,6 +46,9 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
             projectDescriptionField.text = editProject.valueForKey("projectDescription") as? String
             self.toolBar.hidden = false
             
+            /* Disable/hide the Save button when the view is showing an existing project */
+            /* Enable/show the Select button when the view is showing an existing project */
+            
             if (loadPhoto()) {
                 if (photo.count > 0) {
                     print("there are photos to display from core data")
