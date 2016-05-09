@@ -226,6 +226,16 @@ class NewPhotoViewController: UIViewController, MFMailComposeViewControllerDeleg
             flagPhoto.tintColor = UIColor.orangeColor()
         }
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let destinationViewController = segue.destinationViewController
+        
+        if let fullScreenImageViewController = destinationViewController as? fullScreenImageViewController {
+            if(segue.identifier == "toFullScreen") {
+                fullScreenImageViewController.photo = self.photo
+            }
+        }
+    }
 
     /*
     // MARK: - Navigation

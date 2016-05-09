@@ -310,15 +310,23 @@
                                                     <constraint firstAttribute="height" constant="480" id="s1b-cG-acz"/>
                                                 </constraints>
                                             </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cXX-JK-D9R">
+                                                <rect key="frame" x="0.0" y="0.0" width="600" height="480"/>
+                                                <connections>
+                                                    <segue destination="PBc-Il-7rh" kind="show" identifier="toFullScreen" id="ird-br-AdU"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="zoD-cy-eFd" firstAttribute="centerX" secondItem="8Dw-xD-5pb" secondAttribute="centerX" id="1mZ-lR-Lal"/>
                                             <constraint firstItem="8Dw-xD-5pb" firstAttribute="centerX" secondItem="TtH-O8-ec8" secondAttribute="centerX" id="3os-71-Ddf"/>
+                                            <constraint firstItem="cXX-JK-D9R" firstAttribute="top" secondItem="BI7-Dj-Rsb" secondAttribute="top" id="6Eb-yx-dCZ"/>
                                             <constraint firstItem="PEU-IM-zM7" firstAttribute="top" secondItem="UXs-nd-sUK" secondAttribute="bottom" constant="20" id="70F-e6-HZ6"/>
                                             <constraint firstItem="PEU-IM-zM7" firstAttribute="leading" secondItem="YDc-OC-DXE" secondAttribute="leading" constant="20" id="7gA-Xn-4UW"/>
                                             <constraint firstItem="BI7-Dj-Rsb" firstAttribute="top" secondItem="YDc-OC-DXE" secondAttribute="top" id="8dp-oD-IpV"/>
                                             <constraint firstItem="zoD-cy-eFd" firstAttribute="top" secondItem="8Dw-xD-5pb" secondAttribute="bottom" constant="20" id="Alo-tC-4pU"/>
+                                            <constraint firstItem="cXX-JK-D9R" firstAttribute="height" secondItem="BI7-Dj-Rsb" secondAttribute="height" id="CTe-Jt-cxT"/>
                                             <constraint firstItem="TtH-O8-ec8" firstAttribute="leading" secondItem="YDc-OC-DXE" secondAttribute="leading" constant="20" id="Fn8-rB-qZ9"/>
                                             <constraint firstItem="UXs-nd-sUK" firstAttribute="leading" secondItem="YDc-OC-DXE" secondAttribute="leading" constant="20" id="Fza-j3-YXT"/>
                                             <constraint firstAttribute="trailing" secondItem="BI7-Dj-Rsb" secondAttribute="trailing" id="NJO-Iu-VqJ"/>
@@ -330,6 +338,8 @@
                                             <constraint firstItem="BI7-Dj-Rsb" firstAttribute="leading" secondItem="YDc-OC-DXE" secondAttribute="leading" id="WgZ-2o-8Xv"/>
                                             <constraint firstItem="BI7-Dj-Rsb" firstAttribute="width" secondItem="YDc-OC-DXE" secondAttribute="width" id="aMK-uv-iCb"/>
                                             <constraint firstItem="zoD-cy-eFd" firstAttribute="leading" secondItem="YDc-OC-DXE" secondAttribute="leading" constant="20" id="d64-3u-Pbg"/>
+                                            <constraint firstItem="cXX-JK-D9R" firstAttribute="width" secondItem="BI7-Dj-Rsb" secondAttribute="width" id="gro-C6-Ym4"/>
+                                            <constraint firstItem="cXX-JK-D9R" firstAttribute="leading" secondItem="BI7-Dj-Rsb" secondAttribute="leading" id="jt0-OU-ePT"/>
                                             <constraint firstItem="PEU-IM-zM7" firstAttribute="centerX" secondItem="UXs-nd-sUK" secondAttribute="centerX" id="kVo-3h-Dcv"/>
                                             <constraint firstItem="BI7-Dj-Rsb" firstAttribute="top" secondItem="YDc-OC-DXE" secondAttribute="top" id="p6P-Th-lDd"/>
                                             <constraint firstItem="BI7-Dj-Rsb" firstAttribute="leading" secondItem="YDc-OC-DXE" secondAttribute="leading" id="rha-NU-ree"/>
@@ -411,6 +421,56 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cIN-0F-cQH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-5695" y="-1378"/>
+        </scene>
+        <!--Full Screen Image View Controller-->
+        <scene sceneID="3Rd-uA-Jpw">
+            <objects>
+                <viewController id="PBc-Il-7rh" customClass="fullScreenImageViewController" customModule="photoManagementAppB" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Nq6-So-U55"/>
+                        <viewControllerLayoutGuide type="bottom" id="F4I-5j-PQy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NYB-M9-jPE">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cRf-Zu-9em">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZZA-U7-ChR">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="536" id="aLp-Ca-W3s"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="ZZA-U7-ChR" secondAttribute="bottom" constant="-64" id="BU8-1z-NfT"/>
+                                    <constraint firstItem="ZZA-U7-ChR" firstAttribute="centerX" secondItem="cRf-Zu-9em" secondAttribute="centerX" id="C68-Ku-iHX"/>
+                                    <constraint firstAttribute="trailing" secondItem="ZZA-U7-ChR" secondAttribute="trailing" id="Ho9-M7-J9h"/>
+                                    <constraint firstItem="ZZA-U7-ChR" firstAttribute="top" secondItem="cRf-Zu-9em" secondAttribute="top" id="PUg-nl-7YX"/>
+                                    <constraint firstItem="ZZA-U7-ChR" firstAttribute="leading" secondItem="cRf-Zu-9em" secondAttribute="leading" id="ffd-9g-RlZ"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cRf-Zu-9em" firstAttribute="leading" secondItem="NYB-M9-jPE" secondAttribute="leading" id="LJT-Zg-Jn6"/>
+                            <constraint firstItem="cRf-Zu-9em" firstAttribute="top" secondItem="Nq6-So-U55" secondAttribute="bottom" id="fFe-n3-2xk"/>
+                            <constraint firstItem="cRf-Zu-9em" firstAttribute="bottom" secondItem="F4I-5j-PQy" secondAttribute="top" id="pca-MO-85g"/>
+                            <constraint firstAttribute="trailing" secondItem="cRf-Zu-9em" secondAttribute="trailing" id="s2r-Lm-P0y"/>
+                        </constraints>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="600" height="600"/>
+                    <connections>
+                        <outlet property="fullScreenImage" destination="ZZA-U7-ChR" id="QSV-VM-9Ji"/>
+                        <outlet property="scrollView" destination="cRf-Zu-9em" id="2u7-zd-B54"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6NV-Rh-mkt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-5001" y="-1378"/>
         </scene>
     </scenes>
     <resources>
