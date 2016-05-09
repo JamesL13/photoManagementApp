@@ -77,7 +77,6 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
                     for index in 0...(photo.count - 1) {
                         if(photo[index].valueForKey("project") as? Project == self.newProject) {
                             let imageToDisplay: UIImage! = UIImage(data: photo[index].valueForKey("photo") as! NSData)
-                            //imageView.contentMode = .ScaleAspectFit
                             imageList.append(imageToDisplay)
                         }
                     }
@@ -221,15 +220,21 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
             let imageView = cell.viewWithTag(1) as! UIImageView
             imageView.image = imageList[indexPath.item]
         }
-
+        if photo[indexPath.item].valueForKey("photoFlagged") as? Bool == true {
+            cell.backgroundColor = UIColor.orangeColor()
+        }
+        else {
+            cell.backgroundColor = nil
+        }
+        
         return cell
     }
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        //selectedImageView.image = UIImage(named: imageList[indexPath.item])
-    }
+    /*func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        selectedImageView.image = UIImage(named: imageList[indexPath.item])
+    }*/
     
-    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+    /*func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> /UICollectionReusableView {
         
         let supplementaryView: UICollectionReusableView
         
@@ -240,7 +245,7 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
         }
         
         return supplementaryView
-    }
+    }*/
     
     
 
@@ -287,7 +292,6 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
                 for index in 0...(photo.count - 1) {
                     if(photo[index].valueForKey("project") as? Project == self.newProject) {
                         let imageToDisplay: UIImage! = UIImage(data: photo[index].valueForKey("photo") as! NSData)
-                        //imageView.contentMode = .ScaleAspectFit
                         imageList.append(imageToDisplay)
                     }
                 }
@@ -321,7 +325,12 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
             
             if let results = fetchedResults {
                 for result in results {
-                    if result.valueForKey("project") as? Project == self.newProject {
+                    if result.valueForKey("project") as? Project == self.newProject && result.valueForKey("photoFlagged") as? Bool == true {
+                        photo.append(result)
+                    }
+                }
+                for result in results {
+                    if result.valueForKey("project") as? Project == self.newProject && result.valueForKey("photoFlagged") as? Bool == false {
                         photo.append(result)
                     }
                 }

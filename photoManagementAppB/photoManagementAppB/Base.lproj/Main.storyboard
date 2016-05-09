@@ -155,43 +155,42 @@
                                 <rect key="frame" x="0.0" y="394" width="600" height="162"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="TNh-ei-cYf">
-                                    <size key="itemSize" width="97" height="69"/>
+                                    <size key="itemSize" width="106" height="77"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" reuseIdentifier="photocell" id="aqt-ez-ElJ">
-                                        <rect key="frame" x="0.0" y="0.0" width="90" height="60"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="106" height="77"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="90" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="106" height="77"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="B3V-ax-peS">
-                                                    <rect key="frame" x="0.0" y="0.0" width="97" height="69"/>
+                                                    <rect key="frame" x="1" y="1" width="104" height="75"/>
                                                 </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <color key="backgroundColor" red="0.0" green="0.075668181784514843" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstItem="B3V-ax-peS" firstAttribute="top" secondItem="aqt-ez-ElJ" secondAttribute="top" id="HeX-ll-K3U"/>
-                                            <constraint firstItem="B3V-ax-peS" firstAttribute="leading" secondItem="aqt-ez-ElJ" secondAttribute="leadingMargin" id="Jfy-EG-7VA"/>
-                                            <constraint firstAttribute="bottomMargin" secondItem="B3V-ax-peS" secondAttribute="bottom" id="JgP-L1-vbB"/>
-                                            <constraint firstAttribute="bottom" secondItem="B3V-ax-peS" secondAttribute="bottom" constant="-9" id="Laz-IJ-uJP"/>
-                                            <constraint firstItem="B3V-ax-peS" firstAttribute="top" secondItem="aqt-ez-ElJ" secondAttribute="topMargin" id="Z03-dZ-EeK"/>
-                                            <constraint firstAttribute="trailingMargin" secondItem="B3V-ax-peS" secondAttribute="trailing" id="gzx-Xc-wyx"/>
-                                            <constraint firstItem="B3V-ax-peS" firstAttribute="leading" secondItem="aqt-ez-ElJ" secondAttribute="leading" id="pAz-tO-tIr"/>
-                                            <constraint firstAttribute="trailing" secondItem="B3V-ax-peS" secondAttribute="trailing" constant="-7" id="xEA-2u-N6c"/>
+                                            <constraint firstItem="B3V-ax-peS" firstAttribute="leading" secondItem="aqt-ez-ElJ" secondAttribute="leading" constant="2" id="7Z4-kS-HOP"/>
+                                            <constraint firstAttribute="trailing" secondItem="B3V-ax-peS" secondAttribute="trailing" constant="2" id="BKV-Rf-Hpa"/>
+                                            <constraint firstItem="B3V-ax-peS" firstAttribute="top" secondItem="aqt-ez-ElJ" secondAttribute="top" constant="1" id="C5c-eg-pMT"/>
+                                            <constraint firstAttribute="bottom" secondItem="B3V-ax-peS" secondAttribute="bottom" constant="1" id="Cpf-Bc-V6a"/>
+                                            <constraint firstAttribute="trailing" secondItem="B3V-ax-peS" secondAttribute="trailing" constant="1" id="ZZX-hm-Loj"/>
+                                            <constraint firstAttribute="bottom" secondItem="B3V-ax-peS" secondAttribute="bottom" constant="2" id="n09-RH-z0p"/>
+                                            <constraint firstItem="B3V-ax-peS" firstAttribute="top" secondItem="aqt-ez-ElJ" secondAttribute="top" constant="2" id="pqP-y3-Z11"/>
+                                            <constraint firstItem="B3V-ax-peS" firstAttribute="leading" secondItem="aqt-ez-ElJ" secondAttribute="leading" constant="1" id="zgV-T7-T0p"/>
                                         </constraints>
-                                        <size key="customSize" width="90" height="60"/>
+                                        <size key="customSize" width="106" height="77"/>
                                         <variation key="default">
                                             <mask key="constraints">
-                                                <exclude reference="Jfy-EG-7VA"/>
-                                                <exclude reference="JgP-L1-vbB"/>
-                                                <exclude reference="Z03-dZ-EeK"/>
-                                                <exclude reference="gzx-Xc-wyx"/>
+                                                <exclude reference="7Z4-kS-HOP"/>
+                                                <exclude reference="BKV-Rf-Hpa"/>
+                                                <exclude reference="n09-RH-z0p"/>
+                                                <exclude reference="pqP-y3-Z11"/>
                                             </mask>
                                         </variation>
                                         <connections>

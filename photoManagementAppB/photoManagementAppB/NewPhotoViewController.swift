@@ -224,7 +224,6 @@ class NewPhotoViewController: UIViewController, MFMailComposeViewControllerDeleg
             photo?.setValue(true, forKey: "photoFlagged")
             print("photo flagged")
             flagPhoto.tintColor = UIColor.orangeColor()
-
         }
     }
 
