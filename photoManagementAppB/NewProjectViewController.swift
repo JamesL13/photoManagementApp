@@ -37,6 +37,7 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
         projectDescriptionField.layer.borderColor = borderColor.CGColor
         projectDescriptionField.layer.borderWidth = 0.5
         projectDescriptionField.layer.cornerRadius = 5.0
+        
         // Do any additional setup after loading the view.
         if let editProject = newProject {
             self.navigationItem.title = editProject.valueForKey("projectName") as? String
@@ -44,17 +45,16 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
             projectKeywordField.text = editProject.valueForKey("projectKeywords") as? String
             projectDescriptionField.text = editProject.valueForKey("projectDescription") as? String
             self.toolBar.hidden = false
-        }
-        
-        if (loadPhoto()) {
-            if (photo.count > 0) {
-                print("there are photos to display from core data")
-                print("There are photos in core data to display")
-                for index in 0...(photo.count - 1) {
-                    if(photo[index].valueForKey("project") as? Project == self.newProject) {
-                        let imageToDisplay: UIImage! = UIImage(data: photo[index].valueForKey("photo") as! NSData)
-                        //imageView.contentMode = .ScaleAspectFit
-                        imageList.append(imageToDisplay)
+            
+            if (loadPhoto()) {
+                if (photo.count > 0) {
+                    print("there are photos to display from core data")
+                    print("There are photos in core data to display")
+                    for index in 0...(photo.count - 1) {
+                        if(photo[index].valueForKey("project") as? Project == editProject) {
+                            let imageToDisplay: UIImage! = UIImage(data: photo[index].valueForKey("photo") as! NSData)
+                            imageList.append(imageToDisplay)
+                        }
                     }
                 }
             }
@@ -66,16 +66,17 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
     override func viewWillAppear(animated: Bool) {
         self.photo = []
         self.imageList = []
-        
-        if (loadPhoto()) {
-            if (photo.count > 0) {
-                print("there are photos to display from core data")
-                print("There are photos in core data to display")
-                for index in 0...(photo.count - 1) {
-                    if(photo[index].valueForKey("project") as? Project == self.newProject) {
-                        let imageToDisplay: UIImage! = UIImage(data: photo[index].valueForKey("photo") as! NSData)
-                        //imageView.contentMode = .ScaleAspectFit
-                        imageList.append(imageToDisplay)
+        if newProject != nil {
+            if (loadPhoto()) {
+                if (photo.count > 0) {
+                    print("there are photos to display from core data")
+                    print("There are photos in core data to display")
+                    for index in 0...(photo.count - 1) {
+                        if(photo[index].valueForKey("project") as? Project == self.newProject) {
+                            let imageToDisplay: UIImage! = UIImage(data: photo[index].valueForKey("photo") as! NSData)
+                            //imageView.contentMode = .ScaleAspectFit
+                            imageList.append(imageToDisplay)
+                        }
                     }
                 }
             }
@@ -140,7 +141,6 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedContext = appDelegate.managedObjectContext
         managedContext.deleteObject(newProject!)
-        
         do {
             try managedContext.save()
         } catch let error as NSError {
