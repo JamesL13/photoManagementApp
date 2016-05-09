@@ -19,6 +19,8 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
     @IBOutlet weak var toolBar: UIToolbar!
     @IBOutlet weak var photoCollectionView: UICollectionView!
     
+    @IBOutlet weak var completeIcon: UIBarButtonItem!
+    
     var newProject: NSManagedObject?
     
     var imageList = [UIImage]()
@@ -44,6 +46,10 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
             projectKeywordField.text = editProject.valueForKey("projectKeywords") as? String
             projectDescriptionField.text = editProject.valueForKey("projectDescription") as? String
             self.toolBar.hidden = false
+            if ((newProject?.valueForKey("projectCompleted"))! as! NSObject == true) {
+                completeIcon.tintColor = UIColor.orangeColor()
+                
+            }
         }
         
         if (loadPhoto()) {
@@ -174,8 +180,10 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
         
         if (newProject?.valueForKey("projectCompleted"))! as! NSObject == true {
             newProject?.setValue(false, forKey: "projectCompleted")
+            completeIcon.tintColor = nil
         } else {
             newProject?.setValue(true, forKey: "projectCompleted")
+            completeIcon.tintColor = UIColor.orangeColor()
         }
         
         do {
