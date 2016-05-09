@@ -11,7 +11,7 @@ import CoreData
 import Social
 import MessageUI
 
-class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, MFMailComposeViewControllerDelegate  {
+class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, MFMailComposeViewControllerDelegate, UITextViewDelegate {
 
     @IBOutlet weak var projectNameField: UITextField!
     @IBOutlet weak var projectKeywordField: UITextField!
@@ -37,6 +37,7 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
         projectDescriptionField.layer.borderColor = borderColor.CGColor
         projectDescriptionField.layer.borderWidth = 0.5
         projectDescriptionField.layer.cornerRadius = 5.0
+        
         // Do any additional setup after loading the view.
         if let editProject = newProject {
             self.navigationItem.title = editProject.valueForKey("projectName") as? String
@@ -44,17 +45,19 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
             projectKeywordField.text = editProject.valueForKey("projectKeywords") as? String
             projectDescriptionField.text = editProject.valueForKey("projectDescription") as? String
             self.toolBar.hidden = false
-        }
-        
-        if (loadPhoto()) {
-            if (photo.count > 0) {
-                print("there are photos to display from core data")
-                print("There are photos in core data to display")
-                for index in 0...(photo.count - 1) {
-                    if(photo[index].valueForKey("project") as? Project == self.newProject) {
-                        let imageToDisplay: UIImage! = UIImage(data: photo[index].valueForKey("photo") as! NSData)
-                        //imageView.contentMode = .ScaleAspectFit
-                        imageList.append(imageToDisplay)
+            
+            /* Disable/hide the Save button when the view is showing an existing project */
+            /* Enable/show the Select button when the view is showing an existing project */
+            
+            if (loadPhoto()) {
+                if (photo.count > 0) {
+                    print("there are photos to display from core data")
+                    print("There are photos in core data to display")
+                    for index in 0...(photo.count - 1) {
+                        if(photo[index].valueForKey("project") as? Project == editProject) {
+                            let imageToDisplay: UIImage! = UIImage(data: photo[index].valueForKey("photo") as! NSData)
+                            imageList.append(imageToDisplay)
+                        }
                     }
                 }
             }
@@ -66,16 +69,16 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
     override func viewWillAppear(animated: Bool) {
         self.photo = []
         self.imageList = []
-        
-        if (loadPhoto()) {
-            if (photo.count > 0) {
-                print("there are photos to display from core data")
-                print("There are photos in core data to display")
-                for index in 0...(photo.count - 1) {
-                    if(photo[index].valueForKey("project") as? Project == self.newProject) {
-                        let imageToDisplay: UIImage! = UIImage(data: photo[index].valueForKey("photo") as! NSData)
-                        //imageView.contentMode = .ScaleAspectFit
-                        imageList.append(imageToDisplay)
+        if newProject != nil {
+            if (loadPhoto()) {
+                if (photo.count > 0) {
+                    print("there are photos to display from core data")
+                    print("There are photos in core data to display")
+                    for index in 0...(photo.count - 1) {
+                        if(photo[index].valueForKey("project") as? Project == self.newProject) {
+                            let imageToDisplay: UIImage! = UIImage(data: photo[index].valueForKey("photo") as! NSData)
+                            imageList.append(imageToDisplay)
+                        }
                     }
                 }
             }
@@ -109,7 +112,6 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
         } else {
             newProject?.setValue(true, forKey: "projectFavorited")
         }
-        //newProject?.setValue(false, forKey: "projectFavorited")
         newProject?.setValue(false, forKey: "projectCompleted")
         
         do {
@@ -122,10 +124,19 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
     
-    /* Saves the new project */
-    @IBAction func saveButton(sender: AnyObject) {
-        saveNewProject()
+    /* Saves the existing project on Navigation Back */
+    override func didMoveToParentViewController(parent: UIViewController?) {
+        if parent == nil {
+            if projectNameField.text != ""  || projectKeywordField.text != "" {
+                saveNewProject()
+            }
+        }
     }
+    
+    /* Saves the new project */
+    /*@IBAction func saveButton(sender: AnyObject) {
+        saveNewProject()
+    }*/
     
     @IBAction func deleteProject(sender: AnyObject) {
         print("DELETE•ACTION")
@@ -140,7 +151,6 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedContext = appDelegate.managedObjectContext
         managedContext.deleteObject(newProject!)
-        
         do {
             try managedContext.save()
         } catch let error as NSError {
@@ -210,15 +220,21 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
             let imageView = cell.viewWithTag(1) as! UIImageView
             imageView.image = imageList[indexPath.item]
         }
-
+        if photo[indexPath.item].valueForKey("photoFlagged") as? Bool == true {
+            cell.backgroundColor = UIColor.orangeColor()
+        }
+        else {
+            cell.backgroundColor = nil
+        }
+        
         return cell
     }
     
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        //selectedImageView.image = UIImage(named: imageList[indexPath.item])
-    }
+    /*func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        selectedImageView.image = UIImage(named: imageList[indexPath.item])
+    }*/
     
-    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+    /*func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> /UICollectionReusableView {
         
         let supplementaryView: UICollectionReusableView
         
@@ -229,7 +245,7 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
         }
         
         return supplementaryView
-    }
+    }*/
     
     
 
@@ -276,7 +292,6 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
                 for index in 0...(photo.count - 1) {
                     if(photo[index].valueForKey("project") as? Project == self.newProject) {
                         let imageToDisplay: UIImage! = UIImage(data: photo[index].valueForKey("photo") as! NSData)
-                        //imageView.contentMode = .ScaleAspectFit
                         imageList.append(imageToDisplay)
                     }
                 }
@@ -310,7 +325,12 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
             
             if let results = fetchedResults {
                 for result in results {
-                    if result.valueForKey("project") as? Project == self.newProject {
+                    if result.valueForKey("project") as? Project == self.newProject && result.valueForKey("photoFlagged") as? Bool == true {
+                        photo.append(result)
+                    }
+                }
+                for result in results {
+                    if result.valueForKey("project") as? Project == self.newProject && result.valueForKey("photoFlagged") as? Bool == false {
                         photo.append(result)
                     }
                 }
@@ -348,8 +368,10 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
         }
         
         for index in 0...(photo.count - 1) {
-            let imageToDisplay = photo[index].valueForKey("photo") as! NSData
-            mailComposerVC.addAttachmentData(imageToDisplay, mimeType: "image/jpeg", fileName: projectName! + " Photo\(index)")
+            if(photo[index].valueForKey("photoFlagged") as? Bool == true) {
+                let imageToDisplay = photo[index].valueForKey("photo") as! NSData
+                mailComposerVC.addAttachmentData(imageToDisplay, mimeType: "image/jpeg", fileName: projectName! + " Photo\(index)")
+            }
         }
         
         if MFMailComposeViewController.canSendMail() {
@@ -373,8 +395,10 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
                 facebookSheet.setInitialText(projectName! + ": " + descriptionOfProject!)
             }
             for index in 0...(photo.count - 1) {
-                let imageToDisplay: UIImage! = UIImage(data: photo[index].valueForKey("photo") as! NSData)
-                facebookSheet.addImage(imageToDisplay)
+                if(photo[index].valueForKey("photoFlagged") as? Bool == true) {
+                    let imageToDisplay: UIImage! = UIImage(data: photo[index].valueForKey("photo") as! NSData)
+                    facebookSheet.addImage(imageToDisplay)
+                }
             }
             self.presentViewController(facebookSheet, animated: true, completion: nil)
         } else {
