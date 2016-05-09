@@ -248,6 +248,7 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="completeIcon" destination="98X-QH-Pt3" id="TLu-jP-1kx"/>
+                        <outlet property="favoriteIcon" destination="dfQ-mY-Mk6" id="0Lp-gh-16h"/>
                         <outlet property="photoCollectionView" destination="js2-q1-MtM" id="956-ve-sfe"/>
                         <outlet property="projectDescriptionField" destination="cuX-8e-gEI" id="tCZ-3y-kao"/>
                         <outlet property="projectKeywordField" destination="5ke-A2-pmJ" id="ZVM-5z-BzJ"/>

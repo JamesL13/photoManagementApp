@@ -20,6 +20,7 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
     @IBOutlet weak var photoCollectionView: UICollectionView!
     
     @IBOutlet weak var completeIcon: UIBarButtonItem!
+    @IBOutlet weak var favoriteIcon: UIBarButtonItem!
     
     var newProject: NSManagedObject?
     
@@ -49,7 +50,10 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
             self.toolBar.hidden = false
             if ((newProject?.valueForKey("projectCompleted"))! as! NSObject == true) {
                 completeIcon.tintColor = UIColor.orangeColor()
-                
+            }
+            if ((newProject?.valueForKey("projectFavorited"))! as! NSObject == true) {
+                favoriteIcon.tintColor = UIColor.orangeColor()
+            }
             /* Disable/hide the Save button when the view is showing an existing project */
             /* Enable/show the Select button when the view is showing an existing project */
             
@@ -106,17 +110,18 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
             let newProjectEntity = NSEntityDescription.entityForName("Project", inManagedObjectContext: managedContext)
             newProject = NSManagedObject(entity: newProjectEntity!, insertIntoManagedObjectContext: managedContext)
             newProject?.setValue(false, forKey: "projectFavorited")
+            newProject?.setValue(false, forKey: "projectCompleted")
         }
         
         newProject?.setValue(projectNameField.text, forKey: "projectName")
         newProject?.setValue(projectKeywordField.text, forKey: "projectKeywords")
         newProject?.setValue(projectDescriptionField.text, forKey: "projectDescription")
-        if (newProject?.valueForKey("projectFavorited"))! as! NSObject == true {
+        /*if (newProject?.valueForKey("projectFavorited"))! as! NSObject == true {
             newProject?.setValue(true, forKey: "projectFavorited")
         } else {
             newProject?.setValue(true, forKey: "projectFavorited")
-        }
-        newProject?.setValue(false, forKey: "projectCompleted")
+        }*/
+        //newProject?.setValue(false, forKey: "projectCompleted")
         
         do {
             try managedContext.save()
@@ -170,8 +175,10 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
         
         if (newProject?.valueForKey("projectFavorited"))! as! NSObject == true {
             newProject?.setValue(false, forKey: "projectFavorited")
+            favoriteIcon.tintColor = nil
         } else {
             newProject?.setValue(true, forKey: "projectFavorited")
+            favoriteIcon.tintColor = UIColor.orangeColor()
         }
         
         do {
