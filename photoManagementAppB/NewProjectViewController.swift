@@ -11,7 +11,7 @@ import CoreData
 import Social
 import MessageUI
 
-class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, MFMailComposeViewControllerDelegate  {
+class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, MFMailComposeViewControllerDelegate, UITextViewDelegate {
 
     @IBOutlet weak var projectNameField: UITextField!
     @IBOutlet weak var projectKeywordField: UITextField!
@@ -113,7 +113,6 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
         } else {
             newProject?.setValue(true, forKey: "projectFavorited")
         }
-        //newProject?.setValue(false, forKey: "projectFavorited")
         newProject?.setValue(false, forKey: "projectCompleted")
         
         do {
@@ -128,15 +127,17 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
     
     /* Saves the existing project on Navigation Back */
     override func didMoveToParentViewController(parent: UIViewController?) {
-        if parent == nil && newProject != nil {
-            saveNewProject()
+        if parent == nil {
+            if projectNameField.text != ""  || projectKeywordField.text != "" {
+                saveNewProject()
+            }
         }
     }
     
     /* Saves the new project */
-    @IBAction func saveButton(sender: AnyObject) {
+    /*@IBAction func saveButton(sender: AnyObject) {
         saveNewProject()
-    }
+    }*/
     
     @IBAction func deleteProject(sender: AnyObject) {
         print("DELETE•ACTION")
