@@ -96,6 +96,9 @@ class SelectPhotosViewController: UIViewController, UICollectionViewDelegate, UI
         }
         else {
             print("No photos selected")
+            let alert = UIAlertController(title: "Alert", message: "No Photos Selected", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
         }
     }
     
@@ -147,6 +150,9 @@ class SelectPhotosViewController: UIViewController, UICollectionViewDelegate, UI
         }
         else {
             print("No photos selected")
+            let alert = UIAlertController(title: "Alert", message: "No Photos Selected", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
         }
     }
     
@@ -177,6 +183,9 @@ class SelectPhotosViewController: UIViewController, UICollectionViewDelegate, UI
         }
         else {
             print("No Photos Selected")
+            let alert = UIAlertController(title: "Alert", message: "No Photos Selected", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
             return false
         }
     }
