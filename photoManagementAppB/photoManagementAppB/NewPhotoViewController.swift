@@ -24,7 +24,7 @@ class NewPhotoViewController: UIViewController, UITextFieldDelegate, MFMailCompo
     @IBOutlet weak var scrollView: UIScrollView!
     
     var activeTextField: UITextField? = nil
-    let keyboardVerticalSpacing: CGFloat = 30
+    let keyboardVerticalSpacing: CGFloat = 0
     
     var photo: Photo?
     
