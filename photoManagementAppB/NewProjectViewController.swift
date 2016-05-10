@@ -38,7 +38,12 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
     override func viewDidLoad() {
         super.viewDidLoad()
         self.toolBar.hidden = true
-        self.selectButton.enabled = false
+        if(newProject == nil) {
+            self.selectButton.enabled = false
+        }
+        else {
+           self.selectButton.enabled = true
+        }
         let borderColor = UIColor(red:204.0/255.0, green:204.0/255.0, blue:204.0/255.0, alpha:1.0)
         projectDescriptionField.layer.borderColor = borderColor.CGColor
         projectDescriptionField.layer.borderWidth = 0.5
@@ -51,7 +56,7 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
             projectKeywordField.text = editProject.valueForKey("projectKeywords") as? String
             projectDescriptionField.text = editProject.valueForKey("projectDescription") as? String
             self.toolBar.hidden = false
-            self.selectButton.enabled = true
+            //self.selectButton.enabled = true
             if ((newProject?.valueForKey("projectCompleted"))! as! NSObject == true) {
                 completeIcon.tintColor = UIColor.orangeColor()
             }

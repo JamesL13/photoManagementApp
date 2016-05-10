@@ -129,6 +129,11 @@ class SelectPhotosViewController: UIViewController, UICollectionViewDelegate, UI
         }
     }
     
+    /* Function to close the Mail View Controller */
+    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+        controller.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     @IBAction func deleteSelectedPhotos(sender: AnyObject) {
         
         if selectedPhotos.count > 0 {
