@@ -58,10 +58,6 @@ class NewPhotoViewController: UIViewController, UITextFieldDelegate, MFMailCompo
                 flagPhoto.tintColor = UIColor.orangeColor()
             }
         }
-        
-        //let tapGesture = UITapGestureRecognizer(target: self, action:#selector(NewPhotoViewController.imageTapped(_:)))
-        
-        //imageView.addGestureRecognizer(tapGesture)
     }
 
     override func didReceiveMemoryWarning() {
@@ -73,28 +69,6 @@ class NewPhotoViewController: UIViewController, UITextFieldDelegate, MFMailCompo
         textField.resignFirstResponder()
         return true
     }
-    
-    /*@IBAction func imageTapped(sender: UITapGestureRecognizer) {
-        
-        let imageView = sender.view as! UIImageView
-        let newImageView = UIImageView(image: imageView.image)
-        newImageView.frame = self.view.frame
-        newImageView.backgroundColor = .blackColor()
-        newImageView.contentMode = .ScaleAspectFit
-        newImageView.userInteractionEnabled = true
-        
-        let tap = UITapGestureRecognizer(target: self, action: #selector(NewPhotoViewController.dismissFullscreenImage(_:)))
-        newImageView.addGestureRecognizer(tap)
-        
-        self.view.addSubview(newImageView)
-
-        navigationController?.setNavigationBarHidden(true, animated: true)
-    }
-    
-    func dismissFullscreenImage(sender: UITapGestureRecognizer) {
-        sender.view?.removeFromSuperview()
-        navigationController?.setNavigationBarHidden(false, animated: true)
-    }*/
     
     @IBAction func savePhoto(sender: AnyObject) {
         savePhoto()
