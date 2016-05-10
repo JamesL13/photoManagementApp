@@ -11,7 +11,7 @@ import CoreData
 import Social
 import MessageUI
 
-class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, MFMailComposeViewControllerDelegate, UITextViewDelegate {
+class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, MFMailComposeViewControllerDelegate, UITextViewDelegate, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var projectNameField: UITextField!
     @IBOutlet weak var projectKeywordField: UITextField!
@@ -234,42 +234,34 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
             imageView.image = imageList[indexPath.item]
         }
         if photo[indexPath.item].valueForKey("photoFlagged") as? Bool == true {
-            cell.backgroundColor = UIColor.orangeColor()
+            cell.layer.borderColor = UIColor.orangeColor().CGColor
+            cell.layer.borderWidth = 1.0
         }
         else {
-            cell.backgroundColor = nil
+            cell.layer.borderColor = nil
+            cell.layer.borderWidth = 0.0
         }
         
         return cell
     }
     
-    /*func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        selectedImageView.image = UIImage(named: imageList[indexPath.item])
-    }*/
+    /* Set the size of each cell to be 1/4 of the overall collectionview size */
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        return CGSize(width: (collectionView.frame.size.width - 3)/4, height: (collectionView.frame.size.width - 3)/4)
+    }
     
-    /*func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> /UICollectionReusableView {
-        
-        let supplementaryView: UICollectionReusableView
-        
-        if kind == UICollectionElementKindSectionHeader {
-            supplementaryView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "header", forIndexPath: indexPath)
-        } else {
-            supplementaryView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "footer", forIndexPath: indexPath)
-        }
-        
-        return supplementaryView
-    }*/
-    
-    
+    /* Set the minimum spacing for left, right, top and bottom to 1.0 */
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
+        return 1.0
+    }
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+        return 1.0
+    }
 
     @IBAction func addPhoto(sender: AnyObject) {
         imagePicker.allowsEditing = false
         imagePicker.sourceType = .PhotoLibrary
         presentViewController(imagePicker, animated: true, completion: nil)
-
-        /*Add the selected pictures to the projects corresponding array*/
-        
-        /*Save array to core data*/
     }
     
     /* Function that saves a photo to core data */
