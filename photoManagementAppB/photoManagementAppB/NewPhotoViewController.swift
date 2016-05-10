@@ -11,7 +11,7 @@ import CoreData
 import Social
 import MessageUI
 
-class NewPhotoViewController: UIViewController, MFMailComposeViewControllerDelegate {
+class NewPhotoViewController: UIViewController, UITextFieldDelegate, MFMailComposeViewControllerDelegate {
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var photoNameField: UITextField!
@@ -29,6 +29,21 @@ class NewPhotoViewController: UIViewController, MFMailComposeViewControllerDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        photoNameField.returnKeyType = .Done
+        photoNameField.delegate = self
+        
+        photoCaptionField.returnKeyType = .Done
+        photoCaptionField.delegate = self
+        
+        photoKeywordsField.returnKeyType = .Done
+        photoKeywordsField.delegate = self
+        
+        photoLocationField.returnKeyType = .Done
+        photoLocationField.delegate = self
+        
+        photoPhotographerField.returnKeyType = .Done
+        photoPhotographerField.delegate = self
         
         if let editPhoto = photo {
             self.navigationItem.title = editPhoto.valueForKey("photoName") as? String
@@ -52,6 +67,11 @@ class NewPhotoViewController: UIViewController, MFMailComposeViewControllerDeleg
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
     @IBAction func imageTapped(sender: UITapGestureRecognizer) {
