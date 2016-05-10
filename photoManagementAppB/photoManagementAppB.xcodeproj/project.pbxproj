@@ -122,6 +122,8 @@
 				6444DAA71C920002002BF3A2 /* AppDelegate.swift */,
 				6766741D1CB7491600C52806 /* NewProjectViewController.swift */,
 				A800B3EA1CD6C0E0005F28A8 /* NewPhotoViewController.swift */,
+				676674981CE145B600C52806 /* fullScreenImageViewController.swift */,
+				A8C128D71CE1834100327C7F /* SelectPhotosViewController.swift */,
 				A8089CD11CB6D80000C0B964 /* FavoriteViewController.swift */,
 				A8089CCD1CB6D7B400C0B964 /* InProgressViewController.swift */,
 				A8089CCF1CB6D7E700C0B964 /* CompleteViewController.swift */,
@@ -131,8 +133,6 @@
 				6444DAB11C920002002BF3A2 /* Assets.xcassets */,
 				6444DAB61C920002002BF3A2 /* Info.plist */,
 				670687DB1CC1A557009E3F45 /* NibDesignable.swift */,
-				676674981CE145B600C52806 /* fullScreenImageViewController.swift */,
-				A8C128D71CE1834100327C7F /* SelectPhotosViewController.swift */,
 			);
 			path = photoManagementAppB;
 			sourceTree = "<group>";

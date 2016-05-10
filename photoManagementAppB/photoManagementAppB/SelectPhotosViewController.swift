@@ -14,6 +14,7 @@ class SelectPhotosViewController: UIViewController, UICollectionViewDelegate, UI
     @IBOutlet weak var selectPhotoCollection: UICollectionView!
     
     var photo = [NSManagedObject]()
+    var selectedPhotos = [NSManagedObject]()
     
     var fetchedResultsController: NSFetchedResultsController?
     
@@ -33,6 +34,23 @@ class SelectPhotosViewController: UIViewController, UICollectionViewDelegate, UI
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return photo.count
+    }
+    
+    /* Apply/Remove Border to Cell and Append/Remove Photo object to selectedPhotos Array */
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        
+        let cell = collectionView.cellForItemAtIndexPath(indexPath)
+        cell!.layer.borderColor = UIColor.blueColor().CGColor
+        
+        if cell!.layer.borderWidth == 3.0 {
+            selectedPhotos.removeAtIndex(selectedPhotos.indexOf(photo[indexPath.item])!)
+            cell!.layer.borderWidth = 0.0
+        }
+        else {
+            selectedPhotos.append(photo[indexPath.item])
+            print("\(selectedPhotos.count)")
+        }
+        
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -58,6 +76,11 @@ class SelectPhotosViewController: UIViewController, UICollectionViewDelegate, UI
     }
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
         return 1.0
+    }
+    
+    
+    @IBAction func deleteSelectedPhotos(sender: AnyObject) {
+        
     }
     
     
