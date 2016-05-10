@@ -48,7 +48,7 @@ class SelectPhotosViewController: UIViewController, UICollectionViewDelegate, UI
         }
         else {
             selectedPhotos.append(photo[indexPath.item])
-            print("\(selectedPhotos.count)")
+            cell!.layer.borderWidth = 3.0
         }
         
     }
@@ -81,6 +81,37 @@ class SelectPhotosViewController: UIViewController, UICollectionViewDelegate, UI
     
     @IBAction func deleteSelectedPhotos(sender: AnyObject) {
         
+        if selectedPhotos.count > 0 {
+            let alert = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
+            let deletePhoto = UIAlertAction(title: "Delete", style: .Destructive) { (action) in self.deletePhotos() }
+            alert.addAction(deletePhoto)
+            alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+        else {
+            print("No photos selected")
+        }
+    }
+    
+    func deletePhotos() {
+        
+        print("Photos to delete: \(selectedPhotos.count)")
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        let managedContext = appDelegate.managedObjectContext
+        for index in 0...(selectedPhotos.count - 1) {
+            let deleteIndex = photo.indexOf(selectedPhotos[index])
+            managedContext.deleteObject(photo[deleteIndex!])
+        }
+        
+        do {
+            try managedContext.save()
+        } catch let error as NSError {
+            print("Could not save new project")
+            print("Could not save \(error), \(error.userInfo)")
+        }
+        
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     
