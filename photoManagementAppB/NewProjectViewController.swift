@@ -441,6 +441,7 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
             if(segue.identifier == "selectPhotos")
             {
                 selectPhotosViewController.photo = self.photo
+                selectPhotosViewController.currentProject = self.newProject as? Project
                 selectPhotosViewController.fetchedResultsController = self.fetchedResultsController
             }
         }

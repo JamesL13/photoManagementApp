@@ -18,6 +18,8 @@ class SelectPhotosViewController: UIViewController, UICollectionViewDelegate, UI
     var photo = [NSManagedObject]()
     var selectedPhotos = [NSManagedObject]()
     
+    var currentProject: Project?
+    
     var fetchedResultsController: NSFetchedResultsController?
     
     override func viewDidLoad() {
@@ -167,6 +169,18 @@ class SelectPhotosViewController: UIViewController, UICollectionViewDelegate, UI
         }
         
         self.navigationController?.popViewControllerAnimated(true)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let destinationViewController = segue.destinationViewController
+        
+        if let movePhotosTableViewController = destinationViewController as? MovePhotosTableViewController {
+            if(segue.identifier == "movephotos") {
+                movePhotosTableViewController.selectedPhotos = self.selectedPhotos
+                movePhotosTableViewController.currentProject = self.currentProject
+                movePhotosTableViewController.fetchedResultsController = self.fetchedResultsController
+            }
+        }
     }
     
     
