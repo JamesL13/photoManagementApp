@@ -29,7 +29,7 @@ class NewPhotoViewController: UIViewController, UITextFieldDelegate, MFMailCompo
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
+
         photoNameField.returnKeyType = .Done
         photoNameField.delegate = self
         
@@ -59,9 +59,9 @@ class NewPhotoViewController: UIViewController, UITextFieldDelegate, MFMailCompo
             }
         }
         
-        let tapGesture = UITapGestureRecognizer(target: self, action:#selector(NewPhotoViewController.imageTapped(_:)))
+        //let tapGesture = UITapGestureRecognizer(target: self, action:#selector(NewPhotoViewController.imageTapped(_:)))
         
-        imageView.addGestureRecognizer(tapGesture)
+        //imageView.addGestureRecognizer(tapGesture)
     }
 
     override func didReceiveMemoryWarning() {
@@ -74,7 +74,7 @@ class NewPhotoViewController: UIViewController, UITextFieldDelegate, MFMailCompo
         return true
     }
     
-    @IBAction func imageTapped(sender: UITapGestureRecognizer) {
+    /*@IBAction func imageTapped(sender: UITapGestureRecognizer) {
         
         let imageView = sender.view as! UIImageView
         let newImageView = UIImageView(image: imageView.image)
@@ -94,7 +94,7 @@ class NewPhotoViewController: UIViewController, UITextFieldDelegate, MFMailCompo
     func dismissFullscreenImage(sender: UITapGestureRecognizer) {
         sender.view?.removeFromSuperview()
         navigationController?.setNavigationBarHidden(false, animated: true)
-    }
+    }*/
     
     @IBAction func savePhoto(sender: AnyObject) {
         savePhoto()
