@@ -22,6 +22,8 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
     @IBOutlet weak var completeIcon: UIBarButtonItem!
     @IBOutlet weak var favoriteIcon: UIBarButtonItem!
     
+    @IBOutlet weak var selectButton: UIBarButtonItem!
+    
     var newProject: NSManagedObject?
     
     var imageList = [UIImage]()
@@ -36,6 +38,12 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
     override func viewDidLoad() {
         super.viewDidLoad()
         self.toolBar.hidden = true
+        if(newProject == nil) {
+            self.selectButton.enabled = false
+        }
+        else {
+           self.selectButton.enabled = true
+        }
         let borderColor = UIColor(red:204.0/255.0, green:204.0/255.0, blue:204.0/255.0, alpha:1.0)
         projectDescriptionField.layer.borderColor = borderColor.CGColor
         projectDescriptionField.layer.borderWidth = 0.5
@@ -48,6 +56,7 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
             projectKeywordField.text = editProject.valueForKey("projectKeywords") as? String
             projectDescriptionField.text = editProject.valueForKey("projectDescription") as? String
             self.toolBar.hidden = false
+            //self.selectButton.enabled = true
             if ((newProject?.valueForKey("projectCompleted"))! as! NSObject == true) {
                 completeIcon.tintColor = UIColor.orangeColor()
             }
@@ -416,16 +425,24 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
     // MARK: - Navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        /* Get the first object of the array returned because only a single image can be selected at a time */
-        let path = photoCollectionView.indexPathsForSelectedItems()![0].item
-        
         let destinationViewController = segue.destinationViewController
         
         if let newPhotoViewController = destinationViewController as? NewPhotoViewController {
             if (segue.identifier == "photoView")
             {
+                /* Get the first object of the array returned because only a single image can be selected at a time */
+                let path = photoCollectionView.indexPathsForSelectedItems()![0].item
                 newPhotoViewController.photo = self.photo[path] as? Photo
                 newPhotoViewController.fetchedResultsController = self.fetchedResultsController
+            }
+        }
+        
+        if let selectPhotosViewController = destinationViewController as? SelectPhotosViewController {
+            if(segue.identifier == "selectPhotos")
+            {
+                selectPhotosViewController.photo = self.photo
+                selectPhotosViewController.currentProject = self.newProject as? Project
+                selectPhotosViewController.fetchedResultsController = self.fetchedResultsController
             }
         }
     }
