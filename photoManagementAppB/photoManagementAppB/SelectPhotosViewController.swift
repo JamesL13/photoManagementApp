@@ -171,9 +171,19 @@ class SelectPhotosViewController: UIViewController, UICollectionViewDelegate, UI
         self.navigationController?.popViewControllerAnimated(true)
     }
     
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
+        if selectedPhotos.count > 0 {
+            return true
+        }
+        else {
+            print("No Photos Selected")
+            return false
+        }
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let destinationViewController = segue.destinationViewController
-        
+    
         if let movePhotosTableViewController = destinationViewController as? MovePhotosTableViewController {
             if(segue.identifier == "movephotos") {
                 movePhotosTableViewController.selectedPhotos = self.selectedPhotos
