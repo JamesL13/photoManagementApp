@@ -540,6 +540,7 @@
                         <outlet property="photoLocationField" destination="8Dw-xD-5pb" id="k7x-8s-c7d"/>
                         <outlet property="photoNameField" destination="UXs-nd-sUK" id="nB0-cA-Fij"/>
                         <outlet property="photoPhotographerField" destination="zoD-cy-eFd" id="1Te-Ui-BFy"/>
+                        <outlet property="scrollView" destination="Vd8-Wv-MhX" id="JG2-Qb-wLg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cIN-0F-cQH" userLabel="First Responder" sceneMemberID="firstResponder"/>

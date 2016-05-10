@@ -11,7 +11,7 @@ import CoreData
 import Social
 import MessageUI
 
-class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, MFMailComposeViewControllerDelegate, UITextViewDelegate, UICollectionViewDelegateFlowLayout {
+class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, MFMailComposeViewControllerDelegate, UITextViewDelegate, UITextFieldDelegate, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var projectNameField: UITextField!
     @IBOutlet weak var projectKeywordField: UITextField!
@@ -37,6 +37,16 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        projectNameField.returnKeyType = .Done
+        projectNameField.delegate = self
+        
+        projectKeywordField.returnKeyType = .Done
+        projectKeywordField.delegate = self
+        
+        projectDescriptionField.returnKeyType = .Done
+        projectDescriptionField.delegate = self
+        
         self.toolBar.hidden = true
         if(newProject == nil) {
             self.selectButton.enabled = false
@@ -107,6 +117,18 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+        if (text == "\n") {
+            textView.resignFirstResponder()
+        }
+        return true
     }
     
     func saveNewProject()

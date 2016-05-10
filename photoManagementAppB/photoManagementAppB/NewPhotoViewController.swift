@@ -11,7 +11,7 @@ import CoreData
 import Social
 import MessageUI
 
-class NewPhotoViewController: UIViewController, MFMailComposeViewControllerDelegate {
+class NewPhotoViewController: UIViewController, UITextFieldDelegate, MFMailComposeViewControllerDelegate {
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var photoNameField: UITextField!
@@ -21,6 +21,10 @@ class NewPhotoViewController: UIViewController, MFMailComposeViewControllerDeleg
     @IBOutlet weak var photoPhotographerField: UITextField!
     @IBOutlet weak var navBar: UINavigationItem!
     @IBOutlet weak var flagPhoto: UIBarButtonItem!
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+    var activeTextField: UITextField? = nil
+    let keyboardVerticalSpacing: CGFloat = 0
     
     var photo: Photo?
     
@@ -29,6 +33,21 @@ class NewPhotoViewController: UIViewController, MFMailComposeViewControllerDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+
+        photoNameField.returnKeyType = .Done
+        photoNameField.delegate = self
+        
+        photoCaptionField.returnKeyType = .Done
+        photoCaptionField.delegate = self
+        
+        photoKeywordsField.returnKeyType = .Done
+        photoKeywordsField.delegate = self
+        
+        photoLocationField.returnKeyType = .Done
+        photoLocationField.delegate = self
+        
+        photoPhotographerField.returnKeyType = .Done
+        photoPhotographerField.delegate = self
         
         if let editPhoto = photo {
             self.navigationItem.title = editPhoto.valueForKey("photoName") as? String
@@ -44,36 +63,53 @@ class NewPhotoViewController: UIViewController, MFMailComposeViewControllerDeleg
             }
         }
         
-        let tapGesture = UITapGestureRecognizer(target: self, action:#selector(NewPhotoViewController.imageTapped(_:)))
-        
-        imageView.addGestureRecognizer(tapGesture)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(NewPhotoViewController.keyboardWasShown(_:)), name: UIKeyboardDidShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(NewPhotoViewController.keyboardWillBeHidden(_:)), name: UIKeyboardWillHideNotification, object: nil)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    @IBAction func imageTapped(sender: UITapGestureRecognizer) {
         
-        let imageView = sender.view as! UIImageView
-        let newImageView = UIImageView(image: imageView.image)
-        newImageView.frame = self.view.frame
-        newImageView.backgroundColor = .blackColor()
-        newImageView.contentMode = .ScaleAspectFit
-        newImageView.userInteractionEnabled = true
-        
-        let tap = UITapGestureRecognizer(target: self, action: #selector(NewPhotoViewController.dismissFullscreenImage(_:)))
-        newImageView.addGestureRecognizer(tap)
-        
-        self.view.addSubview(newImageView)
-
-        navigationController?.setNavigationBarHidden(true, animated: true)
+    func textFieldDidBeginEditing(textField: UITextField) {
+        activeTextField = textField
     }
     
-    func dismissFullscreenImage(sender: UITapGestureRecognizer) {
-        sender.view?.removeFromSuperview()
-        navigationController?.setNavigationBarHidden(false, animated: true)
+    func textFieldDidEndEditing(textField: UITextField) {
+        activeTextField = nil
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        activeTextField?.resignFirstResponder()
+        return true
+    }
+    
+    @IBAction func dismissKeyboard(sender: AnyObject) {
+        activeTextField?.resignFirstResponder()
+    }
+    
+    func keyboardWasShown(aNotification: NSNotification) {
+        let userInfo = aNotification.userInfo
+        
+        if let info = userInfo {
+            let kbSize = (info[UIKeyboardFrameBeginUserInfoKey] as! NSValue).CGRectValue().size
+            let contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height + keyboardVerticalSpacing, 0.0)
+            
+            scrollView.contentInset = contentInsets
+            scrollView.scrollIndicatorInsets = contentInsets
+            
+            let activeTextFieldSize = CGRectMake(activeTextField!.frame.origin.x, activeTextField!.frame.origin.y, activeTextField!.frame.width, activeTextField!.frame.height + keyboardVerticalSpacing)
+            
+            dispatch_async(dispatch_get_main_queue(), {
+                self.scrollView.scrollRectToVisible(activeTextFieldSize, animated: true)
+            })
+        }
+    }
+    
+    func keyboardWillBeHidden(aNotification: NSNotification) {
+        scrollView.contentInset = UIEdgeInsetsZero
+        scrollView.scrollIndicatorInsets = UIEdgeInsetsZero
     }
     
     @IBAction func savePhoto(sender: AnyObject) {
