@@ -169,30 +169,18 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="B3V-ax-peS">
-                                                    <rect key="frame" x="1" y="1" width="104" height="75"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="106" height="77"/>
                                                 </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="B3V-ax-peS" firstAttribute="leading" secondItem="aqt-ez-ElJ" secondAttribute="leading" constant="2" id="7Z4-kS-HOP"/>
-                                            <constraint firstAttribute="trailing" secondItem="B3V-ax-peS" secondAttribute="trailing" constant="2" id="BKV-Rf-Hpa"/>
-                                            <constraint firstItem="B3V-ax-peS" firstAttribute="top" secondItem="aqt-ez-ElJ" secondAttribute="top" constant="1" id="C5c-eg-pMT"/>
-                                            <constraint firstAttribute="bottom" secondItem="B3V-ax-peS" secondAttribute="bottom" constant="1" id="Cpf-Bc-V6a"/>
-                                            <constraint firstAttribute="trailing" secondItem="B3V-ax-peS" secondAttribute="trailing" constant="1" id="ZZX-hm-Loj"/>
-                                            <constraint firstAttribute="bottom" secondItem="B3V-ax-peS" secondAttribute="bottom" constant="2" id="n09-RH-z0p"/>
-                                            <constraint firstItem="B3V-ax-peS" firstAttribute="top" secondItem="aqt-ez-ElJ" secondAttribute="top" constant="2" id="pqP-y3-Z11"/>
-                                            <constraint firstItem="B3V-ax-peS" firstAttribute="leading" secondItem="aqt-ez-ElJ" secondAttribute="leading" constant="1" id="zgV-T7-T0p"/>
+                                            <constraint firstItem="B3V-ax-peS" firstAttribute="leading" secondItem="aqt-ez-ElJ" secondAttribute="leading" id="8x4-vN-QLT"/>
+                                            <constraint firstAttribute="bottom" secondItem="B3V-ax-peS" secondAttribute="bottom" id="BnR-u3-A01"/>
+                                            <constraint firstItem="B3V-ax-peS" firstAttribute="top" secondItem="aqt-ez-ElJ" secondAttribute="top" id="dkc-dq-YTJ"/>
+                                            <constraint firstAttribute="trailing" secondItem="B3V-ax-peS" secondAttribute="trailing" id="hix-iO-qhq"/>
                                         </constraints>
                                         <size key="customSize" width="106" height="77"/>
-                                        <variation key="default">
-                                            <mask key="constraints">
-                                                <exclude reference="7Z4-kS-HOP"/>
-                                                <exclude reference="BKV-Rf-Hpa"/>
-                                                <exclude reference="n09-RH-z0p"/>
-                                                <exclude reference="pqP-y3-Z11"/>
-                                            </mask>
-                                        </variation>
                                         <connections>
                                             <segue destination="WWF-8G-6KL" kind="show" identifier="photoView" id="yXM-lF-P0b"/>
                                         </connections>

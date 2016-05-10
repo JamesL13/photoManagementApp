@@ -234,31 +234,29 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
             imageView.image = imageList[indexPath.item]
         }
         if photo[indexPath.item].valueForKey("photoFlagged") as? Bool == true {
-            cell.backgroundColor = UIColor.orangeColor()
+            cell.layer.borderColor = UIColor.orangeColor().CGColor
+            cell.layer.borderWidth = 1.0
         }
         else {
-            cell.backgroundColor = nil
+            cell.layer.borderColor = nil
+            cell.layer.borderWidth = 0.0
         }
         
         return cell
     }
     
-    
     /* Set the size of each cell to be 1/4 of the overall collectionview size */
-    /* Set the minimum spacing for left, right, top and bottom to 1.0 */
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSize(width: collectionView.frame.size.width/4, height: collectionView.frame.size.width/4)
+        return CGSize(width: (collectionView.frame.size.width - 3)/4, height: (collectionView.frame.size.width - 3)/4)
     }
     
+    /* Set the minimum spacing for left, right, top and bottom to 1.0 */
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
-        return 0
+        return 1.0
     }
-    
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
-        return 0
+        return 1.0
     }
-    
-    
     
     /*func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         selectedImageView.image = UIImage(named: imageList[indexPath.item])
