@@ -257,34 +257,11 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
         return 1.0
     }
-    
-    /*func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        selectedImageView.image = UIImage(named: imageList[indexPath.item])
-    }*/
-    
-    /*func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> /UICollectionReusableView {
-        
-        let supplementaryView: UICollectionReusableView
-        
-        if kind == UICollectionElementKindSectionHeader {
-            supplementaryView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "header", forIndexPath: indexPath)
-        } else {
-            supplementaryView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "footer", forIndexPath: indexPath)
-        }
-        
-        return supplementaryView
-    }*/
-    
-    
 
     @IBAction func addPhoto(sender: AnyObject) {
         imagePicker.allowsEditing = false
         imagePicker.sourceType = .PhotoLibrary
         presentViewController(imagePicker, animated: true, completion: nil)
-
-        /*Add the selected pictures to the projects corresponding array*/
-        
-        /*Save array to core data*/
     }
     
     /* Function that saves a photo to core data */
