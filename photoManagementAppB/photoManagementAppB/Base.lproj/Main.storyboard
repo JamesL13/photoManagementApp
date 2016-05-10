@@ -114,7 +114,11 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="cXA-eB-Ndb"/>
                                     <barButtonItem title="Move To" id="TXB-zz-QTn"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="rKC-qR-4wH"/>
-                                    <barButtonItem systemItem="trash" id="RGS-gy-nd2"/>
+                                    <barButtonItem systemItem="trash" id="RGS-gy-nd2">
+                                        <connections>
+                                            <action selector="deleteSelectedPhotos:" destination="GIB-EI-PAW" id="eid-VG-BsP"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="sge-VH-jip">
