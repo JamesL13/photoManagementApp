@@ -21,6 +21,10 @@ class NewPhotoViewController: UIViewController, UITextFieldDelegate, MFMailCompo
     @IBOutlet weak var photoPhotographerField: UITextField!
     @IBOutlet weak var navBar: UINavigationItem!
     @IBOutlet weak var flagPhoto: UIBarButtonItem!
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+    var activeTextField: UITextField? = nil
+    let keyboardVerticalSpacing: CGFloat = 30
     
     var photo: Photo?
     
@@ -58,16 +62,54 @@ class NewPhotoViewController: UIViewController, UITextFieldDelegate, MFMailCompo
                 flagPhoto.tintColor = UIColor.orangeColor()
             }
         }
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(NewPhotoViewController.keyboardWasShown(_:)), name: UIKeyboardDidShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(NewPhotoViewController.keyboardWillBeHidden(_:)), name: UIKeyboardWillHideNotification, object: nil)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+        
+    func textFieldDidBeginEditing(textField: UITextField) {
+        activeTextField = textField
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        activeTextField = nil
+    }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
+        activeTextField?.resignFirstResponder()
         return true
+    }
+    
+    @IBAction func dismissKeyboard(sender: AnyObject) {
+        activeTextField?.resignFirstResponder()
+    }
+    
+    func keyboardWasShown(aNotification: NSNotification) {
+        let userInfo = aNotification.userInfo
+        
+        if let info = userInfo {
+            let kbSize = (info[UIKeyboardFrameBeginUserInfoKey] as! NSValue).CGRectValue().size
+            let contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height + keyboardVerticalSpacing, 0.0)
+            
+            scrollView.contentInset = contentInsets
+            scrollView.scrollIndicatorInsets = contentInsets
+            
+            let activeTextFieldSize = CGRectMake(activeTextField!.frame.origin.x, activeTextField!.frame.origin.y, activeTextField!.frame.width, activeTextField!.frame.height + keyboardVerticalSpacing)
+            
+            dispatch_async(dispatch_get_main_queue(), {
+                self.scrollView.scrollRectToVisible(activeTextFieldSize, animated: true)
+            })
+        }
+    }
+    
+    func keyboardWillBeHidden(aNotification: NSNotification) {
+        scrollView.contentInset = UIEdgeInsetsZero
+        scrollView.scrollIndicatorInsets = UIEdgeInsetsZero
     }
     
     @IBAction func savePhoto(sender: AnyObject) {
