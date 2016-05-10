@@ -110,7 +110,11 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SyF-hg-yGv">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
-                                    <barButtonItem systemItem="action" id="2b2-FC-Qkh"/>
+                                    <barButtonItem systemItem="action" id="2b2-FC-Qkh">
+                                        <connections>
+                                            <action selector="shareSelectedPhotos:" destination="GIB-EI-PAW" id="F4l-PJ-6GP"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="cXA-eB-Ndb"/>
                                     <barButtonItem title="Move To" id="TXB-zz-QTn"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="rKC-qR-4wH"/>

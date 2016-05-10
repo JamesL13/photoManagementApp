@@ -8,8 +8,10 @@
 
 import UIKit
 import CoreData
+import Social
+import MessageUI
 
-class SelectPhotosViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UINavigationControllerDelegate, UICollectionViewDelegateFlowLayout {
+class SelectPhotosViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UINavigationControllerDelegate, UICollectionViewDelegateFlowLayout, MFMailComposeViewControllerDelegate {
 
     @IBOutlet weak var selectPhotoCollection: UICollectionView!
     
@@ -78,6 +80,54 @@ class SelectPhotosViewController: UIViewController, UICollectionViewDelegate, UI
         return 1.0
     }
     
+    
+    @IBAction func shareSelectedPhotos(sender: AnyObject) {
+        
+        if selectedPhotos.count > 0 {
+            let alert = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
+            let sharePhoto = UIAlertAction(title: "Facebook", style: .Default) { (action) in self.sharePhotosOnFacebook()  }
+            alert.addAction(sharePhoto)
+            let mailPhoto = UIAlertAction(title: "Email", style: .Default) { (action) in self.sharePhotosOnMail()  }
+            alert.addAction(mailPhoto)
+            alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+        else {
+            print("No photos selected")
+        }
+    }
+    
+    func sharePhotosOnFacebook() {
+        
+        if SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook) {
+            let facebookSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
+            for index in 0...(selectedPhotos.count - 1) {
+                let imageToDisplay: UIImage! = UIImage(data: selectedPhotos[index].valueForKey("photo") as! NSData)
+                facebookSheet.addImage(imageToDisplay)
+            }
+            self.presentViewController(facebookSheet, animated: true, completion: nil)
+        }
+        else {
+            let alert = UIAlertController(title: "Accounts", message: "Please login to a Facebook account to share.", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func sharePhotosOnMail() {
+        let mailComposerVC = MFMailComposeViewController()
+        mailComposerVC.mailComposeDelegate = self
+        
+        for index in 0...(selectedPhotos.count - 1) {
+            mailComposerVC.addAttachmentData(selectedPhotos[index].valueForKey("photo") as! NSData, mimeType: "image/jpeg", fileName: "Photo Taxi Photo \(index)")
+        }
+        
+        if MFMailComposeViewController.canSendMail() {
+            self.presentViewController(mailComposerVC, animated: true, completion: nil)
+        } else {
+            print("email failed")
+        }
+    }
     
     @IBAction func deleteSelectedPhotos(sender: AnyObject) {
         
