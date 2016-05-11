@@ -304,7 +304,8 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
             let newPhotoEntity = NSEntityDescription.entityForName("Photo", inManagedObjectContext: managedContext)
             newPhoto = NSManagedObject(entity: newPhotoEntity!, insertIntoManagedObjectContext: managedContext)
         
-        let imageData: NSData! = UIImagePNGRepresentation(pickedImage)
+        //let imageData: NSData! = UIImagePNGRepresentation(pickedImage)
+        let imageData: NSData! = UIImageJPEGRepresentation(pickedImage, 1.0)
         
         newPhoto?.setValue(imageData, forKey: "photo")
         newPhoto?.setValue(self.newProject, forKey: "project")
