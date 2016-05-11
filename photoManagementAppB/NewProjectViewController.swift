@@ -24,6 +24,8 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
     
     @IBOutlet weak var selectButton: UIBarButtonItem!
     
+    var yellow = UIColor(red: 233, green: 185, blue: 24)
+    
     var newProject: NSManagedObject?
     
     var imageList = [UIImage]()
@@ -68,10 +70,10 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
             self.toolBar.hidden = false
             //self.selectButton.enabled = true
             if ((newProject?.valueForKey("projectCompleted"))! as! NSObject == true) {
-                completeIcon.tintColor = UIColor.orangeColor()
+                completeIcon.tintColor = yellow
             }
             if ((newProject?.valueForKey("projectFavorited"))! as! NSObject == true) {
-                favoriteIcon.tintColor = UIColor.orangeColor()
+                favoriteIcon.tintColor = yellow
             }
             /* Disable/hide the Save button when the view is showing an existing project */
             /* Enable/show the Select button when the view is showing an existing project */
@@ -209,7 +211,7 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
             favoriteIcon.tintColor = nil
         } else {
             newProject?.setValue(true, forKey: "projectFavorited")
-            favoriteIcon.tintColor = UIColor.orangeColor()
+            favoriteIcon.tintColor = yellow
         }
         
         do {
@@ -229,7 +231,7 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
             completeIcon.tintColor = nil
         } else {
             newProject?.setValue(true, forKey: "projectCompleted")
-            completeIcon.tintColor = UIColor.orangeColor()
+            completeIcon.tintColor = yellow
         }
         
         do {
@@ -265,8 +267,8 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
             imageView.image = imageList[indexPath.item]
         }
         if photo[indexPath.item].valueForKey("photoFlagged") as? Bool == true {
-            cell.layer.borderColor = UIColor.orangeColor().CGColor
-            cell.layer.borderWidth = 1.0
+            cell.layer.borderColor = yellow.CGColor
+            cell.layer.borderWidth = 3.0
         }
         else {
             cell.layer.borderColor = nil

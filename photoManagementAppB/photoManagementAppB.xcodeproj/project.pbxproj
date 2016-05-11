@@ -18,15 +18,12 @@
 		6766741E1CB7491600C52806 /* NewProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6766741D1CB7491600C52806 /* NewProjectViewController.swift */; };
 		6766747F1CD3EC9D00C52806 /* Project+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6766747D1CD3EC9D00C52806 /* Project+CoreDataProperties.swift */; };
 		676674801CD3EC9D00C52806 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6766747E1CD3EC9D00C52806 /* Project.swift */; };
-		676674841CDCFC8900C52806 /* Photo Taxi.png in Resources */ = {isa = PBXBuildFile; fileRef = 676674831CDCFC8900C52806 /* Photo Taxi.png */; };
 		676674991CE145B600C52806 /* fullScreenImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676674981CE145B600C52806 /* fullScreenImageViewController.swift */; };
+		67B43B1B1CE3C7AD00EFBE88 /* Photo Taxi.png in Resources */ = {isa = PBXBuildFile; fileRef = 67B43B1A1CE3C7AD00EFBE88 /* Photo Taxi.png */; };
 		A800B3E81CD6B301005F28A8 /* Photo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A800B3E61CD6B301005F28A8 /* Photo+CoreDataProperties.swift */; };
 		A800B3E91CD6B301005F28A8 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A800B3E71CD6B301005F28A8 /* Photo.swift */; };
 		A800B3EB1CD6C0E0005F28A8 /* NewPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A800B3EA1CD6C0E0005F28A8 /* NewPhotoViewController.swift */; };
 		A8089CCC1CB6D24100C0B964 /* ProjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8089CCB1CB6D24100C0B964 /* ProjectsViewController.swift */; };
-		A8089CCE1CB6D7B400C0B964 /* InProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8089CCD1CB6D7B400C0B964 /* InProgressViewController.swift */; };
-		A8089CD01CB6D7E700C0B964 /* CompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8089CCF1CB6D7E700C0B964 /* CompleteViewController.swift */; };
-		A8089CD21CB6D80000C0B964 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8089CD11CB6D80000C0B964 /* FavoriteViewController.swift */; };
 		A8C128D81CE1834100327C7F /* SelectPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8C128D71CE1834100327C7F /* SelectPhotosViewController.swift */; };
 		A8E235CD1CE0534000BEAEA4 /* Contents.json in Resources */ = {isa = PBXBuildFile; fileRef = A8E235C11CE0534000BEAEA4 /* Contents.json */; };
 		A8E235CE1CE0534000BEAEA4 /* Icon-40.png in Resources */ = {isa = PBXBuildFile; fileRef = A8E235C21CE0534000BEAEA4 /* Icon-40.png */; };
@@ -40,8 +37,6 @@
 		A8E235D61CE0534000BEAEA4 /* Icon-Small.png in Resources */ = {isa = PBXBuildFile; fileRef = A8E235CA1CE0534000BEAEA4 /* Icon-Small.png */; };
 		A8E235D71CE0534000BEAEA4 /* Icon-Small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A8E235CB1CE0534000BEAEA4 /* Icon-Small@2x.png */; };
 		A8E235D81CE0534000BEAEA4 /* Icon-Small@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = A8E235CC1CE0534000BEAEA4 /* Icon-Small@3x.png */; };
-		A8E4AF741CDCFB8A00B86E4D /* Photo Taxi.png in Resources */ = {isa = PBXBuildFile; fileRef = A8E4AF731CDCFB8A00B86E4D /* Photo Taxi.png */; };
-		A8E4AF761CDD0D5A00B86E4D /* STARICON.png in Resources */ = {isa = PBXBuildFile; fileRef = A8E4AF751CDD0D5A00B86E4D /* STARICON.png */; };
 		A8FAF4E01CE268E8001258DD /* MovePhotosTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8FAF4DF1CE268E8001258DD /* MovePhotosTableViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -59,15 +54,12 @@
 		6766741D1CB7491600C52806 /* NewProjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewProjectViewController.swift; path = ../NewProjectViewController.swift; sourceTree = "<group>"; };
 		6766747D1CD3EC9D00C52806 /* Project+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Project+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		6766747E1CD3EC9D00C52806 /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
-		676674831CDCFC8900C52806 /* Photo Taxi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Photo Taxi.png"; sourceTree = "<group>"; };
 		676674981CE145B600C52806 /* fullScreenImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = fullScreenImageViewController.swift; sourceTree = "<group>"; };
+		67B43B1A1CE3C7AD00EFBE88 /* Photo Taxi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Photo Taxi.png"; sourceTree = "<group>"; };
 		A800B3E61CD6B301005F28A8 /* Photo+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Photo+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		A800B3E71CD6B301005F28A8 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		A800B3EA1CD6C0E0005F28A8 /* NewPhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPhotoViewController.swift; sourceTree = "<group>"; };
 		A8089CCB1CB6D24100C0B964 /* ProjectsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectsViewController.swift; sourceTree = "<group>"; };
-		A8089CCD1CB6D7B400C0B964 /* InProgressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InProgressViewController.swift; sourceTree = "<group>"; };
-		A8089CCF1CB6D7E700C0B964 /* CompleteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompleteViewController.swift; sourceTree = "<group>"; };
-		A8089CD11CB6D80000C0B964 /* FavoriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
 		A8C128D71CE1834100327C7F /* SelectPhotosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectPhotosViewController.swift; sourceTree = "<group>"; };
 		A8E235C11CE0534000BEAEA4 /* Contents.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Contents.json; sourceTree = "<group>"; };
 		A8E235C21CE0534000BEAEA4 /* Icon-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-40.png"; sourceTree = "<group>"; };
@@ -81,8 +73,6 @@
 		A8E235CA1CE0534000BEAEA4 /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small.png"; sourceTree = "<group>"; };
 		A8E235CB1CE0534000BEAEA4 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@2x.png"; sourceTree = "<group>"; };
 		A8E235CC1CE0534000BEAEA4 /* Icon-Small@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-Small@3x.png"; sourceTree = "<group>"; };
-		A8E4AF731CDCFB8A00B86E4D /* Photo Taxi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Photo Taxi.png"; sourceTree = "<group>"; };
-		A8E4AF751CDD0D5A00B86E4D /* STARICON.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = STARICON.png; sourceTree = "<group>"; };
 		A8FAF4DF1CE268E8001258DD /* MovePhotosTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovePhotosTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -116,10 +106,8 @@
 		6444DAA61C920002002BF3A2 /* photoManagementAppB */ = {
 			isa = PBXGroup;
 			children = (
-				676674831CDCFC8900C52806 /* Photo Taxi.png */,
+				67B43B1A1CE3C7AD00EFBE88 /* Photo Taxi.png */,
 				A8E235C01CE0534000BEAEA4 /* App Icon */,
-				A8E4AF751CDD0D5A00B86E4D /* STARICON.png */,
-				A8E4AF731CDCFB8A00B86E4D /* Photo Taxi.png */,
 				670687D21CC19B45009E3F45 /* ProjectsComponents */,
 				6444DAA71C920002002BF3A2 /* AppDelegate.swift */,
 				6766741D1CB7491600C52806 /* NewProjectViewController.swift */,
@@ -127,9 +115,6 @@
 				676674981CE145B600C52806 /* fullScreenImageViewController.swift */,
 				A8C128D71CE1834100327C7F /* SelectPhotosViewController.swift */,
 				A8FAF4DF1CE268E8001258DD /* MovePhotosTableViewController.swift */,
-				A8089CD11CB6D80000C0B964 /* FavoriteViewController.swift */,
-				A8089CCD1CB6D7B400C0B964 /* InProgressViewController.swift */,
-				A8089CCF1CB6D7E700C0B964 /* CompleteViewController.swift */,
 				6444DAAB1C920002002BF3A2 /* Main.storyboard */,
 				6444DAB31C920002002BF3A2 /* LaunchScreen.storyboard */,
 				670687C41CC1938B009E3F45 /* Model */,
@@ -248,7 +233,6 @@
 				A8E235D31CE0534000BEAEA4 /* Icon-76.png in Resources */,
 				A8E235CE1CE0534000BEAEA4 /* Icon-40.png in Resources */,
 				A8E235D71CE0534000BEAEA4 /* Icon-Small@2x.png in Resources */,
-				A8E4AF761CDD0D5A00B86E4D /* STARICON.png in Resources */,
 				A8E235D41CE0534000BEAEA4 /* Icon-76@2x.png in Resources */,
 				6444DAB51C920002002BF3A2 /* LaunchScreen.storyboard in Resources */,
 				A8E235CF1CE0534000BEAEA4 /* Icon-40@2x.png in Resources */,
@@ -257,11 +241,9 @@
 				670687DA1CC1A471009E3F45 /* ProjectsHeaderView.xib in Resources */,
 				A8E235D81CE0534000BEAEA4 /* Icon-Small@3x.png in Resources */,
 				6444DAB21C920002002BF3A2 /* Assets.xcassets in Resources */,
+				67B43B1B1CE3C7AD00EFBE88 /* Photo Taxi.png in Resources */,
 				A8E235D51CE0534000BEAEA4 /* Icon-83.5@2x.png in Resources */,
 				6444DAAD1C920002002BF3A2 /* Main.storyboard in Resources */,
-				676674841CDCFC8900C52806 /* Photo Taxi.png in Resources */,
-				A8E4AF741CDCFB8A00B86E4D /* Photo Taxi.png in Resources */,
-				A8E4AF741CDCFB8A00B86E4D /* Photo Taxi.png in Resources */,
 				A8E235CD1CE0534000BEAEA4 /* Contents.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -275,7 +257,6 @@
 			files = (
 				676674991CE145B600C52806 /* fullScreenImageViewController.swift in Sources */,
 				A800B3E81CD6B301005F28A8 /* Photo+CoreDataProperties.swift in Sources */,
-				A8089CCE1CB6D7B400C0B964 /* InProgressViewController.swift in Sources */,
 				6444DAB01C920002002BF3A2 /* photoManagementAppB.xcdatamodeld in Sources */,
 				6766747F1CD3EC9D00C52806 /* Project+CoreDataProperties.swift in Sources */,
 				670687DC1CC1A557009E3F45 /* NibDesignable.swift in Sources */,
@@ -284,9 +265,7 @@
 				676674801CD3EC9D00C52806 /* Project.swift in Sources */,
 				6766741E1CB7491600C52806 /* NewProjectViewController.swift in Sources */,
 				A800B3E91CD6B301005F28A8 /* Photo.swift in Sources */,
-				A8089CD01CB6D7E700C0B964 /* CompleteViewController.swift in Sources */,
 				670687DE1CC1A577009E3F45 /* ProjectsHeaderView.swift in Sources */,
-				A8089CD21CB6D80000C0B964 /* FavoriteViewController.swift in Sources */,
 				A800B3EB1CD6C0E0005F28A8 /* NewPhotoViewController.swift in Sources */,
 				A8C128D81CE1834100327C7F /* SelectPhotosViewController.swift in Sources */,
 				6444DAA81C920002002BF3A2 /* AppDelegate.swift in Sources */,

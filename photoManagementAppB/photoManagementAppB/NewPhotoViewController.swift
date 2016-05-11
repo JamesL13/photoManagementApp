@@ -11,6 +11,16 @@ import CoreData
 import Social
 import MessageUI
 
+extension UIColor {
+    convenience init(red: Int, green: Int, blue: Int) {
+        assert(red >= 0 && red <= 255, "Invalid red component")
+        assert(green >= 0 && green <= 255, "Invalid green component")
+        assert(blue >= 0 && blue <= 255, "Invalid blue component")
+        
+        self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
+    }
+}
+
 class NewPhotoViewController: UIViewController, UITextFieldDelegate, MFMailComposeViewControllerDelegate {
 
     @IBOutlet weak var imageView: UIImageView!
@@ -27,6 +37,8 @@ class NewPhotoViewController: UIViewController, UITextFieldDelegate, MFMailCompo
     let keyboardVerticalSpacing: CGFloat = 0
     
     var photo: Photo?
+    
+    var yellow = UIColor(red: 233, green: 185, blue: 24)
     
     var fetchedResultsController: NSFetchedResultsController?
     
@@ -59,10 +71,16 @@ class NewPhotoViewController: UIViewController, UITextFieldDelegate, MFMailCompo
             photoPhotographerField.text = editPhoto.valueForKey("photoPhotographer") as? String
             if editPhoto.valueForKey("photoFlagged") as? Bool == true {
                 print("Photo is flagged!")
-                flagPhoto.tintColor = UIColor.orangeColor()
+                flagPhoto.tintColor = yellow
             }
         }
         
+        //NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(NewPhotoViewController.keyboardWasShown(_:)), name: UIKeyboardDidShowNotification, object: nil)
+        //NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(NewPhotoViewController.keyboardWillBeHidden(_:)), name: UIKeyboardWillHideNotification, object: nil)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        print("CUBS SUCK")
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(NewPhotoViewController.keyboardWasShown(_:)), name: UIKeyboardDidShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(NewPhotoViewController.keyboardWillBeHidden(_:)), name: UIKeyboardWillHideNotification, object: nil)
     }
@@ -91,7 +109,7 @@ class NewPhotoViewController: UIViewController, UITextFieldDelegate, MFMailCompo
     
     func keyboardWasShown(aNotification: NSNotification) {
         let userInfo = aNotification.userInfo
-        
+        if activeTextField != nil {
         if let info = userInfo {
             let kbSize = (info[UIKeyboardFrameBeginUserInfoKey] as! NSValue).CGRectValue().size
             let contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height + keyboardVerticalSpacing, 0.0)
@@ -104,6 +122,7 @@ class NewPhotoViewController: UIViewController, UITextFieldDelegate, MFMailCompo
             dispatch_async(dispatch_get_main_queue(), {
                 self.scrollView.scrollRectToVisible(activeTextFieldSize, animated: true)
             })
+        }
         }
     }
     
@@ -171,6 +190,7 @@ class NewPhotoViewController: UIViewController, UITextFieldDelegate, MFMailCompo
     }
     
     func sharePhoto() {
+        //NSNotificationCenter.defaultCenter().removeObserver(self)
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
         let sharePhoto = UIAlertAction(title: "Facebook", style: .Default) { (action) in self.shareOnFacebook()  }
         alert.addAction(sharePhoto)
@@ -259,7 +279,7 @@ class NewPhotoViewController: UIViewController, UITextFieldDelegate, MFMailCompo
         } else {
             photo?.setValue(true, forKey: "photoFlagged")
             print("photo flagged")
-            flagPhoto.tintColor = UIColor.orangeColor()
+            flagPhoto.tintColor = yellow
         }
     }
     
