@@ -11,6 +11,16 @@ import CoreData
 import Social
 import MessageUI
 
+extension UIColor {
+    convenience init(red: Int, green: Int, blue: Int) {
+        assert(red >= 0 && red <= 255, "Invalid red component")
+        assert(green >= 0 && green <= 255, "Invalid green component")
+        assert(blue >= 0 && blue <= 255, "Invalid blue component")
+        
+        self.init(red: CGFloat(red) / 255.0, green: CGFloat(green) / 255.0, blue: CGFloat(blue) / 255.0, alpha: 1.0)
+    }
+}
+
 class NewPhotoViewController: UIViewController, UITextFieldDelegate, MFMailComposeViewControllerDelegate {
 
     @IBOutlet weak var imageView: UIImageView!
@@ -27,6 +37,8 @@ class NewPhotoViewController: UIViewController, UITextFieldDelegate, MFMailCompo
     let keyboardVerticalSpacing: CGFloat = 0
     
     var photo: Photo?
+    
+    var yellow = UIColor(red: 233, green: 185, blue: 24)
     
     var fetchedResultsController: NSFetchedResultsController?
     
@@ -59,7 +71,7 @@ class NewPhotoViewController: UIViewController, UITextFieldDelegate, MFMailCompo
             photoPhotographerField.text = editPhoto.valueForKey("photoPhotographer") as? String
             if editPhoto.valueForKey("photoFlagged") as? Bool == true {
                 print("Photo is flagged!")
-                flagPhoto.tintColor = UIColor.orangeColor()
+                flagPhoto.tintColor = yellow
             }
         }
         
@@ -267,7 +279,7 @@ class NewPhotoViewController: UIViewController, UITextFieldDelegate, MFMailCompo
         } else {
             photo?.setValue(true, forKey: "photoFlagged")
             print("photo flagged")
-            flagPhoto.tintColor = UIColor.orangeColor()
+            flagPhoto.tintColor = yellow
         }
     }
     

@@ -20,6 +20,8 @@ class SelectPhotosViewController: UIViewController, UICollectionViewDelegate, UI
     
     var currentProject: Project?
     
+    var yellow = UIColor(red: 233, green: 185, blue: 24)
+    
     var fetchedResultsController: NSFetchedResultsController?
     
     override func viewDidLoad() {
@@ -44,7 +46,7 @@ class SelectPhotosViewController: UIViewController, UICollectionViewDelegate, UI
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
         let cell = collectionView.cellForItemAtIndexPath(indexPath)
-        cell!.layer.borderColor = UIColor.blueColor().CGColor
+        cell!.layer.borderColor = yellow.CGColor
         
         if cell!.layer.borderWidth == 3.0 {
             selectedPhotos.removeAtIndex(selectedPhotos.indexOf(photo[indexPath.item])!)
