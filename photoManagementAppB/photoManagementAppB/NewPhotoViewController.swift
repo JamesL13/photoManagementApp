@@ -63,6 +63,12 @@ class NewPhotoViewController: UIViewController, UITextFieldDelegate, MFMailCompo
             }
         }
         
+        //NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(NewPhotoViewController.keyboardWasShown(_:)), name: UIKeyboardDidShowNotification, object: nil)
+        //NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(NewPhotoViewController.keyboardWillBeHidden(_:)), name: UIKeyboardWillHideNotification, object: nil)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        print("CUBS SUCK")
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(NewPhotoViewController.keyboardWasShown(_:)), name: UIKeyboardDidShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(NewPhotoViewController.keyboardWillBeHidden(_:)), name: UIKeyboardWillHideNotification, object: nil)
     }
@@ -91,7 +97,7 @@ class NewPhotoViewController: UIViewController, UITextFieldDelegate, MFMailCompo
     
     func keyboardWasShown(aNotification: NSNotification) {
         let userInfo = aNotification.userInfo
-        
+        if activeTextField != nil {
         if let info = userInfo {
             let kbSize = (info[UIKeyboardFrameBeginUserInfoKey] as! NSValue).CGRectValue().size
             let contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height + keyboardVerticalSpacing, 0.0)
@@ -104,6 +110,7 @@ class NewPhotoViewController: UIViewController, UITextFieldDelegate, MFMailCompo
             dispatch_async(dispatch_get_main_queue(), {
                 self.scrollView.scrollRectToVisible(activeTextFieldSize, animated: true)
             })
+        }
         }
     }
     
@@ -171,6 +178,7 @@ class NewPhotoViewController: UIViewController, UITextFieldDelegate, MFMailCompo
     }
     
     func sharePhoto() {
+        //NSNotificationCenter.defaultCenter().removeObserver(self)
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
         let sharePhoto = UIAlertAction(title: "Facebook", style: .Default) { (action) in self.shareOnFacebook()  }
         alert.addAction(sharePhoto)
