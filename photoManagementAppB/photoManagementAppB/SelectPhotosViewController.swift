@@ -97,7 +97,6 @@ class SelectPhotosViewController: UIViewController, UICollectionViewDelegate, UI
             self.presentViewController(alert, animated: true, completion: nil)
         }
         else {
-            print("No photos selected")
             let alert = UIAlertController(title: "Alert", message: "No Photos Selected", preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
@@ -151,7 +150,6 @@ class SelectPhotosViewController: UIViewController, UICollectionViewDelegate, UI
             self.presentViewController(alert, animated: true, completion: nil)
         }
         else {
-            print("No photos selected")
             let alert = UIAlertController(title: "Alert", message: "No Photos Selected", preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
@@ -159,8 +157,6 @@ class SelectPhotosViewController: UIViewController, UICollectionViewDelegate, UI
     }
     
     func deletePhotos() {
-        
-        print("Photos to delete: \(selectedPhotos.count)")
         
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedContext = appDelegate.managedObjectContext
@@ -184,7 +180,6 @@ class SelectPhotosViewController: UIViewController, UICollectionViewDelegate, UI
             return true
         }
         else {
-            print("No Photos Selected")
             let alert = UIAlertController(title: "Alert", message: "No Photos Selected", preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
