@@ -80,8 +80,6 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
             
             if (loadPhoto()) {
                 if (photo.count > 0) {
-                    print("there are photos to display from core data")
-                    print("There are photos in core data to display")
                     for index in 0...(photo.count - 1) {
                         if(photo[index].valueForKey("project") as? Project == editProject) {
                             let imageToDisplay: UIImage! = UIImage(data: photo[index].valueForKey("photo") as! NSData)
@@ -101,8 +99,6 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
         if newProject != nil {
             if (loadPhoto()) {
                 if (photo.count > 0) {
-                    print("there are photos to display from core data")
-                    print("There are photos in core data to display")
                     for index in 0...(photo.count - 1) {
                         if(photo[index].valueForKey("project") as? Project == self.newProject) {
                             let imageToDisplay: UIImage! = UIImage(data: photo[index].valueForKey("photo") as! NSData)
@@ -149,12 +145,6 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
         newProject?.setValue(projectNameField.text, forKey: "projectName")
         newProject?.setValue(projectKeywordField.text, forKey: "projectKeywords")
         newProject?.setValue(projectDescriptionField.text, forKey: "projectDescription")
-        /*if (newProject?.valueForKey("projectFavorited"))! as! NSObject == true {
-            newProject?.setValue(true, forKey: "projectFavorited")
-        } else {
-            newProject?.setValue(true, forKey: "projectFavorited")
-        }*/
-        //newProject?.setValue(false, forKey: "projectCompleted")
         
         do {
             try managedContext.save()
@@ -175,13 +165,7 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
         }
     }
     
-    /* Saves the new project */
-    /*@IBAction func saveButton(sender: AnyObject) {
-        saveNewProject()
-    }*/
-    
     @IBAction func deleteProject(sender: AnyObject) {
-        print("DELETE•ACTION")
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
         let deleteProject = UIAlertAction(title: "Delete", style: .Destructive) { (action) in self.saveDeletedProject(sender) }
         alert.addAction(deleteProject)
@@ -314,7 +298,6 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
         
         do {
             try managedContext.save()
-            print("Save Successful")
         } catch let error as NSError {
             print("Could not save the photo")
             print("Could not save \(error), \(error.userInfo)")
@@ -325,8 +308,6 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
         
         if (loadPhoto()) {
             if (photo.count > 0) {
-                print("there are photos to display from core data")
-                print("There are photos in core data to display")
                 for index in 0...(photo.count - 1) {
                     if(photo[index].valueForKey("project") as? Project == self.newProject) {
                         let imageToDisplay: UIImage! = UIImage(data: photo[index].valueForKey("photo") as! NSData)
@@ -383,7 +364,6 @@ class NewProjectViewController: UIViewController, UICollectionViewDelegate, UICo
         }
     }
     @IBAction func shareOnSocialMedia(sender: AnyObject) {
-        print("SHARE•ACTION")
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
         let shareProject = UIAlertAction(title: "Facebook", style: .Default) { (action) in self.shareOnFacebook()  }
         alert.addAction(shareProject)

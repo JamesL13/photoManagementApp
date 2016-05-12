@@ -94,7 +94,6 @@ class MovePhotosTableViewController: UITableViewController {
         
         do {
             try managedContext.save()
-            print("Save Successful")
         } catch let error as NSError {
             print("Could not save the photo")
             print("Could not save \(error), \(error.userInfo)")

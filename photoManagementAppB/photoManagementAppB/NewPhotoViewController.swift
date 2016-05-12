@@ -69,18 +69,15 @@ class NewPhotoViewController: UIViewController, UITextFieldDelegate, MFMailCompo
             photoKeywordsField.text = editPhoto.valueForKey("photoKeywords") as? String
             photoLocationField.text = editPhoto.valueForKey("photoLocation") as? String
             photoPhotographerField.text = editPhoto.valueForKey("photoPhotographer") as? String
+            
             if editPhoto.valueForKey("photoFlagged") as? Bool == true {
-                print("Photo is flagged!")
                 flagPhoto.tintColor = yellow
             }
         }
         
-        //NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(NewPhotoViewController.keyboardWasShown(_:)), name: UIKeyboardDidShowNotification, object: nil)
-        //NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(NewPhotoViewController.keyboardWillBeHidden(_:)), name: UIKeyboardWillHideNotification, object: nil)
     }
     
     override func viewWillAppear(animated: Bool) {
-        print("CUBS SUCK")
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(NewPhotoViewController.keyboardWasShown(_:)), name: UIKeyboardDidShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(NewPhotoViewController.keyboardWillBeHidden(_:)), name: UIKeyboardWillHideNotification, object: nil)
     }
@@ -140,7 +137,6 @@ class NewPhotoViewController: UIViewController, UITextFieldDelegate, MFMailCompo
     }
     
     @IBAction func deletePhoto(sender: AnyObject) {
-        print("DELETE•ACTION")
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
         let deletePhoto = UIAlertAction(title: "Delete", style: .Destructive) { (action) in self.deletePhoto() }
         alert.addAction(deletePhoto)
@@ -162,7 +158,6 @@ class NewPhotoViewController: UIViewController, UITextFieldDelegate, MFMailCompo
         
         do {
             try managedContext.save()
-            print("Save Successful")
         } catch let error as NSError {
             print("Could not save the photo")
             print("Could not save \(error), \(error.userInfo)")
@@ -173,8 +168,6 @@ class NewPhotoViewController: UIViewController, UITextFieldDelegate, MFMailCompo
     
     func deletePhoto()
     {
-        print("Delete this photo!")
-        
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let managedContext = appDelegate.managedObjectContext
         managedContext.deleteObject(self.photo!)
@@ -190,7 +183,6 @@ class NewPhotoViewController: UIViewController, UITextFieldDelegate, MFMailCompo
     }
     
     func sharePhoto() {
-        //NSNotificationCenter.defaultCenter().removeObserver(self)
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
         let sharePhoto = UIAlertAction(title: "Facebook", style: .Default) { (action) in self.shareOnFacebook()  }
         alert.addAction(sharePhoto)
@@ -274,11 +266,9 @@ class NewPhotoViewController: UIViewController, UITextFieldDelegate, MFMailCompo
     @IBAction func flagPhoto(sender: AnyObject) {
         if photo?.valueForKey("photoFlagged") as? Bool == true {
             photo?.setValue(false, forKey: "photoFlagged")
-            print("photo unflagged")
             flagPhoto.tintColor = nil
         } else {
             photo?.setValue(true, forKey: "photoFlagged")
-            print("photo flagged")
             flagPhoto.tintColor = yellow
         }
     }
